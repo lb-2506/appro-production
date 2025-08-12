@@ -60,7 +60,7 @@ export default function SkillsHomeComponent() {
     <section
       ref={containerRef}
       id="skills"
-      className="bg-lightGrey relative z-10 max-w-[95%] mx-auto rounded-b-[48px] rounded-t-xl"
+      className="bg-[#F5F5F5] relative z-10 mx-auto"
       style={{
         backgroundImage: "url('/img/food/bg-noise.png')",
         backgroundRepeat: "repeat",

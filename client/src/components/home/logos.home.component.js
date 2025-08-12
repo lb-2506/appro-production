@@ -28,7 +28,7 @@ export default function LogosFoodComponent() {
 
   return (
     <section
-      className="text-center ] w-[100vw] bg-white"
+      className="text-center mt-[100vh] w-[100vw] bg-[#F5F5F5]"
       style={{
         backgroundImage: "url('/img/food/bg-noise.png')",
         backgroundRepeat: "repeat",

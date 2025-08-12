@@ -30,7 +30,7 @@ export default function HeroHomeComponent() {
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/90 to-black/0 pointer-events-none" />
 
-      <div className="fixed bottom-6 right-6 rounded-xl bg-white p-5 w-[234px] h-[209px] flex flex-col justify-between">
+      <div className="fixed bottom-6 right-6 rounded-xl bg-white p-5 w-[234px] h-[209px] flex flex-col justify-between z-10">
         <div
           className="font-thin text-sm rounded-full w-fit px-1 py-1"
           style={{
@@ -54,9 +54,9 @@ export default function HeroHomeComponent() {
           <p className="font-thin text-sm opacity-60 tracking-tight">
             Facilisi fames sit sed phasellus amet.
           </p>
-          <div className="bg-black w-fit p-4 h-fit rounded-full">
+          <button className="bg-black w-fit p-4 h-fit rounded-full">
             <ArrowSvg />
-          </div>
+          </button>
         </div>
       </div>
 
