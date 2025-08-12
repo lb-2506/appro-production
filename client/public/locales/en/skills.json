@@ -1,0 +1,55 @@
+{
+  "title": "Why Us? Because We Deliver!",
+  "subtitle": "Creative, responsive, and efficient. We don’t sell promises, we deliver results. Working with us is like playing in cheat mode: faster and better.",
+  "button": "I'm Interested!",
+  "list": {
+    "1": {
+      "title": "High-Powered Experts, No Classic Agency Jargon",
+      "content": "With us, every project is handled by highly experienced professionals because your project deserves the best.</br><span class='font-bold'>No fluff, just results.</span>"
+    },
+    "2": {
+      "title": "Creativity Isn’t an Option. It’s Our Engine",
+      "content": "We think differently, we create differently. Every project is a blank canvas where we unleash boundless creativity. If you’re looking for copy-paste solutions, you’re in the wrong place. <span class='font-bold'>Here, we make it unique. Here, we make it wow.</span>"
+    },
+    "3": {
+      "title": "One Point of Contact. Zero Time Wasted",
+      "content": "You’ll have a dedicated contact who knows your project inside out. Less talk, more action; <span class='font-bold'>And that changes everything.</span>"
+    },
+    "4": {
+      "title": "A Clear Budget, No Surprises",
+      "content": "We stick to our promises, especially when it comes to numbers. Your budget is clear from the start and stays under control until the end. No overruns, no excuses. Just efficiency."
+    }
+  },
+  "food": {
+    "sectionName": "How Does It Work?",
+    "title": "Gusto Manager",
+    "subtitle": "The essential tool to simplify, automate, and optimize your restaurant management.",
+    "list": {
+      "1": {
+        "title": "Smart Reservations",
+        "content": "Easily manage your reservations with an automated system. Confirmation, status tracking, table management, and reminder notifications help you optimize occupancy and reduce no-shows.",
+        "button": "Get Started Now"
+      },
+      "2": {
+        "title": "Dynamic Menu Management",
+        "content": "Create, modify, and organize your menus effortlessly. Enable or disable dishes based on stock, highlight your specialties, and optimize presentation to attract and retain customers.",
+        "button": "Request a Demo"
+      },
+      "3": {
+        "title": "Gift Card Sales",
+        "content": "Boost your revenue with personalized gift cards. Online purchase, secure payment, unique codes, and automatic email delivery for a seamless experience and easy promotion management.",
+        "button": "Explore Features"
+      },
+      "4": {
+        "title": "Sales Tracking & Performance Management",
+        "content": "Analyze your business in real time with detailed statistics. Track reservations, payments, and performance to adjust your strategy and maximize your restaurant’s profitability.",
+        "button": "Learn More"
+      },
+      "5": {
+        "title": "Communication & News",
+        "content": "Keep your restaurant lively with a dedicated news space. Publish events, special offers, and updates to attract more customers and strengthen your online presence.",
+        "button": "Get Started with Gusto"
+      }
+    }
+  }
+}

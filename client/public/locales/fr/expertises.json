@@ -1,0 +1,48 @@
+{
+  "sectionName": "Nos expertises",
+  "title": "Tout ce qu'on sait faire, et on le fait bien !",
+  "subtitle": "Une créativité sans barrière : découvrez notre agence",
+  "accordion": {
+    "1": {
+      "name": "Stratégie Digitale",
+      "title": "Une stratégie sans failles, sauf pour la concurrence",
+      "content": "On élabore pour vous des stratégies marketing sur mesure, des plans social media qui boostent votre engagement, et on vous accompagne avec un consulting pointu pour que votre marque ait toujours un coup d'avance sur la concurrence. Notre expérience ? Des années à transformer des clics en clients, des campagnes en succès.</br><span class='font-bold'>Dites adieu aux casse-têtes numériques. Vous vous concentrez sur ce que vous faites de mieux pendant qu’on fait décoller votre croissance. Tranquillité d’esprit garantie.</span>"
+    },
+    "2": {
+      "name": "Création graphiques & Motion Design",
+      "title": "Ta marque en mieux. En beaucoup mieux",
+      "content": "Votre univers visuel mérite plus qu'un « c'est joli ». Chez nous, on crée des designs qui attrapent l'œil et des animations qui font vibrerrrrrrrrrr. Si ton message ne reste pas gravé dans les rétines, on a raté notre job (et ça, c'est non). Votre marque, mais en version inoubliable.</br><span class='font-bold'>On s’occupe de tout, jusqu’au moindre pixel. Vous ? Vous profitez d’un visuel qui fait parler de vous.</span>"
+    },
+    "3": {
+      "name": "Développement Web & App",
+      "title": "Ton site web ? Propre, rapide, irrésistible",
+      "content": "Des sites qui font mouche : modernes, performants, fluides, et optimisés pour être vus (et cliqués). Une équipe de développeurs fullstack qui déchirent, des pros de l’UX/UI pour une navigation au poil, et des designs responsives pour être beau partout (même sur un smartphone).</br><span class='font-bold'>Plus de visiteurs, plus de clients, et moins de stress. Vous voulez un site ? On le construit, on le met en ligne, et on le gère pour vous. Rapide et efficace.</span>"
+    },
+    "4": {
+      "name": "Growth Hacking & Communication",
+      "title": "On transforme les likes en amour",
+      "content": "Captez l’attention, faites vibrer votre audience et convertissez vos prospects en fans inconditionnels. Du storytelling qui accroche, des contenus percutants, une gestion experte des réseau sociaux et des campagnes qui marquent les esprits. Et grâce à notre expertise en traffic management, on attire le bon public au bon moment pour maximiser vos résultats. Ici, chaque clic compte.</br><span class='font-bold'>Vos réseaux ? Des machines bien huilées qui bossent pour vous. Et côté notoriété ? On parle de vous partout, pour les bonnes raisons.</span>"
+    }
+  },
+  "food": {
+    "title": "Des solutions qui donnent faim",
+    "subtitle": "Du design de votre identité jusqu'à la gestion quotidienne de votre établissement.",
+    "tags": {
+      "1": "Stratégie digitale",
+      "2": "Identité visuelle",
+      "3": "Site Web & App",
+      "4": "Communication"
+    },
+    "discover": "Découvrir",
+    "cards": {
+      "1": {
+        "title": "Gusto Manager : La solution digitale tout-en-un pour restaurateurs.",
+        "description": "Gérez et automatisez vos réservations en toute simplicité : confirmation en ligne, gestion intelligente des tables, suivi en temps réel. Optimisez votre remplissage et offrez une expérience fluide, tout en centralisant menus, cartes cadeaux et paiements sur un tableau de bord intuitif."
+      },
+      "2": {
+        "title": "Food Marketing : L’agence digitale au service des restaurateurs.",
+        "description": "Attirez plus de clients avec des visuels percutants, des vidéos engageantes et une communication impactante. Boostez votre visibilité grâce à du contenu sur-mesure, des campagnes paid media efficaces et un site web optimisé pour générer des réservations."
+      }
+    }
+  }
+}

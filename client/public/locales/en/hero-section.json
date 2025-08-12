@@ -1,0 +1,26 @@
+{
+  "title": {
+    "1": "Strategy",
+    "2": "Effective",
+    "3": "Design",
+    "4": "That Inspires",
+    "5": "Welcome",
+    "6": "To Our World"
+  },
+  "skills": {
+    "1": "Digital Strategy",
+    "2": "Visual Identity",
+    "3": "Website & Mobile App",
+    "4": "Motion Design"
+  },
+  "button": "Book an Appointment",
+  "logos": {
+    "title": "They Took the Leap and Didn't Regret It"
+  },
+  "food": {
+    "catchPhrase": "Brand Creation + Management Tools",
+    "title": "We Cook Your Success to Perfection",
+    "subtitle": "A creative agency specializing in the restaurant industry, we craft digital solutions with flavor.",
+    "button": "Let's Talk About Your Project Over Coffee"
+  }
+}

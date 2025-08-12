@@ -1,0 +1,48 @@
+{
+  "sectionName": "Our Expertise",
+  "title": "Everything We Do, We Do It Well!",
+  "subtitle": "Creativity Without Boundaries: Discover Our Agency",
+  "accordion": {
+    "1": {
+      "name": "Digital Strategy",
+      "title": "A Flawless Strategy, Except for the Competition",
+      "content": "We craft tailor-made marketing strategies, social media plans that boost your engagement, and provide sharp consulting to keep your brand one step ahead of the competition. Our experience? Years of turning clicks into clients and campaigns into success.</br><span class='font-bold'>Say goodbye to digital headaches. You focus on what you do best while we skyrocket your growth. Peace of mind guaranteed.</span>"
+    },
+    "2": {
+      "name": "Graphic Design & Motion Design",
+      "title": "Your Brand, But Better. Much Better",
+      "content": "Your visual universe deserves more than just a 'looks nice.' We create designs that catch the eye and animations that resonate. If your message doesn't stay engraved in people's minds, we've failed our job (and that's a no-go). Your brand, but in an unforgettable version.</br><span class='font-bold'>We handle everything, down to the last pixel. You? You get to enjoy visuals that get people talking.</span>"
+    },
+    "3": {
+      "name": "Web & App Development",
+      "title": "Your Website? Clean, Fast, Irresistible",
+      "content": "Websites that hit the mark: modern, high-performance, fluid, and optimized to be seen (and clicked). A team of fullstack developers who rock, UX/UI experts for flawless navigation, and responsive designs that look great everywhere (even on a smartphone).</br><span class='font-bold'>More visitors, more clients, and less stress. Need a website? We build it, launch it, and manage it for you. Fast and efficient.</span>"
+    },
+    "4": {
+      "name": "Growth Hacking & Communication",
+      "title": "We Turn Likes Into Love",
+      "content": "Capture attention, engage your audience, and turn prospects into loyal fans. With gripping storytelling, impactful content, expert social media management, and memorable campaigns. And with our traffic management expertise, we attract the right audience at the right time to maximize your results. Here, every click counts.</br><span class='font-bold'>Your social media? Well-oiled machines that work for you. And for your reputation? We get people talking about you for all the right reasons.</span>"
+    }
+  },
+  "food": {
+    "title": "Solutions That Make You Hungry",
+    "subtitle": "From designing your identity to managing your business daily.",
+    "tags": {
+      "1": "Digital Strategy",
+      "2": "Visual Identity",
+      "3": "Website & Mobile App",
+      "4": "Communication"
+    },
+    "discover": "Discover",
+    "cards": {
+      "1": {
+        "title": "Gusto Manager: The All-in-One Digital Solution for Restaurateurs.",
+        "description": "Easily manage and automate your reservations: online confirmation, smart table management, real-time tracking. Optimize your occupancy and provide a seamless experience while centralizing menus, gift cards, and payments on an intuitive dashboard."
+      },
+      "2": {
+        "title": "Food Marketing: The Digital Agency for Restaurateurs.",
+        "description": "Attract more customers with eye-catching visuals, engaging videos, and impactful communication. Boost your visibility with tailored content, effective paid media campaigns, and a fully optimized website designed to drive reservations."
+      }
+    }
+  }
+}

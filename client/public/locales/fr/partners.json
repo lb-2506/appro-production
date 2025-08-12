@@ -1,0 +1,20 @@
+{
+  "title": {
+    "1": "Des idées",
+    "2": "plein la tête ?",
+    "3": "Nous avons",
+    "4": "les solutions",
+    "5": "Pour les réaliser."
+  },
+  "subtitle": "Transformons vos ambitions en réalité.",
+  "buttons": {
+    "estimate": "Je veux un devis",
+    "rdv": "Je prends un rendez-vous"
+  },
+  "food": {
+    "title": "Prêt à digitaliser votre restaurant ?",
+    "subtitle": "Rejoignez les restaurateurs qui font confiance à Gusto Manager pour simplifier leur gestion quotidienne et développer leur activité.",
+    "users": "restaurants utilisent Gusto",
+    "button": "Prendre rendez-vous"
+  }
+}

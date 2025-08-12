@@ -1,0 +1,23 @@
+{
+  "sectionName": "Notre méthode",
+  "title": "De l’idée à la réalité. On s’occupe de tout.",
+  "button": "Ça m'intéresse !",
+  "list": {
+    "1": {
+      "title": "Audit de l’existant",
+      "content": "Vous contactez notre équipe via [téléphone/email/formulaire]. Nous prenons le temps de comprendre votre situation et vos attentes."
+    },
+    "2": {
+      "title": "Proposition créative",
+      "content": "Nos experts évaluent votre demande et élaborent une proposition ou un plan adapté."
+    },
+    "3": {
+      "title": "Mise en oeuvre",
+      "content": "Une fois votre accord donné, nous mettons en œuvre les solutions définies. Chaque étape est suivie avec soin et transparence."
+    },
+    "4": {
+      "title": "Suivi, accompagnement , analyse",
+      "content": "Nous assurons un suivi régulier pour garantir que les solutions mises en place répondent parfaitement à vos attentes."
+    }
+  }
+}

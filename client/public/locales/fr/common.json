@@ -1,0 +1,21 @@
+{
+  "nav": {
+    "list": {
+      "1": "Nos expertises",
+      "2": "Nos atouts",
+      "3": "Nos réalisations",
+      "4": "Notre équipe",
+      "5": "Notre méthode"
+    },
+    "button": {
+      "estimate": "Je veux un devis"
+    },
+    "food": {
+      "list": {
+        "1": "Nos solutions digitales",
+        "2": "Gusto Manager",
+        "3": "Les cuistos"
+      }
+    }
+  }
+}
