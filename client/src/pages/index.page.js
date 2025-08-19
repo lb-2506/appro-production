@@ -7,10 +7,9 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 // COMPONENTS
 import HeroHomeComponent from "@/components/home/hero.home.component";
 import NavbarComponent from "@/components/_shared/nav/nav.component";
-import ExpertisesHomeComponent from "@/components/home/expertises.home.component";
+import TextRevealComponent from "@/components/home/text-reveal.home.component";
 import SkillsHomeComponent from "@/components/home/skills.home.component";
-import TeamHomeComponent from "@/components/home/team.home.component";
-import PartnersHomeComponent from "@/components/home/partners.home.component";
+import WhatWeDoHomeComponent from "@/components/home/whatwedo.home.component";
 import FooterComponent from "@/components/_shared/footer/footer.component";
 import LogosHomeComponent from "@/components/home/logos.home.component";
 
@@ -59,15 +58,23 @@ export default function HomePage(props) {
 
         <HeroHomeComponent />
 
-        {/* <ExpertisesHomeComponent /> */}
-
         <LogosHomeComponent />
 
+        <TextRevealComponent />
+
+        <div
+          className="bg-[#171717]"
+          style={{
+            backgroundImage: "url('/img/food/bg-noise.png')",
+            backgroundRepeat: "repeat",
+            backgroundSize: "100%",
+            backgroundAttachment: "fixed",
+          }}
+        >
+          <WhatWeDoHomeComponent />
+        </div>
+
         <SkillsHomeComponent />
-
-        {/* <TeamHomeComponent /> */}
-
-        <PartnersHomeComponent />
 
         <FooterComponent />
       </div>

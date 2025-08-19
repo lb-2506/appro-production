@@ -1,0 +1,211 @@
+"use client";
+import { useMemo, useState } from "react";
+
+export default function WhatWeDoHomeComponent() {
+  const items = useMemo(
+    () => [
+      {
+        key: "videos",
+        number: "01",
+        titleLines: ["Vidéos", "sur mesure"],
+        label: "VIDÉOS SUR MESURE",
+        image: "/img/what-we-do/1.jpg",
+        description:
+          "On s’adapte à votre activité, votre public, et votre ton pour créer des vidéos efficaces, humaines et bien pensées.",
+        tags: [
+          "Films d’entreprise",
+          "Vidéos réseaux sociaux",
+          "Teasers",
+          "Interviews",
+          "Reportages",
+        ],
+      },
+      {
+        key: "photo",
+        number: "02",
+        titleLines: ["Photographie", "professionnelle"],
+        label: "PHOTOGRAPHIE PROFESSIONNELLE",
+        image: "/img/what-we-do/1.jpg",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer facilisis sapien sit amet viverra efficitur.",
+        tags: ["Portraits", "Événementiel", "Produit", "Culinaire"],
+      },
+      {
+        key: "social",
+        number: "03",
+        titleLines: ["Accompagnement", "réseaux sociaux"],
+        label: "ACCOMPAGNEMENT RÉSEAUX SOCIAUX",
+        image: "/img/what-we-do/1.jpg",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non quam sem. Pellentesque habitant morbi tristique.",
+        tags: ["Stratégie", "Calendrier éditorial", "Tournages courts", "UGC"],
+      },
+    ],
+    []
+  );
+
+  const [active, setActive] = useState(0);
+  const activeItem = items[active];
+
+  return (
+    <section
+      className="text-white py-24 max-w-[1240px] mx-auto"
+      style={{
+        backgroundImage: "url('/img/food/bg-noise.png')",
+        backgroundRepeat: "repeat",
+        backgroundSize: "100%",
+        backgroundAttachment: "fixed",
+      }}
+    >
+      <div className="bg-[#202020] max-w-[90%] mx-auto p-12 md:p-10 lg:p-12 rounded-[20px] relative">
+        {/* Angles */}
+        <img
+          src="/img/what-we-do/angle.png"
+          alt="angle"
+          className="absolute top-0 left-0 max-w-[50px] -translate-x-[3px] -translate-y-[3px]"
+        />
+        <img
+          src="/img/what-we-do/angle.png"
+          alt="angle"
+          className="absolute top-0 right-0 max-w-[50px] rotate-90 translate-x-[3px] -translate-y-[3px]"
+        />
+        <img
+          src="/img/what-we-do/angle.png"
+          alt="angle"
+          className="absolute bottom-0 left-0 max-w-[50px] -rotate-90 -translate-x-[3px] translate-y-[3px]"
+        />
+        <img
+          src="/img/what-we-do/angle.png"
+          alt="angle"
+          className="absolute bottom-0 right-0 max-w-[50px] rotate-180 translate-x-[3px] translate-y-[3px]"
+        />
+        {/* Header */}
+        <div className="flex items-center justify-between text-xs tracking-tight text-white mb-24">
+          <div className="flex items-center gap-2">
+            <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white text-black">
+              <svg viewBox="0 0 12 12" className="h-2 w-2" aria-hidden="true">
+                <path
+                  d="M6 1v10M1 6h10"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </span>
+            <span>What we do</span>
+          </div>
+          <span className="uppercase">Nos services</span>
+        </div>
+
+        {/* Grille */}
+        <div className="flex justify-between">
+          {/* Colonne gauche */}
+          <div className="w-[300px]">
+            {/* Images superposées avec crossfade */}
+            <div className="w-full max-w-[360px]">
+              <div className="relative aspect-square rounded-3xl overflow-hidden bg-white/5 ring-1 ring-white/10">
+                {items.map((it, i) => (
+                  <img
+                    key={it.key}
+                    src={it.image}
+                    alt={i === active ? it.label : ""}
+                    aria-hidden={i !== active}
+                    className={[
+                      "absolute inset-0 h-full w-full object-cover",
+                      "transition-opacity duration-500 ease-out",
+                      i === active ? "opacity-100" : "opacity-0",
+                    ].join(" ")}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Label */}
+            <p className="mt-6 text-[11px] tracking-[0.18em] text-white/60">
+              {activeItem.label}
+            </p>
+
+            {/* Description */}
+            <p className="mt-3 text-sm leading-relaxed text-white/80 max-w-[34ch]">
+              {activeItem.description}
+            </p>
+
+            {/* Tags */}
+            <div className="mt-4 flex flex-wrap gap-2 max-w-[40ch]">
+              {activeItem.tags?.map((tag) => (
+                <span
+                  key={tag}
+                  className="text-[11px] rounded-full px-3 py-1 bg-white/5 ring-1 ring-white/10 text-white/80"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Colonne droite */}
+          <div className="w-[620px]">
+            <ul role="tablist" className="space-y-6">
+              {items.map((item, idx) => {
+                const isActive = idx === active;
+                return (
+                  <li key={item.key}>
+                    <button
+                      role="tab"
+                      aria-selected={isActive}
+                      onClick={() => setActive(idx)}
+                      className="group w-full text-left"
+                    >
+                      <div className="grid grid-cols-[1fr_auto] gap-x-4">
+                        <h3
+                          className={[
+                            "font-thin leading-[1.08]",
+                            "transition-all duration-300 ease-out",
+                            isActive
+                              ? "translate-x-4 opacity-100"
+                              : "opacity-60 group-hover:opacity-100",
+                          ].join(" ")}
+                        >
+                          <span className="block text-[55px]">
+                            {item.titleLines[0]}
+                          </span>
+                          <span className="block text-[55px]">
+                            {item.titleLines[1]}
+                          </span>
+                        </h3>
+
+                        {/* Numéro en haut à droite */}
+                        <span
+                          className={[
+                            "text-xs tracking-widest uppercase text-white/50 self-start",
+                            "transition-opacity duration-300",
+                            isActive ? "opacity-100" : "opacity-60",
+                          ].join(" ")}
+                        >
+                          ({item.number})
+                        </span>
+
+                        {/* Séparateur sur toute la largeur (sous le numéro aussi) */}
+                        <div className="col-span-2 mt-3 h-px bg-white/10" />
+                      </div>
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
+
+        {/* CTA */}
+        <div className="mt-8 flex justify-center">
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 rounded-full bg-white text-black px-6 py-3 text-sm font-medium shadow/30 shadow-black/40 hover:shadow-black/60 transition-shadow"
+          >
+            Contactez nous <span className="font-light">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}

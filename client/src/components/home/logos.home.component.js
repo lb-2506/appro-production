@@ -1,34 +1,26 @@
-// I18N
+"use client";
+
+import { useEffect, useState } from "react";
 import { useTranslation } from "next-i18next";
-
-// MARQUEE
 import Marquee from "react-fast-marquee";
-
-// SVG
-import {
-  AlpazeSvg,
-  CadulisSvg,
-  CorsairSvg,
-  KfcSvg,
-  LesPtitsMotsSvg,
-  LpbnSvg,
-  LvsSvg,
-  MirrorBotSvg,
-  OrangeSvg,
-  PluxeeSvg,
-  PowerSvg,
-  SfrSvg,
-  SodexoSvg,
-  TreefleSvg,
-  TrippnySvg,
-} from "../_shared/_svgs/_index";
 
 export default function LogosFoodComponent() {
   const { t } = useTranslation("hero-section");
 
+  const [offset, setOffset] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setOffset(window.scrollY * 0.1); // déplacement léger
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <section
-      className="text-center mt-[100vh] w-[100vw] bg-[#F5F5F5]"
+      className="relative text-center mt-[100vh] w-[100vw] bg-[#F5F5F5] overflow-hidden"
       style={{
         backgroundImage: "url('/img/food/bg-noise.png')",
         backgroundRepeat: "repeat",
@@ -36,23 +28,47 @@ export default function LogosFoodComponent() {
         backgroundAttachment: "fixed",
       }}
     >
+      {/* IMAGE FRAME qui dépasse et commence décalée à gauche */}
+      <img
+        src="/img/logos/trame.png"
+        alt="trame"
+        className="absolute top-0 left-1/2 -translate-x-[60%] opacity-50 pointer-events-none pt-4"
+        style={{
+          scale: "110%",
+          transform: `translateX(calc(-50% + ${offset}px))`,
+          transition: "transform 0.1s linear",
+        }}
+      />
+
+      <h1
+        className="uppercase opacity-40 pt-48 tracking-tighter"
+      >
+        Ils nous font confiance
+      </h1>
+
+      {/* LOGOS MARQUEE */}
       <Marquee>
-        <div className="py-24 flex gap-32 items-center">
-          <AlpazeSvg fillColor="#001D25" />
-          <LpbnSvg fillColor="#001D25" />
-          <CadulisSvg fillColor="#001D25" />
-          <TrippnySvg fillColor="#001D25" />
-          <PluxeeSvg fillColor="#001D25" />
-          <SfrSvg fillColor="#001D25" fillColor2="#FFFFFF" />
-          <LvsSvg fillColor="#001D25"/>
-          <LesPtitsMotsSvg fillColor="#001D25"/>
-          <MirrorBotSvg fillColor="#001D25"/>
-          <KfcSvg fillColor="#001D25"/>
-          <TreefleSvg fillColor="#001D25"/>
-          <OrangeSvg fillColor="#001D25" fillColor2="#FFFFFF"/>
-          <CorsairSvg fillColor="#001D25"/>
-          <PowerSvg fillColor="#001D25"/>
-          <SodexoSvg fillColor="#001D25"/>
+        <div className="py-16 flex gap-32 items-center opacity-40">
+          <img src="/img/logos/beliers.png" alt="beliers" className="h-16" />
+          <img
+            src="/img/logos/apprologistic.png"
+            alt="apprologistic"
+            className="h-16"
+          />
+          <img
+            src="/img/logos/duboncote.png"
+            alt="duboncote"
+            className="h-16"
+          />
+          <img src="/img/logos/coqrock.png" alt="coqrock" className="h-16" />
+          <img src="/img/logos/bbh.png" alt="bbh" className="h-16" />
+          <img src="/img/logos/sourir.png" alt="sourir" className="h-16" />
+          <img
+            src="/img/logos/irreductible.png"
+            alt="irreductible"
+            className="h-16"
+          />
+          <img src="/img/logos/optic.png" alt="optic2000" className="h-16" />
         </div>
       </Marquee>
     </section>

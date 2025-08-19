@@ -71,9 +71,9 @@ export default function HeroHomeComponent() {
           </p>
         </div>
 
-        <h1 className="flex flex-col text-7xl text-white font-thin w-full">
+        <h1 className="flex flex-col text-8xl text-white font-thin w-full">
           <span>Racontez ce que vous faites.</span>
-          <span className="text-right">Montrez ce que vous êtes.</span>
+          <span className="text-right">Montrez qui vous êtes.</span>
         </h1>
 
         <h2 className="text-white text-right w-full font-thin">
