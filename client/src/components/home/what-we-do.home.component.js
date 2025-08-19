@@ -49,7 +49,7 @@ export default function WhatWeDoHomeComponent() {
 
   return (
     <section
-      className="text-white py-24 max-w-[1240px] mx-auto"
+      className="text-white pt-24 max-w-[1240px] mx-auto"
       style={{
         backgroundImage: "url('/img/food/bg-noise.png')",
         backgroundRepeat: "repeat",
@@ -57,7 +57,7 @@ export default function WhatWeDoHomeComponent() {
         backgroundAttachment: "fixed",
       }}
     >
-      <div className="bg-[#202020] max-w-[90%] mx-auto p-12 md:p-10 lg:p-12 rounded-[20px] relative">
+      <div className="bg-[#202020] max-w-[90%] w-[1240px] mx-auto p-12 md:p-10 lg:p-12 rounded-[20px] relative">
         {/* Angles */}
         <img
           src="/img/what-we-do/angle.png"
@@ -163,7 +163,7 @@ export default function WhatWeDoHomeComponent() {
                             "transition-all duration-300 ease-out",
                             isActive
                               ? "translate-x-4 opacity-100"
-                              : "opacity-60 group-hover:opacity-100",
+                              : "opacity-10 group-hover:opacity-100",
                           ].join(" ")}
                         >
                           <span className="block text-[55px]">

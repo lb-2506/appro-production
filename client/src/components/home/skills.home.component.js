@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "next-i18next";
 
 // DATA
-import { skillsFoodData } from "@/_assets/data/skills.food.data";
+import { skillsData } from "@/_assets/data/skills.data";
 
 export default function SkillsHomeComponent() {
   const { t } = useTranslation("skills");
@@ -13,7 +13,7 @@ export default function SkillsHomeComponent() {
   const numberRefs = useRef([]);
   const [progress, setProgress] = useState(0);
   const [activeNumbers, setActiveNumbers] = useState(
-    new Array(skillsFoodData.length).fill(false)
+    new Array(skillsData.length).fill(false)
   );
 
   useEffect(() => {
@@ -38,7 +38,7 @@ export default function SkillsHomeComponent() {
           let triggerFactor = 0.5;
           if (idx === 1 || idx === 2) triggerFactor = 0.4;
           if (idx === 4) triggerFactor = 0.6;
-          const padding = 28;
+          const padding = 12;
           const triggerPoint =
             relativeTop + elRect.height * triggerFactor - padding;
           return triggerPoint <= newProgress * progressRect.height;
@@ -60,33 +60,40 @@ export default function SkillsHomeComponent() {
     <section
       ref={containerRef}
       id="skills"
-      className="bg-[#F5F5F5] relative z-10 mx-auto"
+      className="bg-[#FFFFFF] relative z-10 mx-auto"
       style={{
         backgroundImage: "url('/img/food/bg-noise.png')",
         backgroundRepeat: "repeat",
         backgroundSize: "100%",
       }}
     >
-      <div className="pt-24 pb-48 max-w-[90%] mx-auto flex flex-col items-center gap-12">
+      <div className="pt-24 pb-48 max-w-[90%] mx-auto flex flex-col items-center gap-36">
         <div className="text-darkBlue max-w-[850px] flex flex-col gap-8 items-center justify-center text-center">
-          <h2 className="font-light uppercase bg-white border border-black border-opacity-10 w-fit rounded-full px-4 py-1">
-            {t("food.sectionName")}
+          <h2 className="font-light uppercase opacity-40 tracking-tight">
+            Tagline
           </h2>
-          <h1
-            className="text-[9vw] leading-[12vw] mobile:leading-[85px] tablet:text-[80px] flex flex-col gap-3"
-            style={{ fontFamily: "'Brockmann Medium', sans-serif" }}
-          >
-            {t("food.title")}
+          <h1 className="text-[9vw] leading-[12vw] mobile:leading-[85px] tablet:text-[70px] font-light">
+            La méthode Appro
           </h1>
 
-          <h3 className="max-w-[650px] text-lg opacity-80 font-light">
-            {t("food.subtitle")}
+          <h3 className="max-w-[600px] text-lg opacity-60 font-light">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendusse
+            varius enim in eros ele.
           </h3>
+
+          <div className="flex justify-center">
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 rounded-full bg-black text-white px-6 py-3 text-sm font-medium shadow/30 shadow-black/40 hover:shadow-black/60 transition-shadow"
+            >
+              Contactez nous <span className="font-light">↗</span>
+            </a>
+          </div>
         </div>
 
         <div
           ref={progressContainerRef}
-          className="relative flex flex-col gap-12 tablet:gap-36 max-w-[1200px]"
+          className="relative flex flex-col gap-6 tablet:gap-0 max-w-[1200px]"
         >
           <div className="hidden tablet:block absolute w-[2px] h-full left-1/2 -translate-x-1/2 bg-[#EDEEF1]">
             <span
@@ -94,41 +101,56 @@ export default function SkillsHomeComponent() {
                 height: `${progress * 100}%`,
                 top: 0,
               }}
-              className="absolute w-[2px] left-1/2 -translate-x-1/2 bg-lightBlue"
+              className="absolute w-[2px] left-1/2 -translate-x-1/2 bg-black/20"
             />
           </div>
 
-          {skillsFoodData.map((data, i) => (
+          {skillsData.map((data, i) => (
             <div
               key={i}
-              className={`flex flex-col tablet:flex-row items-stretch justify-center ${i % 2 ? "tablet:flex-row-reverse" : ""}`}
+              className={`relative flex flex-col tablet:flex-row items-stretch justify-center ${i % 2 ? "" : "tablet:flex-row-reverse"}`}
             >
-              <div className="w-full tablet:w-1/2 flex flex-col justify-center gap-8">
-                <h4
-                  style={{ fontFamily: "'Brockmann Medium', sans-serif" }}
-                  className="text-3xl"
-                >
-                  {t(data.title)}
-                </h4>
+             
+              {/* Bloc texte/image */}
+              <div
+                className={`relative w-full tablet:w-1/2 flex flex-col justify-center gap-4 font-extralight bg-[#C6D3CA] bg-opacity-10 rounded-[20px] transition-opacity duration-700`}
+                style={{ opacity: activeNumbers[i] ? 1 : 0.1 }}
+              >
 
-                <p className="opacity-60 font-light leading-8">
-                  {t(data.content)}
+                 <img
+                src="/img/skills/angle.png"
+                alt="angle"
+                className="absolute top-0 left-0 max-w-[50px] -translate-x-[2px] -translate-y-[2px]"
+              />
+              <img
+                src="/img/skills/angle.png"
+                alt="angle"
+                className="absolute top-0 right-0 max-w-[50px] rotate-90 -translate-x-[3px] -translate-y-[6px]"
+              />
+              <img
+                src="/img/skills/angle.png"
+                alt="angle"
+                className="absolute bottom-0 left-0 max-w-[50px] -rotate-90 translate-x-[3px] translate-y-[6px]"
+              />
+              <img
+                src="/img/skills/angle.png"
+                alt="angle"
+                className="absolute bottom-0 right-0 max-w-[50px] rotate-180 translate-x-[2px] translate-y-[2px]"
+              />
+                <div className="flex justify-between">
+                  <p className="uppercase text-sm opacity-40 p-8 pb-0">
+                    {data.step}
+                  </p>
+                  <img src={data.picto} className=" bg-white/60 h-7 w-7 m-8 mb-0 p-2 rounded-md" alt="picto" />
+                </div>
+                <h4 className="text-4xl tracking-tight px-8">{data.title}</h4>
+                <p className="p-8 pt-0 opacity-60 font-light text-sm">
+                  {data.content}
                 </p>
-
-                <button
-                  className="bg-darkBlue text-white px-4 py-2 rounded-full w-fit flex items-center gap-3 group"
-                  data-cal-namespace="appel-decouverte-30-min"
-                  data-cal-link="modjoystudio/appel-decouverte-30-min"
-                  data-cal-config='{"layout":"month_view"}'
-                >
-                  {t(data.button)}
-                </button>
               </div>
 
-              <div
-                className="hidden w-[200px] tablet:flex justify-center text-3xl"
-                style={{ fontFamily: "'Satoshi Medium', sans-serif" }}
-              >
+              {/* Gros point */}
+              <div className="hidden w-[200px] tablet:flex justify-center text-sm">
                 <span
                   ref={(el) => (numberRefs.current[i] = el)}
                   style={{
@@ -136,59 +158,17 @@ export default function SkillsHomeComponent() {
                     backgroundRepeat: "repeat",
                     backgroundSize: "100%",
                   }}
-                  className={`z-[2] bg-lightGrey h-fit ${i === 0 ? "pb-4" : "-mt-4 py-4"} ${activeNumbers[i] ? "text-lightBlue" : ""}`}
+                  className={`z-[2] bg-lightGrey h-fit ${
+                    i === 0 ? "" : "mt-12"
+                  } transition-colors duration-700 ${
+                    activeNumbers[i] ? "text-black/30" : "text-black/10"
+                  }`}
                 >
-                  {`0${i + 1}`}
+                  ●
                 </span>
               </div>
 
-              <div className="tablet:bg-[#EDEEF1] w-full tablet:w-1/2 rounded-3xl relative mt-12 tablet:mt-0">
-                <img
-                  src={data.img}
-                  alt="gusto-manager"
-                  className={`relative tablet:absolute tablet:max-w-[70%] top-1/2 tablet:-translate-y-1/2 ${i % 2 ? "tablet:-left-10" : "tablet:-right-10"}`}
-                />
-
-                {i === 0 && (
-                  <img
-                    src="/img/food/watermelon.png"
-                    alt="picto"
-                    className="hidden tablet:block absolute max-w-[90px] -right-[40px] -top-[25px]"
-                  />
-                )}
-
-                {i === 1 && (
-                  <img
-                    src="/img/food/cherry.png"
-                    alt="picto"
-                    className="hidden tablet:block absolute max-w-[80px] -right-[30px] top-1/2 -translate-y-1/2 rotate-45"
-                  />
-                )}
-
-                {i === 2 && (
-                  <img
-                    src="/img/food/broccoli.png"
-                    alt="picto"
-                    className="hidden tablet:block absolute max-w-[90px] -left-[30px] -bottom-[30px] transform scale-x-[-1]"
-                  />
-                )}
-
-                {i === 3 && (
-                  <img
-                    src="/img/food/strawberry.png"
-                    alt="picto"
-                    className="hidden tablet:block absolute max-w-[70px] -left-[30px] -bottom-[30px]"
-                  />
-                )}
-
-                {i === 4 && (
-                  <img
-                    src="/img/food/carrot.png"
-                    alt="picto"
-                    className="hidden tablet:block absolute max-w-[70px] -left-[30px] -bottom-[30px]"
-                  />
-                )}
-              </div>
+              <div className="tablet:bg-[#F5F5F5] w-full tablet:w-1/2 rounded-3xl relative mt-12 tablet:mt-0 scale-0" />
             </div>
           ))}
         </div>

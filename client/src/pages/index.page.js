@@ -9,9 +9,12 @@ import HeroHomeComponent from "@/components/home/hero.home.component";
 import NavbarComponent from "@/components/_shared/nav/nav.component";
 import TextRevealComponent from "@/components/home/text-reveal.home.component";
 import SkillsHomeComponent from "@/components/home/skills.home.component";
-import WhatWeDoHomeComponent from "@/components/home/whatwedo.home.component";
+import WhatWeDoHomeComponent from "@/components/home/what-we-do.home.component";
 import FooterComponent from "@/components/_shared/footer/footer.component";
 import LogosHomeComponent from "@/components/home/logos.home.component";
+import SectorsHomeComponent from "@/components/home/sectors.home.component";
+import WhyUsHomeComponent from "@/components/home/why-us.component";
+import SocialHomeComponent from "@/components/home/social.home.component";
 
 export default function HomePage(props) {
   let title;
@@ -72,9 +75,15 @@ export default function HomePage(props) {
           }}
         >
           <WhatWeDoHomeComponent />
+
+          <SectorsHomeComponent/>
         </div>
 
         <SkillsHomeComponent />
+
+        <WhyUsHomeComponent/>
+
+        <SocialHomeComponent/>
 
         <FooterComponent />
       </div>
