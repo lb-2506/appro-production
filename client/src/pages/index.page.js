@@ -88,7 +88,7 @@ export default function HomePage(props) {
 
         <TeamHomeComponent/>
 
-        <FooterComponent />
+        {/* <FooterComponent /> */}
       </div>
     </>
   );
