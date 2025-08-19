@@ -15,6 +15,7 @@ import LogosHomeComponent from "@/components/home/logos.home.component";
 import SectorsHomeComponent from "@/components/home/sectors.home.component";
 import WhyUsHomeComponent from "@/components/home/why-us.component";
 import SocialHomeComponent from "@/components/home/social.home.component";
+import TeamHomeComponent from "@/components/home/team.home.component";
 
 export default function HomePage(props) {
   let title;
@@ -84,6 +85,8 @@ export default function HomePage(props) {
         <WhyUsHomeComponent/>
 
         <SocialHomeComponent/>
+
+        <TeamHomeComponent/>
 
         <FooterComponent />
       </div>

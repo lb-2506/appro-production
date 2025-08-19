@@ -1,6 +1,6 @@
 import ScrollReveal from "@/_assets/utils/scroll-reveal.utils";
 
-export default function ExpertisesHomeComponent() {
+export default function TextRevealHomeComponent() {
   return (
     <section
       className="bg-[#F5F5F5] py-24"

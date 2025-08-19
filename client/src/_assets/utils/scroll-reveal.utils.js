@@ -185,7 +185,7 @@ const ScrollReveal = ({
   return (
     <div ref={containerRef} className={`my-5 ${containerClassName}`}>
       <div
-        className={`text-[clamp(1.6rem,4vw,3rem)] leading-[1.5] font-thin ${textClassName}`}
+        className={`text-[clamp(1.6rem,4vw,3rem)] leading-[1.5] font-extralight ${textClassName}`}
       >
         {splitTree}
       </div>

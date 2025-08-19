@@ -24,8 +24,8 @@ export default function WhyUsHomeComponent() {
         backgroundSize: "100%",
       }}
     >
-      <div className="pt-24 pb-24 max-w-[1240px] w-[90%] mx-auto flex flex-col items-center gap-36">
-        <div className="text-darkBlue max-w-[850px] flex flex-col gap-8 items-center justify-center text-center">
+      <div className="py-36 max-w-[1240px] w-[90%] mx-auto flex flex-col items-center gap-36">
+        <div className="text-black max-w-[850px] flex flex-col gap-8 items-center justify-center text-center">
           <h2 className="font-light uppercase opacity-40 tracking-tight">
             Tagline
           </h2>
