@@ -18,6 +18,7 @@ import SocialHomeComponent from "@/components/home/social.home.component";
 import StoryHomeComponent from "@/components/home/story.home.component";
 import DisponibilitiesHomeComponent from "@/components/home/disponibilities.home.component";
 import TestimonialsHomeComponent from "@/components/home/testimonials.home.component";
+import FaqHomeComponent from "@/components/home/faq.home.component";
 
 export default function HomePage(props) {
   let title;
@@ -93,6 +94,8 @@ export default function HomePage(props) {
         <StoryHomeComponent />
 
         <TestimonialsHomeComponent />
+
+        <FaqHomeComponent/>
 
         {/* <FooterComponent /> */}
       </div>
