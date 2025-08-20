@@ -20,7 +20,7 @@ const FAQ = [
   },
 ];
 
-export default function FaqHomeComponent({isContactFixed}) {
+export default function FaqHomeComponent({ isContactFixed }) {
   const containerRef = useRef(null);
   const glowRef = useRef(null);
 
@@ -35,7 +35,7 @@ export default function FaqHomeComponent({isContactFixed}) {
 
     // cible au centre au départ
     const r = el.getBoundingClientRect();
-    target.current = { x: r.width * 0.55, y: r.height * 0.35 }; // léger décalage agréable
+    target.current = { x: r.width * 0.45, y: r.height * 0.25 }; // léger décalage agréable
 
     const onMove = (e) => {
       const rect = el.getBoundingClientRect();
@@ -112,9 +112,10 @@ export default function FaqHomeComponent({isContactFixed}) {
           width: 900,
           height: 900,
           background: "#FEFEA2",
-          filter: "blur(220px)",
+          filter: "blur(120px)", 
           transform: "translate(-50%, -50%)",
           mixBlendMode: "multiply",
+          willChange: "transform, filter", 
         }}
       />
 

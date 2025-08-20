@@ -59,7 +59,7 @@ export default function WhyUsHomeComponent() {
   return (
     <section
       id="why-us"
-      className="bg-[#F5F5F5] relative z-10 mx-auto overflow-hidden"
+      className="bg-[#F5F5F5] relative z-10 mx-auto overflow-hidden -my-[2px]"
       style={{
         backgroundImage: "url('/img/bg-noise.png')",
         backgroundRepeat: "repeat",

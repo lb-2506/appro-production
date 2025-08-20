@@ -145,7 +145,7 @@ export default function TestimonialsHomeComponent() {
     <section>
       <div
         id="testimonials"
-        className="bg-[#F5F5F5] relative py-20 flex z-10"
+        className="bg-[#F5F5F5] relative py-20 flex z-10 -my-[2px]"
         style={{
           backgroundImage: "url('/img/bg-noise.png')",
           backgroundRepeat: "repeat",

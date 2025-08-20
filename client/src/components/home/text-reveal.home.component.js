@@ -3,7 +3,7 @@ import ScrollReveal from "@/_assets/utils/scroll-reveal.utils";
 export default function TextRevealHomeComponent() {
   return (
     <section
-      className="bg-[#F5F5F5] py-24 relative z-10"
+      className="bg-[#F5F5F5] py-24 relative z-10 -my-[2px]"
       style={{
         backgroundImage: "url('/img/bg-noise.png')",
         backgroundRepeat: "repeat",

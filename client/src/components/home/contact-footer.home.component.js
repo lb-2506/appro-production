@@ -116,7 +116,7 @@ export default function ContactFooterHomeComponent({
   return (
     <section
       id="contact"
-      className={`bg-[#171717] mx-auto flex flex-col top-0 w-full min-h-[100dvh] overflow-hidden ${zIndexClass} flex items-center  ${
+      className={`bg-[#171717] mx-auto flex flex-col top-0 w-full min-h-[100vh] overflow-hidden ${zIndexClass} flex items-center  ${
         isContactFixed ? "fixed" : "relative"
       }`}
       style={{
