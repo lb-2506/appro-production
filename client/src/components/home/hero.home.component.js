@@ -30,36 +30,6 @@ export default function HeroHomeComponent() {
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/90 to-black/0 pointer-events-none" />
 
-      <div className="fixed bottom-6 right-6 rounded-xl bg-white p-5 w-[234px] h-[209px] flex flex-col justify-between z-10">
-        <div
-          className="font-thin text-sm rounded-full w-fit px-1 py-1"
-          style={{
-            backgroundImage: "url('/img/food/bg-disponible.jpg')",
-            backgroundPosition: "bottom",
-          }}
-        >
-          <div className="flex gap-2 items-center bg-white rounded-full px-2 py-1">
-            <img
-              className="h-[32px]"
-              src="/img/food/disponible.png"
-              alt="disponible"
-            />
-            <p className="opacity-60">Disponible</p>
-          </div>
-        </div>
-
-        <p className="font-xl leading-5">Prêt à immortaliser vos moments ?</p>
-
-        <div className="flex gap-4">
-          <p className="font-thin text-sm opacity-60 tracking-tight">
-            Facilisi fames sit sed phasellus amet.
-          </p>
-          <button className="bg-black w-fit p-4 h-fit rounded-full">
-            <ArrowSvg />
-          </button>
-        </div>
-      </div>
-
       <section
         style={{ pointerEvents: "all" }}
         className="h-[100dvh] flex flex-col gap-4 justify-center px-[10%] items-center relative overflow-hidden"

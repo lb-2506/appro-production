@@ -25,20 +25,20 @@ export default function WhatWeDoHomeComponent() {
         number: "02",
         titleLines: ["Photographie", "professionnelle"],
         label: "PHOTOGRAPHIE PROFESSIONNELLE",
-        image: "/img/what-we-do/1.jpg",
+        image: "/img/what-we-do/2.jpg",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer facilisis sapien sit amet viverra efficitur.",
-        tags: ["Portraits", "Événementiel", "Produit", "Culinaire"],
+          "On capture l’essentiel de votre activité, avec une esthétique simple, soignée, et naturelle.",
+        tags: ["Portraits d'équipe", "Ambiance d'atelier", "Produits", "Évènements", "Reportages"],
       },
       {
         key: "social",
         number: "03",
         titleLines: ["Accompagnement", "réseaux sociaux"],
         label: "ACCOMPAGNEMENT RÉSEAUX SOCIAUX",
-        image: "/img/what-we-do/1.jpg",
+        image: "/img/what-we-do/3.jpg",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non quam sem. Pellentesque habitant morbi tristique.",
-        tags: ["Stratégie", "Calendrier éditorial", "Tournages courts", "UGC"],
+          "On vous aide à structurer votre présence en ligne. Faire vivre votre activité sur les bons canaux, sans y passer vos soirées.",
+        tags: ["Stratégie de contenu", "Planning", "Création visuelle", "Gestion de publications"],
       },
     ],
     []
@@ -100,7 +100,7 @@ export default function WhatWeDoHomeComponent() {
         {/* Grille */}
         <div className="flex justify-between">
           {/* Colonne gauche */}
-          <div className="w-[300px]">
+          <div className="w-[280px]">
             {/* Images superposées avec crossfade */}
             <div className="w-full max-w-[360px]">
               <div className="relative aspect-square rounded-3xl overflow-hidden bg-white/5 ring-1 ring-white/10">

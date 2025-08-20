@@ -15,7 +15,9 @@ import LogosHomeComponent from "@/components/home/logos.home.component";
 import SectorsHomeComponent from "@/components/home/sectors.home.component";
 import WhyUsHomeComponent from "@/components/home/why-us.component";
 import SocialHomeComponent from "@/components/home/social.home.component";
-import TeamHomeComponent from "@/components/home/team.home.component";
+import StoryHomeComponent from "@/components/home/story.home.component";
+import DisponibilitiesHomeComponent from "@/components/home/disponibilities.home.component";
+import TestimonialsHomeComponent from "@/components/home/testimonials.home.component";
 
 export default function HomePage(props) {
   let title;
@@ -60,6 +62,8 @@ export default function HomePage(props) {
       <div className="select-none">
         <NavbarComponent />
 
+        {/* <DisponibilitiesHomeComponent /> */}
+
         <HeroHomeComponent />
 
         <LogosHomeComponent />
@@ -77,16 +81,18 @@ export default function HomePage(props) {
         >
           <WhatWeDoHomeComponent />
 
-          <SectorsHomeComponent/>
+          <SectorsHomeComponent />
         </div>
 
         <SkillsHomeComponent />
 
-        <WhyUsHomeComponent/>
+        <WhyUsHomeComponent />
 
-        <SocialHomeComponent/>
+        <SocialHomeComponent />
 
-        <TeamHomeComponent/>
+        <StoryHomeComponent />
+
+        <TestimonialsHomeComponent />
 
         {/* <FooterComponent /> */}
       </div>
