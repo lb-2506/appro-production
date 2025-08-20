@@ -102,6 +102,17 @@ export default function ContactFooterHomeComponent({
     });
   }
 
+  const [offset, setOffset] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setOffset(window.scrollY * 0.1); // déplacement léger
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <section
       id="contact"
@@ -114,15 +125,18 @@ export default function ContactFooterHomeComponent({
         backgroundSize: "100%",
       }}
     >
-       <img
-          className="pointer-events-none absolute w-full h-full left-1/2 -translate-x-1/2 opacity-20 -z-10"
-          src="/img/food/traits-hero.png"
-          alt="traits-hero"
-        />
+      <img
+        src="/img/logos/trame.png"
+        alt="trame"
+        className="absolute top-0 left-1/2 -translate-x-1/2 opacity-50 pointer-events-none pt-12"
+      />
+      <img
+        className="pointer-events-none absolute w-full h-full left-1/2 -translate-x-1/2 opacity-20 -z-10"
+        src="/img/food/traits-hero.png"
+        alt="traits-hero"
+      />
       <div className="w-full">
-       
-
-        <div className="max-w-[1240px] w-[90%] z-10 mx-auto flex flex-col tablet:flex-row gap-16 tablet:gap-24 pt-36">
+        <div className="max-w-[1240px] w-[90%] z-10 mx-auto flex flex-col tablet:flex-row gap-16 tablet:gap-24 pt-44">
           {/* Colonne gauche - titres */}
           <div className="text-white  flex flex-col gap-6">
             <h2 className="font-light uppercase opacity-40 tracking-tight">
@@ -202,15 +216,36 @@ export default function ContactFooterHomeComponent({
                 <label className="block text-sm opacity-60 mb-2">
                   Vous êtes :
                 </label>
-                <select
-                  name="vousEtes"
-                  value={form.vousEtes}
-                  onChange={updateField}
-                  className="w-full rounded-xl bg-white px-4 py-3 border border-black/10 outline-none focus:border-black/30"
-                >
-                  <option>Une entreprise</option>
-                  <option>Un particulier</option>
-                </select>
+
+                <div className="relative">
+                  <select
+                    name="vousEtes"
+                    value={form.vousEtes}
+                    onChange={updateField}
+                    className="w-full rounded-xl bg-white px-4 pr-12 py-3 border border-black/10 outline-none focus:border-black/30 appearance-none"
+                  >
+                    <option>Une entreprise</option>
+                    <option>Un particulier</option>
+                  </select>
+
+                  <div className="pointer-events-none absolute inset-y-0 right-6 flex items-center">
+                    <svg
+                      aria-hidden="true"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                    >
+                      <path
+                        d="M6 8l4 4 4-4"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                </div>
               </div>
 
               {/* Ligne 4 : Formules */}
@@ -265,7 +300,7 @@ export default function ContactFooterHomeComponent({
                   name="message"
                   value={form.message}
                   onChange={updateField}
-                  className="w-full min-h-[140px] rounded-xl bg-white px-4 py-3 border border-black/10 outline-none focus:border-black/30 resize-vertical"
+                  className="w-full min-h-[140px] rounded-xl bg-white px-4 py-3 border border-black/10 outline-none focus:border-black/30 resize-none"
                   placeholder="Écrire mon message..."
                 />
               </div>
@@ -279,7 +314,9 @@ export default function ContactFooterHomeComponent({
                   onChange={updateField}
                   className="min-w-4 rounded border border-black/30"
                 />
-                <span className=" opacity-60">J'accepte la politique de confidentialité</span>
+                <span className=" opacity-60">
+                  J'accepte la politique de confidentialité
+                </span>
               </label>
 
               {/* Bouton */}

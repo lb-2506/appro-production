@@ -40,35 +40,59 @@ export default function LogosFoodComponent() {
         }}
       />
 
-      <h1
-        className="uppercase opacity-40 pt-48 tracking-tighter"
-      >
+      <h1 className="uppercase opacity-40 pt-48 tracking-tighter">
         Ils nous font confiance
       </h1>
 
       {/* LOGOS MARQUEE */}
       <Marquee>
-        <div className="py-16 flex gap-32 items-center opacity-40">
-          <img src="/img/logos/beliers.png" alt="beliers" className="h-16" />
+        <div className="pb-16 pt-24 flex gap-44 items-center opacity-40">
+          <img src="/img/logos/beliers.png" alt="beliers" className="h-[80px]" />
           <img
             src="/img/logos/apprologistic.png"
             alt="apprologistic"
-            className="h-16"
+            className="h-[80px]"
           />
           <img
             src="/img/logos/duboncote.png"
             alt="duboncote"
-            className="h-16"
+            className="h-[80px]"
           />
-          <img src="/img/logos/coqrock.png" alt="coqrock" className="h-16" />
-          <img src="/img/logos/bbh.png" alt="bbh" className="h-16" />
-          <img src="/img/logos/sourir.png" alt="sourir" className="h-16" />
+          <img src="/img/logos/coqrock.png" alt="coqrock" className="h-[80px]" />
+          <img src="/img/logos/bbh.png" alt="bbh" className="h-[80px]" />
+          <img src="/img/logos/sourir.png" alt="sourir" className="h-[80px]" />
           <img
             src="/img/logos/irreductible.png"
             alt="irreductible"
-            className="h-16"
+            className="h-[80px]"
           />
-          <img src="/img/logos/optic.png" alt="optic2000" className="h-16" />
+          <img
+            src="/img/logos/approconcept.png"
+            alt="approconcept"
+            className="h-[80px]"
+          />
+
+          <img src="/img/logos/office.png" alt="office" className="h-[80px]" />
+
+          <img
+            src="/img/logos/patrouille.png"
+            alt="patrouille"
+            className="h-[80px]"
+          />
+
+          <img src="/img/logos/rcc.png" alt="rcc" className="h-[80px]" />
+
+          <img src="/img/logos/rhd.png" alt="rhd" className="h-[80px]" />
+
+          <img src="/img/logos/usconc.png" alt="usconc" className="h-[80px]" />
+
+          <img
+            src="/img/logos/badminton.png"
+            alt="badminton"
+            className="h-[80px]"
+          />
+
+          <img src="/img/logos/optic.png" alt="optic2000" className="h-[80px] mr-24" />
         </div>
       </Marquee>
     </section>
