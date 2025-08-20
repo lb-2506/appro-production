@@ -36,3 +36,7 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+html, body {
+  overscroll-behavior-y: none; /* évite la sensation d'accroche aux bords */
+}
