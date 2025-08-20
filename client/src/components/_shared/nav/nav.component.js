@@ -43,16 +43,29 @@ export default function NavbarFoodComponent() {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
+  function wait(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
   async function handleScrollToSection(id) {
     setIsMenuOpen(false);
     await wait(300);
-
-    requestAnimationFrame(() => {
-      const section = document.querySelector(id);
-      if (section) {
-        section.scrollIntoView({ behavior: "smooth" });
-      }
-    });
+    if (router.pathname !== "/") {
+      await router.push("/");
+      setTimeout(() => {
+        const section = document.querySelector(id);
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 200);
+    } else {
+      requestAnimationFrame(() => {
+        const section = document.querySelector(id);
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    }
   }
 
   return (
@@ -107,9 +120,7 @@ export default function NavbarFoodComponent() {
       {/* MENU */}
       <div
         className={`${
-          isMenuOpen
-            ? "translate-y-0 bg-black text-white"
-            : "-translate-y-full"
+          isMenuOpen ? "translate-y-0 bg-black text-white" : "-translate-y-full"
         } transition-all text-white duration-300 ease-in-out desktop:translate-y-0 rounded-b-2xl desktop:rounded-b-none absolute top-0 left-0 right-0 flex flex-col gap-20 desktop:gap-0 desktop:flex-row desktop:items-center justify-between px-6 desktop:px-12 py-6 z-30`}
       >
         <Link href="/">
@@ -143,7 +154,7 @@ export default function NavbarFoodComponent() {
               </button>
             </li>
 
-             <li>
+            <li>
               <button
                 onClick={() => handleScrollToSection("#why-us")}
                 className="py-4 cursor-pointer"
@@ -152,7 +163,7 @@ export default function NavbarFoodComponent() {
               </button>
             </li>
 
-             <li>
+            <li>
               <button
                 onClick={() => handleScrollToSection("#social")}
                 className="py-4 cursor-pointer"
@@ -161,7 +172,7 @@ export default function NavbarFoodComponent() {
               </button>
             </li>
 
-             <li>
+            <li>
               <button
                 onClick={() => handleScrollToSection("#testimonials")}
                 className="py-4 cursor-pointer"
@@ -170,7 +181,7 @@ export default function NavbarFoodComponent() {
               </button>
             </li>
 
-             <li>
+            <li>
               <button
                 onClick={() => handleScrollToSection("#faq")}
                 className="py-4 cursor-pointer"
