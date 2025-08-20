@@ -145,7 +145,7 @@ export default function TestimonialsHomeComponent() {
     <section>
       <div
         id="testimonials"
-        className="bg-[#F5F5F5] relative py-20 flex"
+        className="bg-[#F5F5F5] relative py-20 flex z-10"
         style={{
           backgroundImage: "url('/img/food/bg-noise.png')",
           backgroundRepeat: "repeat",
@@ -227,7 +227,7 @@ export default function TestimonialsHomeComponent() {
         {/* Flèches + progression — alignées au contenu via la même marge gauche */}
       </div>
 
-      <div className="bg-[#F5F5F5] w-full flex items-center justify-between pl-[10%] pr-[5%] pb-20">
+      <div className="bg-[#F5F5F5] w-full flex items-center justify-between pl-[10%] pr-[5%] pb-20 z-10 relative">
         <div className="flex gap-3">
           <button
             onClick={scrollLeft}

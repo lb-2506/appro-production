@@ -100,7 +100,7 @@ export default function SocialHomeComponent() {
   return (
     <section
       id="social"
-      className="bg-[#171717] py-36"
+      className="bg-[#171717] py-36 relative z-10"
       style={{
         backgroundImage: "url('/img/food/bg-noise.png')",
         backgroundRepeat: "repeat",

@@ -94,7 +94,7 @@ export default function FaqHomeComponent({isContactFixed}) {
     <section
       id="faq"
       ref={containerRef}
-      className={`relative overflow-hidden py-60 ${
+      className={`z-10 relative overflow-hidden py-60 ${
         isContactFixed ? "mb-[100dvh]" : "mb-0"
       }`}
       style={{

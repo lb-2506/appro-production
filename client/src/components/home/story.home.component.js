@@ -36,7 +36,7 @@ export default function StoryHomeComponent() {
   return (
     <section
       id="story"
-      className="bg-[#F5F5F5] py-36"
+      className="bg-[#F5F5F5] py-36 z-10 relative"
       style={{
         backgroundImage: "url('/img/food/bg-noise.png')",
         backgroundRepeat: "repeat",

@@ -75,7 +75,7 @@ export default function HomePage(props) {
         <TextRevealComponent />
 
         <div
-          className="bg-[#171717]"
+          className="bg-[#171717] relative z-10"
           style={{
             backgroundImage: "url('/img/food/bg-noise.png')",
             backgroundRepeat: "repeat",

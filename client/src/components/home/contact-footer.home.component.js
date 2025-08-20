@@ -26,7 +26,7 @@ export default function ContactFooterHomeComponent({
       const scrollY = window.scrollY;
       const threshold = window.innerHeight * 1.5;
       if (scrollY > threshold) {
-        setZIndexClass("-z-10");
+        setZIndexClass("z-0");
       } else {
         setZIndexClass("-z-20");
       }
