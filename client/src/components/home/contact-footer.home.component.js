@@ -116,12 +116,12 @@ export default function ContactFooterHomeComponent({
         }}
       >
         <img
-          className="absolute w-full h-full left-1/2 -translate-x-1/2 opacity-20"
+          className="pointer-events-none absolute w-full h-full left-1/2 -translate-x-1/2 opacity-20 -z-10"
           src="/img/food/traits-hero.png"
           alt="traits-hero"
         />
 
-        <div className="max-w-[1240px] w-[90%] mx-auto flex flex-col tablet:flex-row gap-16 tablet:gap-24">
+        <div className="max-w-[1240px] w-[90%] z-10 mx-auto flex flex-col tablet:flex-row gap-16 tablet:gap-24">
           {/* Colonne gauche - titres */}
           <div className="text-white  flex flex-col gap-6">
             <h2 className="font-light uppercase opacity-40 tracking-tight">
