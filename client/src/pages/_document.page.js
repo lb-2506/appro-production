@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon" />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         {/*<link rel="stylesheet" href="https://use.typekit.net/hqy2xcj.css" />*/}
         <link
           rel="stylesheet"

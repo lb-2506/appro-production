@@ -16,16 +16,14 @@ export default function LegalesPage(props) {
 
   switch (i18n.language) {
     case "en":
-      title =
-        "Gusto Manager by Modjoy Studio Food - Gestion, communication et identité digitale pour les restaurants";
+      title = "Appro Production";
       description =
-        "La solution complète pour les restaurateurs : gestion des réservations, cartes et menus, ventes en ligne, communication et identité visuelle pour booster votre restaurant.";
+        "Appro Production à Concarneau : vidéos sur mesure, photographie professionnelle et accompagnement réseaux sociaux pour faire grandir votre marque.";
       break;
     default:
-      title =
-        "Gusto Manager by Modjoy Studio Food - Gestion, communication et identité digitale pour les restaurants";
+      title = "Appro Production";
       description =
-        "La solution complète pour les restaurateurs : gestion des réservations, cartes et menus, ventes en ligne, communication et identité visuelle pour booster votre restaurant.";
+        "Appro Production à Concarneau : vidéos sur mesure, photographie professionnelle et accompagnement réseaux sociaux pour faire grandir votre marque.";
   }
 
   const [isContactFixed, setIsContactFixed] = useState(true);
@@ -46,7 +44,7 @@ export default function LegalesPage(props) {
             content="https://www.modjoy-studio.com/food"
           />
           <meta property="og:type" content="website" />
-          <meta property="og:image" content="/img/food/open-graph.jpg" />
+          <meta property="og:image" content="/img/open-graph.jpg" />
           <meta property="og:image:width" content="1200" />
           <meta property="og:image:height" content="630" />
         </>
