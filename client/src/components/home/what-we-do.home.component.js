@@ -28,7 +28,13 @@ export default function WhatWeDoHomeComponent() {
         image: "/img/what-we-do/2.jpg",
         description:
           "On capture l’essentiel de votre activité, avec une esthétique simple, soignée, et naturelle.",
-        tags: ["Portraits d'équipe", "Ambiance d'atelier", "Produits", "Évènements", "Reportages"],
+        tags: [
+          "Portraits d'équipe",
+          "Ambiance d'atelier",
+          "Produits",
+          "Évènements",
+          "Reportages",
+        ],
       },
       {
         key: "social",
@@ -38,7 +44,12 @@ export default function WhatWeDoHomeComponent() {
         image: "/img/what-we-do/3.jpg",
         description:
           "On vous aide à structurer votre présence en ligne. Faire vivre votre activité sur les bons canaux, sans y passer vos soirées.",
-        tags: ["Stratégie de contenu", "Planning", "Création visuelle", "Gestion de publications"],
+        tags: [
+          "Stratégie de contenu",
+          "Planning",
+          "Création visuelle",
+          "Gestion de publications",
+        ],
       },
     ],
     []
@@ -49,6 +60,7 @@ export default function WhatWeDoHomeComponent() {
 
   return (
     <section
+      id="what-we-do"
       className="text-white pt-24 max-w-[1240px] mx-auto"
       style={{
         backgroundImage: "url('/img/food/bg-noise.png')",

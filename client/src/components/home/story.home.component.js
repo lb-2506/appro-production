@@ -35,6 +35,7 @@ const TEAM = [
 export default function StoryHomeComponent() {
   return (
     <section
+      id="story"
       className="bg-[#F5F5F5] py-36"
       style={{
         backgroundImage: "url('/img/food/bg-noise.png')",

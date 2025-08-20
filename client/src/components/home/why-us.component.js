@@ -3,7 +3,7 @@ import BounceCards from "@/_assets/utils/bounce-card.utils";
 export default function WhyUsHomeComponent() {
   const images = [
     "/img/why-us/1.png",
-   "/img/why-us/2.png",
+    "/img/why-us/2.png",
     "/img/why-us/3.png",
     "/img/why-us/4.png",
   ];
@@ -17,6 +17,7 @@ export default function WhyUsHomeComponent() {
 
   return (
     <section
+      id="why-us"
       className="bg-[#F5F5F5] relative z-10 mx-auto overflow-hidden"
       style={{
         backgroundImage: "url('/img/food/bg-noise.png')",
@@ -50,7 +51,7 @@ export default function WhyUsHomeComponent() {
         </div>
 
         <div className="relative">
-          <img src="/img/why-us/grid.webp" alt="grid"/>
+          <img src="/img/why-us/grid.webp" alt="grid" />
 
           <div className="absolute -top-12 right-[50px]">
             <BounceCards

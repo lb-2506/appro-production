@@ -99,6 +99,7 @@ export default function SocialHomeComponent() {
 
   return (
     <section
+      id="social"
       className="bg-[#171717] py-36"
       style={{
         backgroundImage: "url('/img/food/bg-noise.png')",

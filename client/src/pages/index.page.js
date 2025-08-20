@@ -10,7 +10,6 @@ import NavbarComponent from "@/components/_shared/nav/nav.component";
 import TextRevealComponent from "@/components/home/text-reveal.home.component";
 import SkillsHomeComponent from "@/components/home/skills.home.component";
 import WhatWeDoHomeComponent from "@/components/home/what-we-do.home.component";
-import FooterComponent from "@/components/_shared/footer/footer.component";
 import LogosHomeComponent from "@/components/home/logos.home.component";
 import SectorsHomeComponent from "@/components/home/sectors.home.component";
 import WhyUsHomeComponent from "@/components/home/why-us.component";
@@ -19,6 +18,8 @@ import StoryHomeComponent from "@/components/home/story.home.component";
 import DisponibilitiesHomeComponent from "@/components/home/disponibilities.home.component";
 import TestimonialsHomeComponent from "@/components/home/testimonials.home.component";
 import FaqHomeComponent from "@/components/home/faq.home.component";
+import ContactFooterHomeComponent from "@/components/home/contact-footer.home.component";
+import { useState } from "react";
 
 export default function HomePage(props) {
   let title;
@@ -37,6 +38,8 @@ export default function HomePage(props) {
       description =
         "La solution complète pour les restaurateurs : gestion des réservations, cartes et menus, ventes en ligne, communication et identité visuelle pour booster votre restaurant.";
   }
+
+  const [isContactFixed, setIsContactFixed] = useState(true);
 
   return (
     <>
@@ -95,7 +98,9 @@ export default function HomePage(props) {
 
         <TestimonialsHomeComponent />
 
-        <FaqHomeComponent/>
+        <FaqHomeComponent isContactFixed={isContactFixed} />
+
+        <ContactFooterHomeComponent setIsContactFixed={setIsContactFixed} isContactFixed={isContactFixed} />
 
         {/* <FooterComponent /> */}
       </div>

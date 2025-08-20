@@ -144,6 +144,7 @@ export default function TestimonialsHomeComponent() {
   return (
     <section>
       <div
+        id="testimonials"
         className="bg-[#F5F5F5] relative py-20 flex"
         style={{
           backgroundImage: "url('/img/food/bg-noise.png')",

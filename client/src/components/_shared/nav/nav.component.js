@@ -72,7 +72,7 @@ export default function NavbarFoodComponent() {
         <Link href="/">
           <a>
             <img
-              src="/img/food/logo.png"
+              src="/img/logo.png"
               draggable={false}
               alt="logo"
               className="left-6 top-6 max-h-[30px] z-30"
@@ -115,7 +115,7 @@ export default function NavbarFoodComponent() {
         <Link href="/">
           <a>
             <img
-              src="/img/food/logo.png"
+              src="/img/logo.png"
               draggable={false}
               alt="logo-food"
               className="max-h-[50px] hidden desktop:block"
@@ -127,7 +127,7 @@ export default function NavbarFoodComponent() {
           <ul className="flex flex-col desktop:flex-row desktop:items-center desktop:gap-6 font-thin">
             <li>
               <button
-                onClick={() => handleScrollToSection("#expertises")}
+                onClick={() => handleScrollToSection("#what-we-do")}
                 className="py-4 cursor-pointer"
               >
                 Services
@@ -145,7 +145,7 @@ export default function NavbarFoodComponent() {
 
              <li>
               <button
-                onClick={() => handleScrollToSection("#expertises")}
+                onClick={() => handleScrollToSection("#why-us")}
                 className="py-4 cursor-pointer"
               >
                 Pourquoi nous ?
@@ -154,7 +154,7 @@ export default function NavbarFoodComponent() {
 
              <li>
               <button
-                onClick={() => handleScrollToSection("#expertises")}
+                onClick={() => handleScrollToSection("#social")}
                 className="py-4 cursor-pointer"
               >
                 Réalisations
@@ -163,7 +163,7 @@ export default function NavbarFoodComponent() {
 
              <li>
               <button
-                onClick={() => handleScrollToSection("#expertises")}
+                onClick={() => handleScrollToSection("#testimonials")}
                 className="py-4 cursor-pointer"
               >
                 Témoignages
@@ -172,7 +172,7 @@ export default function NavbarFoodComponent() {
 
              <li>
               <button
-                onClick={() => handleScrollToSection("#expertises")}
+                onClick={() => handleScrollToSection("#faq")}
                 className="py-4 cursor-pointer"
               >
                 FAQ
@@ -182,11 +182,7 @@ export default function NavbarFoodComponent() {
 
           <button
             className="bg-white hover:bg-opacity-70 transition-all ease-in-out duration-200 text-black font-light rounded-full px-4 py-2 w-[300px] desktop:w-auto mx-auto desktop:mx-0 desktop:mt-0"
-            data-tally-open="wkKoEe"
-            data-tally-layout="modal"
-            data-tally-width="400"
-            data-tally-emoji-animation="wave"
-            onClick={() => setIsMenuOpen(false)}
+            onClick={() => handleScrollToSection("#contact")}
           >
             Prendre rendez-vous
           </button>

@@ -20,7 +20,7 @@ const FAQ = [
   },
 ];
 
-export default function FaqHomeComponent() {
+export default function FaqHomeComponent({isContactFixed}) {
   const containerRef = useRef(null);
   const glowRef = useRef(null);
 
@@ -92,8 +92,11 @@ export default function FaqHomeComponent() {
 
   return (
     <section
+      id="faq"
       ref={containerRef}
-      className="relative overflow-hidden py-28"
+      className={`relative overflow-hidden py-28 ${
+        isContactFixed ? "mb-[100dvh]" : "mb-0"
+      }`}
       style={{
         backgroundColor: "#EAEAEA",
         backgroundImage: "url('/img/food/bg-noise.png')",
@@ -116,12 +119,12 @@ export default function FaqHomeComponent() {
       />
 
       {/* Contenu */}
-      <div className="relative z-10 max-w-[1100px] w-[90%] mx-auto flex flex-col items-center gap-10">
+      <div className="relative z-10 max-w-[1240px] w-[90%] mx-auto flex flex-col items-center gap-10">
         {/* Header */}
         <div className="text-black max-w-[760px] flex flex-col gap-6 items-center text-center">
-          <span className="font-light uppercase opacity-40 tracking-tight">
+          <h2 className="font-light uppercase opacity-40 tracking-tight">
             FAQ
-          </span>
+          </h2>
           <h1 className="text-[9vw] leading-[12vw] mobile:leading-[65px] tablet:text-[60px] font-light">
             Vous avez des
             <br /> questions ?
