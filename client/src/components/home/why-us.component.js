@@ -42,7 +42,7 @@ export default function WhyUsHomeComponent() {
           <div className="flex justify-center">
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 rounded-full bg-black text-white px-6 py-3 text-sm font-medium shadow/30 shadow-black/40 hover:shadow-black/60 transition-shadow"
+              className="inline-flex items-center gap-2 rounded-full bg-black text-white px-6 py-3 text-sm font-light shadow/30 shadow-black/40 hover:shadow-black/60 transition-shadow"
             >
               Contactez nous <span className="font-light">↗</span>
             </a>
