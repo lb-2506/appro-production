@@ -87,7 +87,7 @@ export default function FaqHomeComponent({isContactFixed}) {
   }, []);
 
   // --- Accordéon (un seul ouvert à la fois) ---
-  const [open, setOpen] = useState(0);
+  const [open, setOpen] = useState(null);
   const toggle = (i) => setOpen((o) => (o === i ? -1 : i));
 
   return (

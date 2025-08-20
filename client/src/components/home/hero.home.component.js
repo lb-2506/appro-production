@@ -41,7 +41,7 @@ export default function HeroHomeComponent() {
           </p>
         </div>
 
-        <h1 className="flex flex-col text-8xl text-white font-thin w-full">
+        <h1 className="flex flex-col text-[clamp(28px,5vw,96px)] leading-[clamp(35px,6vw,105px)] text-white font-thin w-full text-balance">
           <span>Racontez ce que vous faites.</span>
           <span className="text-right">Montrez qui vous êtes.</span>
         </h1>
