@@ -103,25 +103,26 @@ export default function ContactFooterHomeComponent({
   }
 
   return (
-    <>
-      <section
-        id="contact"
-        className={`bg-[#171717] mx-auto top-0 w-full ${zIndexClass} flex items-center py-36 ${
-          isContactFixed ? "fixed" : "relative"
-        }`}
-        style={{
-          backgroundImage: "url('/img/food/bg-noise.png')",
-          backgroundRepeat: "repeat",
-          backgroundSize: "100%",
-        }}
-      >
-        <img
+    <section
+      id="contact"
+      className={`bg-[#171717] mx-auto flex flex-col top-0 w-full min-h-[100dvh] overflow-hidden ${zIndexClass} flex items-center  ${
+        isContactFixed ? "fixed" : "relative"
+      }`}
+      style={{
+        backgroundImage: "url('/img/food/bg-noise.png')",
+        backgroundRepeat: "repeat",
+        backgroundSize: "100%",
+      }}
+    >
+       <img
           className="pointer-events-none absolute w-full h-full left-1/2 -translate-x-1/2 opacity-20 -z-10"
           src="/img/food/traits-hero.png"
           alt="traits-hero"
         />
+      <div className="w-full">
+       
 
-        <div className="max-w-[1240px] w-[90%] z-10 mx-auto flex flex-col tablet:flex-row gap-16 tablet:gap-24">
+        <div className="max-w-[1240px] w-[90%] z-10 mx-auto flex flex-col tablet:flex-row gap-16 tablet:gap-24 pt-36">
           {/* Colonne gauche - titres */}
           <div className="text-white  flex flex-col gap-6">
             <h2 className="font-light uppercase opacity-40 tracking-tight">
@@ -293,23 +294,18 @@ export default function ContactFooterHomeComponent({
             </form>
           </div>
         </div>
-      </section>
+      </div>
 
       <footer
-        className="bg-[#171717] text-white relative"
+        className="text-white relative w-full pt-36"
         style={{
           backgroundImage: "url('/img/food/bg-noise.png')",
           backgroundRepeat: "repeat",
           backgroundSize: "100%",
         }}
       >
-        <img
-          className="pointer-events-none absolute w-full h-full left-1/2 -translate-x-1/2 opacity-20"
-          src="/img/food/traits-hero.png"
-          alt="traits-hero"
-        />
         {/* Colonnes */}
-        <div className="w-[90%] mx-auto py-20 flex justify-between gap-12 lg:grid-cols-4">
+        <div className="mx-auto flex justify-between w-[90%] gap-12 pb-24">
           {/* Logo */}
           <div className="flex items-start">
             {/* Remplace par ton image si tu veux */}
@@ -472,6 +468,6 @@ export default function ContactFooterHomeComponent({
           </div>
         </div>
       </footer>
-    </>
+    </section>
   );
 }
