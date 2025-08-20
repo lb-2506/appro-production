@@ -218,38 +218,38 @@ export default function ContactFooterHomeComponent({
                 <p className="text-sm opacity-60 mb-3">
                   Par quelle formule êtes vous intéressé ?
                 </p>
-                <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
-                  <label className="inline-flex items-center gap-2">
+                <div className="flex items-center gap-x-8 gap-y-3">
+                  <label className="inline-flex opacity-80 items-center gap-4 w-1/3">
                     <input
                       type="checkbox"
                       name="service_video"
                       checked={form.services.video}
                       onChange={updateField}
-                      className="size-4 rounded border border-black/30"
+                      className="min-w-4 rounded border border-black/30"
                     />
                     <span className="text-sm">Vidéo sur mesure</span>
                   </label>
 
-                  <label className="inline-flex items-center gap-2">
+                  <label className="inline-flex opacity-80 items-center gap-4 w-1/3">
                     <input
                       type="checkbox"
                       name="service_photo"
                       checked={form.services.photo}
                       onChange={updateField}
-                      className="size-4 rounded border border-black/30"
+                      className="min-w-4 rounded border border-black/30"
                     />
                     <span className="text-sm">
                       Photographie professionnelle
                     </span>
                   </label>
 
-                  <label className="inline-flex items-center gap-2">
+                  <label className="inline-flex opacity-80 items-center gap-4 w-1/3">
                     <input
                       type="checkbox"
                       name="service_social"
                       checked={form.services.social}
                       onChange={updateField}
-                      className="size-4 rounded border border-black/30"
+                      className="min-w-4 rounded border border-black/30"
                     />
                     <span className="text-sm">
                       Accompagnement réseaux sociaux
@@ -277,9 +277,9 @@ export default function ContactFooterHomeComponent({
                   name="accept"
                   checked={form.accept}
                   onChange={updateField}
-                  className="size-4 rounded border border-black/30"
+                  className="min-w-4 rounded border border-black/30"
                 />
-                <span>J'accepte la politique de confidentialité</span>
+                <span className=" opacity-60">J'accepte la politique de confidentialité</span>
               </label>
 
               {/* Bouton */}
