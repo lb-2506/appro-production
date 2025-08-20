@@ -38,7 +38,7 @@ export default function StoryHomeComponent() {
       id="story"
       className="bg-[#F5F5F5] py-36 z-10 relative"
       style={{
-        backgroundImage: "url('/img/food/bg-noise.png')",
+        backgroundImage: "url('/img/bg-noise.png')",
         backgroundRepeat: "repeat",
         backgroundSize: "100%",
         backgroundAttachment: "fixed",

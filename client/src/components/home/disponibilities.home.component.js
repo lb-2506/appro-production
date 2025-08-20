@@ -6,14 +6,14 @@ export default function DisponibilitiesHomeComponent() {
       <div
         className="font-thin text-sm rounded-full w-fit px-1 py-1"
         style={{
-          backgroundImage: "url('/img/food/bg-disponible.jpg')",
+          backgroundImage: "url('/img/hero/bg-disponible.jpg')",
           backgroundPosition: "bottom",
         }}
       >
         <div className="flex gap-2 items-center bg-white rounded-full px-2 py-1">
           <img
             className="h-[32px]"
-            src="/img/food/disponible.png"
+            src="/img/hero/disponible.png"
             alt="disponible"
           />
           <p className="opacity-60">Disponible</p>

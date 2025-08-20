@@ -6,22 +6,11 @@ import { i18n } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 // COMPONENTS
-import HeroHomeComponent from "@/components/home/hero.home.component";
 import NavbarComponent from "@/components/_shared/nav/nav.component";
-import TextRevealComponent from "@/components/home/text-reveal.home.component";
-import SkillsHomeComponent from "@/components/home/skills.home.component";
-import WhatWeDoHomeComponent from "@/components/home/what-we-do.home.component";
-import LogosHomeComponent from "@/components/home/logos.home.component";
-import SectorsHomeComponent from "@/components/home/sectors.home.component";
-import WhyUsHomeComponent from "@/components/home/why-us.component";
-import SocialHomeComponent from "@/components/home/social.home.component";
-import StoryHomeComponent from "@/components/home/story.home.component";
-import DisponibilitiesHomeComponent from "@/components/home/disponibilities.home.component";
-import TestimonialsHomeComponent from "@/components/home/testimonials.home.component";
-import FaqHomeComponent from "@/components/home/faq.home.component";
 import ContactFooterHomeComponent from "@/components/home/contact-footer.home.component";
+import TextPrivacyComponent from "@/components/privacy/text.privacy.component";
 
-export default function HomePage(props) {
+export default function PrivacyPage(props) {
   let title;
   let description;
 
@@ -66,43 +55,11 @@ export default function HomePage(props) {
       <div className="select-none">
         <NavbarComponent />
 
-        <DisponibilitiesHomeComponent />
-
-        <HeroHomeComponent />
-
-        <LogosHomeComponent />
-
-        <TextRevealComponent />
-
-        <div
-          className="bg-[#171717] relative z-10"
-          style={{
-            backgroundImage: "url('/img/bg-noise.png')",
-            backgroundRepeat: "repeat",
-            backgroundSize: "100%",
-            backgroundAttachment: "fixed",
-          }}
-        >
-          <WhatWeDoHomeComponent />
-
-          <SectorsHomeComponent />
-        </div>
-
-        <SkillsHomeComponent />
-
-        <WhyUsHomeComponent />
-
-        <SocialHomeComponent />
-
-        <StoryHomeComponent />
-
-        <TestimonialsHomeComponent />
-
-        <FaqHomeComponent isContactFixed={isContactFixed} />
+        <TextPrivacyComponent />
 
         <ContactFooterHomeComponent
           setIsContactFixed={setIsContactFixed}
-          isContactFixed={isContactFixed}
+          isContactFixed={false}
         />
       </div>
     </>

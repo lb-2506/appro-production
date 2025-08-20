@@ -61,12 +61,12 @@ export default function SkillsHomeComponent() {
   }, []);
 
   useEffect(() => {
-    progressRef.current = progress; // init ref avec l’état
+    progressRef.current = progress;
 
     const tick = () => {
       const current = progressRef.current;
       const target = targetProgressRef.current;
-      const next = current + (target - current) * 0.18; // 0.12–0.25 selon le rendu voulu
+      const next = current + (target - current) * 0.18;
 
       progressRef.current = next;
       setProgress(next);
@@ -76,7 +76,6 @@ export default function SkillsHomeComponent() {
 
     rafRef.current = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(rafRef.current);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -85,7 +84,7 @@ export default function SkillsHomeComponent() {
       id="skills"
       className="bg-[#FFFFFF] relative z-10 mx-auto"
       style={{
-        backgroundImage: "url('/img/food/bg-noise.png')",
+        backgroundImage: "url('/img/bg-noise.png')",
         backgroundRepeat: "repeat",
         backgroundSize: "100%",
       }}
@@ -180,11 +179,11 @@ export default function SkillsHomeComponent() {
                 <span
                   ref={(el) => (numberRefs.current[i] = el)}
                   style={{
-                    backgroundImage: "url('/img/food/bg-noise.png')",
+                    backgroundImage: "url('/img/bg-noise.png')",
                     backgroundRepeat: "repeat",
                     backgroundSize: "100%",
                   }}
-                  className={`z-[2] bg-lightGrey h-fit ${
+                  className={`z-[2] bg-[#FFFFFF] h-fit ${
                     i === 0 ? "" : "mt-12"
                   } transition-colors duration-700 ${
                     activeNumbers[i] ? "text-black/30" : "text-black/10"

@@ -22,7 +22,7 @@ export default function LogosFoodComponent() {
     <section
       className="relative text-center mt-[100vh] w-[100vw] bg-[#F5F5F5] overflow-hidden"
       style={{
-        backgroundImage: "url('/img/food/bg-noise.png')",
+        backgroundImage: "url('/img/bg-noise.png')",
         backgroundRepeat: "repeat",
         backgroundSize: "100%",
         backgroundAttachment: "fixed",

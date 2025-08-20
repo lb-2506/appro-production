@@ -11,20 +11,20 @@ export default function HeroHomeComponent() {
     <div
       className="fixed top-0 -z-10 bg-black w-full h-[100dvh]"
       style={{
-        backgroundImage: "url('/img/food/bg-noise.png')",
+        backgroundImage: "url('/img/bg-noise.png')",
         backgroundRepeat: "repeat",
         backgroundSize: "100%",
       }}
     >
       <img
         className="absolute w-full h-full left-1/2 -translate-x-1/2 object-cover"
-        src="/img/food/bg-hero.jpg"
+        src="/img/hero/bg-hero.jpg"
         alt="bg-hero"
       />
 
       <img
         className="absolute w-full h-full left-1/2 -translate-x-1/2 object-cover opacity-75"
-        src="/img/food/traits-hero.png"
+        src="/img//traits-hero.png"
         alt="traits-hero"
       />
 
@@ -35,7 +35,7 @@ export default function HeroHomeComponent() {
         className="h-[100dvh] flex flex-col gap-4 justify-center px-[10%] items-center relative overflow-hidden"
       >
         <div className="flex items-center gap-4 w-full text-left">
-          <img src="/img/food/avis.png" className="max-h-[30px]" />
+          <img src="/img/hero/avis.png" className="max-h-[30px]" />
           <p className="text-white font-thin">
             +60 clients nous font confiance
           </p>

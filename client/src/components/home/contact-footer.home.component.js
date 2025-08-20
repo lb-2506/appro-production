@@ -120,7 +120,7 @@ export default function ContactFooterHomeComponent({
         isContactFixed ? "fixed" : "relative"
       }`}
       style={{
-        backgroundImage: "url('/img/food/bg-noise.png')",
+        backgroundImage: "url('/img/bg-noise.png')",
         backgroundRepeat: "repeat",
         backgroundSize: "100%",
       }}
@@ -132,7 +132,7 @@ export default function ContactFooterHomeComponent({
       />
       <img
         className="pointer-events-none absolute w-full h-full left-1/2 -translate-x-1/2 opacity-20 -z-10"
-        src="/img/food/traits-hero.png"
+        src="/img/traits-hero.png"
         alt="traits-hero"
       />
       <div className="w-full">
@@ -336,7 +336,7 @@ export default function ContactFooterHomeComponent({
       <footer
         className="text-white relative w-full pt-36"
         style={{
-          backgroundImage: "url('/img/food/bg-noise.png')",
+          backgroundImage: "url('/img/bg-noise.png')",
           backgroundRepeat: "repeat",
           backgroundSize: "100%",
         }}
@@ -490,13 +490,13 @@ export default function ContactFooterHomeComponent({
 
             <div className="flex items-center gap-6 text-sm">
               <a
-                href="/mentions-legales"
+                href="/legales"
                 className="opacity-70 hover:opacity-100"
               >
                 Mentions légales
               </a>
               <a
-                href="/politique-de-confidentialite"
+                href="/privacy"
                 className="opacity-70 hover:opacity-100"
               >
                 Politique de confidentialité

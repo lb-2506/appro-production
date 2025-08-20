@@ -147,7 +147,7 @@ export default function TestimonialsHomeComponent() {
         id="testimonials"
         className="bg-[#F5F5F5] relative py-20 flex z-10"
         style={{
-          backgroundImage: "url('/img/food/bg-noise.png')",
+          backgroundImage: "url('/img/bg-noise.png')",
           backgroundRepeat: "repeat",
           backgroundSize: "100%",
         }}

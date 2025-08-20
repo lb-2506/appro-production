@@ -63,7 +63,7 @@ export default function WhatWeDoHomeComponent() {
       id="what-we-do"
       className="text-white pt-24 max-w-[1240px] mx-auto"
       style={{
-        backgroundImage: "url('/img/food/bg-noise.png')",
+        backgroundImage: "url('/img/bg-noise.png')",
         backgroundRepeat: "repeat",
         backgroundSize: "100%",
         backgroundAttachment: "fixed",
