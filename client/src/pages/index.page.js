@@ -61,7 +61,7 @@ export default function HomePage(props) {
         </>
       </Head>
 
-      <div className="select-none">
+      <div className="select-none"  style={{ fontFamily: "'Satoshi Regular', sans-serif" }}>
         <NavbarComponent />
 
         <DisponibilitiesHomeComponent />

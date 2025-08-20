@@ -130,11 +130,12 @@ export default function ContactFooterHomeComponent({
         alt="trame"
         className="absolute top-0 left-1/2 -translate-x-1/2 opacity-50 pointer-events-none pt-12"
       />
-      <img
-        className="pointer-events-none absolute w-full h-full left-1/2 -translate-x-1/2 opacity-20 -z-10"
-        src="/img/traits-hero.png"
+     <img
+        className="absolute w-full h-full left-1/2 -translate-x-1/2 object-cover opacity-20"
+        src="/img//traits-hero.png"
         alt="traits-hero"
       />
+
       <div className="w-full">
         <div className="max-w-[1240px] w-[90%] z-10 mx-auto flex flex-col tablet:flex-row gap-16 tablet:gap-24 pt-44">
           {/* Colonne gauche - titres */}

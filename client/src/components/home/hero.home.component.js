@@ -35,7 +35,7 @@ export default function HeroHomeComponent() {
         className="h-[100dvh] flex flex-col gap-4 justify-center px-[10%] items-center relative overflow-hidden"
       >
         <div className="flex items-center gap-4 w-full text-left">
-          <img src="/img/hero/avis.png" className="max-h-[30px]" />
+          <img src="/img/hero/avis.png" className="max-h-[30px]" alt='trust' />
           <p className="text-white font-thin">
             +60 clients nous font confiance
           </p>
