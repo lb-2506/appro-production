@@ -16,6 +16,10 @@ export default function SkillsHomeComponent() {
     new Array(skillsData.length).fill(false)
   );
 
+  const targetProgressRef = useRef(0);
+  const progressRef = useRef(0);
+  const rafRef = useRef(null);
+
   useEffect(() => {
     const handleScroll = () => {
       if (containerRef.current && progressContainerRef.current) {
@@ -25,7 +29,7 @@ export default function SkillsHomeComponent() {
           totalScroll > 0
             ? Math.min(Math.max(-parentRect.top / totalScroll, 0), 1)
             : 1;
-        setProgress(newProgress);
+        targetProgressRef.current = newProgress;
 
         const progressRect =
           progressContainerRef.current.getBoundingClientRect();
@@ -54,6 +58,25 @@ export default function SkillsHomeComponent() {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
     };
+  }, []);
+
+  useEffect(() => {
+    progressRef.current = progress; // init ref avec l’état
+
+    const tick = () => {
+      const current = progressRef.current;
+      const target = targetProgressRef.current;
+      const next = current + (target - current) * 0.18; // 0.12–0.25 selon le rendu voulu
+
+      progressRef.current = next;
+      setProgress(next);
+
+      rafRef.current = requestAnimationFrame(tick);
+    };
+
+    rafRef.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafRef.current);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -97,11 +120,12 @@ export default function SkillsHomeComponent() {
         >
           <div className="hidden tablet:block absolute w-[2px] h-full left-1/2 -translate-x-1/2 bg-[#EDEEF1]">
             <span
+              className="absolute w-[2px] -translate-x-[2px] bg-black/20 h-full origin-top"
               style={{
-                height: `${progress * 100}%`,
+                transform: `scaleY(${progress})`,
+                willChange: "transform",
                 top: 0,
               }}
-              className="absolute w-[2px] left-1/2 -translate-x-1/2 bg-black/20"
             />
           </div>
 
@@ -110,38 +134,40 @@ export default function SkillsHomeComponent() {
               key={i}
               className={`relative flex flex-col tablet:flex-row items-stretch justify-center ${i % 2 ? "" : "tablet:flex-row-reverse"}`}
             >
-             
               {/* Bloc texte/image */}
               <div
                 className={`relative w-full tablet:w-1/2 flex flex-col justify-center gap-4 font-extralight bg-[#C6D3CA] bg-opacity-10 rounded-[20px] transition-opacity duration-700`}
                 style={{ opacity: activeNumbers[i] ? 1 : 0.1 }}
               >
-
-                 <img
-                src="/img/skills/angle.png"
-                alt="angle"
-                className="absolute top-0 left-0 max-w-[50px] -translate-x-[2px] -translate-y-[2px]"
-              />
-              <img
-                src="/img/skills/angle.png"
-                alt="angle"
-                className="absolute top-0 right-0 max-w-[50px] rotate-90 -translate-x-[3px] -translate-y-[6px]"
-              />
-              <img
-                src="/img/skills/angle.png"
-                alt="angle"
-                className="absolute bottom-0 left-0 max-w-[50px] -rotate-90 translate-x-[3px] translate-y-[6px]"
-              />
-              <img
-                src="/img/skills/angle.png"
-                alt="angle"
-                className="absolute bottom-0 right-0 max-w-[50px] rotate-180 translate-x-[2px] translate-y-[2px]"
-              />
+                <img
+                  src="/img/skills/angle.png"
+                  alt="angle"
+                  className="absolute top-0 left-0 max-w-[50px] -translate-x-[2px] -translate-y-[2px]"
+                />
+                <img
+                  src="/img/skills/angle.png"
+                  alt="angle"
+                  className="absolute top-0 right-0 max-w-[50px] rotate-90 -translate-x-[3px] -translate-y-[6px]"
+                />
+                <img
+                  src="/img/skills/angle.png"
+                  alt="angle"
+                  className="absolute bottom-0 left-0 max-w-[50px] -rotate-90 translate-x-[3px] translate-y-[6px]"
+                />
+                <img
+                  src="/img/skills/angle.png"
+                  alt="angle"
+                  className="absolute bottom-0 right-0 max-w-[50px] rotate-180 translate-x-[2px] translate-y-[2px]"
+                />
                 <div className="flex justify-between">
                   <p className="uppercase text-sm opacity-40 p-8 pb-0">
                     {data.step}
                   </p>
-                  <img src={data.picto} className=" bg-white/60 h-7 w-7 m-8 mb-0 p-2 rounded-md" alt="picto" />
+                  <img
+                    src={data.picto}
+                    className=" bg-white/60 h-7 w-7 m-8 mb-0 p-2 rounded-md"
+                    alt="picto"
+                  />
                 </div>
                 <h4 className="text-4xl tracking-tight px-8">{data.title}</h4>
                 <p className="p-8 pt-0 opacity-60 font-light text-sm">

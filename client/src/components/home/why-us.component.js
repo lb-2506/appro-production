@@ -1,4 +1,5 @@
 import BounceCards from "@/_assets/utils/bounce-card.utils";
+import { useRef, useState } from "react";
 
 export default function WhyUsHomeComponent() {
   const images = [
@@ -14,6 +15,46 @@ export default function WhyUsHomeComponent() {
     "rotate(-5deg)",
     "rotate(5deg) translate(70px)",
   ];
+
+  const [hoverPointer, setHoverPointer] = useState(false);
+  const imgRef = useRef(null);
+
+  function handleMouseMove(e) {
+    const img = imgRef.current;
+    if (!img) return;
+    const rect = img.getBoundingClientRect();
+
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    // Dans l'image ?
+    const inImg = x >= 0 && y >= 0 && x <= rect.width && y <= rect.height;
+    if (!inImg) return setHoverPointer(false);
+
+    const inLeftThird = x <= rect.width / 3.1;
+    const inBottomTwoThirds = y >= rect.height / 2.7; // => zone = bas 2/3
+
+    setHoverPointer(inLeftThird && inBottomTwoThirds);
+  }
+
+  function handleClick(e) {
+    const img = imgRef.current;
+    if (!img) return;
+    const rect = img.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const inLeftThird = x <= rect.width / 3.1;
+    const inBottomTwoThirds = y >= rect.height / 2.7;
+
+    if (inLeftThird && inBottomTwoThirds) {
+      window.open(
+        "https://www.instagram.com/approproduction/",
+        "_blank",
+        "noopener,noreferrer"
+      );
+    }
+  }
 
   return (
     <section
@@ -50,8 +91,18 @@ export default function WhyUsHomeComponent() {
           </div>
         </div>
 
-        <div className="relative">
-          <img src="/img/why-us/grid.webp" alt="grid" />
+        <div
+          className={`relative ${hoverPointer ? "cursor-pointer" : "cursor-default"}`}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={() => setHoverPointer(false)}
+          onClick={handleClick}
+        >
+          <img
+            ref={imgRef}
+            src="/img/why-us/grid.webp"
+            alt="grid"
+            className="block"
+          />
 
           <div className="absolute -top-12 right-[50px]">
             <BounceCards

@@ -446,7 +446,7 @@ export default function ContactFooterHomeComponent({
             <ul className="mt-6 space-y-3 font-light">
               <li>
                 <a
-                  href="https://www.linkedin.com/"
+                  href="https://www.linkedin.com/company/appro-production"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-2"
@@ -457,7 +457,7 @@ export default function ContactFooterHomeComponent({
               </li>
               <li>
                 <a
-                  href="https://www.instagram.com/"
+                  href="https://www.instagram.com/approproduction/"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-2"
@@ -468,7 +468,7 @@ export default function ContactFooterHomeComponent({
               </li>
               <li>
                 <a
-                  href="https://www.facebook.com/"
+                  href="https://www.facebook.com/people/Appro-Production/61575018824175"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-2"
