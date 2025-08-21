@@ -4,7 +4,7 @@ export default function TextLegalesComponent() {
       id="mentions-legales"
       className="bg-[#171717] relative z-10 mx-auto overflow-hidden"
       style={{
-        backgroundImage: "url('/img/bg-noise.png')",
+        backgroundImage: "url('/img/bg-noise.webp')",
         backgroundRepeat: "repeat",
         backgroundSize: "100%",
       }}

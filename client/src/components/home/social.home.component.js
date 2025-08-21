@@ -109,7 +109,7 @@ export default function SocialHomeComponent({ setIsPopupOpen }) {
       id="social"
       className="bg-[#171717] py-36 relative z-10"
       style={{
-        backgroundImage: "url('/img/bg-noise.png')",
+        backgroundImage: "url('/img/bg-noise.webp')",
         backgroundRepeat: "repeat",
         backgroundSize: "100%",
       }}

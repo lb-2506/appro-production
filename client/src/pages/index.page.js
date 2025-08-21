@@ -76,7 +76,7 @@ export default function HomePage(props) {
         <div
           className="bg-[#171717] relative z-10"
           style={{
-            backgroundImage: "url('/img/bg-noise.png')",
+            backgroundImage: "url('/img/bg-noise.webp')",
             backgroundRepeat: "repeat",
             backgroundSize: "100%",
             backgroundAttachment: "fixed",

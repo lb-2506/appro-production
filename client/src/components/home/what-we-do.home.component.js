@@ -9,7 +9,7 @@ export default function WhatWeDoHomeComponent() {
         number: "01",
         titleLines: ["Vidéos", "sur mesure"],
         label: "VIDÉOS SUR MESURE",
-        image: "/img/what-we-do/1.jpg",
+        image: "/img/what-we-do/1.avif",
         description:
           "On s’adapte à votre activité, votre public, et votre ton pour créer des vidéos efficaces, humaines et bien pensées.",
         tags: [
@@ -25,7 +25,7 @@ export default function WhatWeDoHomeComponent() {
         number: "02",
         titleLines: ["Photographie", "professionnelle"],
         label: "PHOTOGRAPHIE PROFESSIONNELLE",
-        image: "/img/what-we-do/2.jpg",
+        image: "/img/what-we-do/2.avif",
         description:
           "On capture l’essentiel de votre activité, avec une esthétique simple, soignée, et naturelle.",
         tags: [
@@ -41,7 +41,7 @@ export default function WhatWeDoHomeComponent() {
         number: "03",
         titleLines: ["Accompagnement", "réseaux sociaux"],
         label: "ACCOMPAGNEMENT RÉSEAUX SOCIAUX",
-        image: "/img/what-we-do/3.jpg",
+        image: "/img/what-we-do/3.avif",
         description:
           "On vous aide à structurer votre présence en ligne. Faire vivre votre activité sur les bons canaux, sans y passer vos soirées.",
         tags: [
@@ -63,7 +63,7 @@ export default function WhatWeDoHomeComponent() {
       id="what-we-do"
       className="text-white pt-24 max-w-[1240px] mx-auto"
       style={{
-        backgroundImage: "url('/img/bg-noise.png')",
+        backgroundImage: "url('/img/bg-noise.webp')",
         backgroundRepeat: "repeat",
         backgroundSize: "100%",
         backgroundAttachment: "fixed",
@@ -72,22 +72,22 @@ export default function WhatWeDoHomeComponent() {
       <div className="bg-[#202020] max-w-[90%] w-[1240px] mx-auto p-12 md:p-10 lg:p-12 rounded-[20px] relative">
         {/* Angles */}
         <img
-          src="/img/what-we-do/angle.png"
+          src="/img/what-we-do/angle.webp"
           alt="angle"
           className="absolute top-0 left-0 max-w-[50px] -translate-x-[3px] -translate-y-[3px]"
         />
         <img
-          src="/img/what-we-do/angle.png"
+          src="/img/what-we-do/angle.webp"
           alt="angle"
           className="absolute top-0 right-0 max-w-[50px] rotate-90 translate-x-[3px] -translate-y-[3px]"
         />
         <img
-          src="/img/what-we-do/angle.png"
+          src="/img/what-we-do/angle.webp"
           alt="angle"
           className="absolute bottom-0 left-0 max-w-[50px] -rotate-90 -translate-x-[3px] translate-y-[3px]"
         />
         <img
-          src="/img/what-we-do/angle.png"
+          src="/img/what-we-do/angle.webp"
           alt="angle"
           className="absolute bottom-0 right-0 max-w-[50px] rotate-180 translate-x-[3px] translate-y-[3px]"
         />

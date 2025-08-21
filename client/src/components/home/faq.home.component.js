@@ -100,7 +100,7 @@ export default function FaqHomeComponent({ isContactFixed }) {
         }`}
         style={{
           backgroundColor: "#EAEAEA",
-          backgroundImage: "url('/img/bg-noise.png')",
+          backgroundImage: "url('/img/bg-noise.webp')",
           backgroundRepeat: "repeat",
           backgroundSize: "100%",
         }}

@@ -119,19 +119,19 @@ export default function ContactFooterHomeComponent({
         isContactFixed ? "fixed" : "relative"
       }`}
       style={{
-        backgroundImage: "url('/img/bg-noise.png')",
+        backgroundImage: "url('/img/bg-noise.webp')",
         backgroundRepeat: "repeat",
         backgroundSize: "100%",
       }}
     >
       <img
-        src="/img/logos/trame.png"
+        src="/img/logos/trame.avif"
         alt="trame"
         className="absolute top-0 left-1/2 -translate-x-1/2 opacity-50 pointer-events-none pt-12"
       />
       <img
         className="absolute w-full h-full left-1/2 -translate-x-1/2 object-cover opacity-20"
-        src="/img//traits-hero.png"
+        src="/img//traits-hero.avif"
         alt="traits-hero"
       />
 
@@ -366,7 +366,7 @@ export default function ContactFooterHomeComponent({
       <footer
         className="text-white relative w-full pt-36"
         style={{
-          backgroundImage: "url('/img/bg-noise.png')",
+          backgroundImage: "url('/img/bg-noise.webp')",
           backgroundRepeat: "repeat",
           backgroundSize: "100%",
         }}
@@ -377,7 +377,7 @@ export default function ContactFooterHomeComponent({
           <div className="flex items-start">
             {/* Remplace par ton image si tu veux */}
             <img
-              src="/img/logo.png"
+              src="/img/logo.avif"
               alt="APPRO Production"
               className="h-14 w-auto"
             />

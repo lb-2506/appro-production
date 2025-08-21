@@ -22,7 +22,7 @@ export default function LogosFoodComponent() {
     <section
       className="relative text-center mt-[100vh] w-[100vw] bg-[#F5F5F5] overflow-hidden"
       style={{
-        backgroundImage: "url('/img/bg-noise.png')",
+        backgroundImage: "url('/img/bg-noise.webp')",
         backgroundRepeat: "repeat",
         backgroundSize: "100%",
         backgroundAttachment: "fixed",
@@ -30,7 +30,7 @@ export default function LogosFoodComponent() {
     >
       {/* IMAGE FRAME qui dépasse et commence décalée à gauche */}
       <img
-        src="/img/logos/trame.png"
+        src="/img/logos/trame.avif"
         alt="trame"
         className="absolute top-0 left-1/2 -translate-x-[60%] opacity-50 pointer-events-none pt-4"
         style={{
@@ -47,52 +47,52 @@ export default function LogosFoodComponent() {
       {/* LOGOS MARQUEE */}
       <Marquee>
         <div className="pb-16 pt-24 flex gap-36 items-center opacity-40">
-          <img src="/img/logos/beliers.png" alt="beliers" className="h-[80px]" />
+          <img src="/img/logos/beliers.avif" alt="beliers" className="h-[80px]" />
           <img
-            src="/img/logos/apprologistic.png"
+            src="/img/logos/apprologistic.avif"
             alt="apprologistic"
             className="h-[80px]"
           />
           <img
-            src="/img/logos/duboncote.png"
+            src="/img/logos/duboncote.avif"
             alt="duboncote"
             className="h-[80px]"
           />
-          <img src="/img/logos/coqrock.png" alt="coqrock" className="h-[80px]" />
-          <img src="/img/logos/bbh.png" alt="bbh" className="h-[80px]" />
-          <img src="/img/logos/sourir.png" alt="sourir" className="h-[80px]" />
+          <img src="/img/logos/coqrock.avif" alt="coqrock" className="h-[80px]" />
+          <img src="/img/logos/bbh.avif" alt="bbh" className="h-[80px]" />
+          <img src="/img/logos/sourire.avif" alt="sourir" className="h-[80px]" />
           <img
-            src="/img/logos/irreductible.png"
+            src="/img/logos/irreductible.avif"
             alt="irreductible"
             className="h-[80px]"
           />
           <img
-            src="/img/logos/approconcept.png"
+            src="/img/logos/approconcept.avif"
             alt="approconcept"
             className="h-[80px]"
           />
 
-          <img src="/img/logos/office.png" alt="office" className="h-[80px]" />
+          <img src="/img/logos/office.avif" alt="office" className="h-[80px]" />
 
           <img
-            src="/img/logos/patrouille.png"
+            src="/img/logos/patrouille.avif"
             alt="patrouille"
             className="h-[80px]"
           />
 
-          <img src="/img/logos/rcc.png" alt="rcc" className="h-[80px]" />
+          <img src="/img/logos/rcc.avif" alt="rcc" className="h-[80px]" />
 
-          <img src="/img/logos/rhd.png" alt="rhd" className="h-[80px]" />
+          <img src="/img/logos/rhd.avif" alt="rhd" className="h-[80px]" />
 
-          <img src="/img/logos/usconc.png" alt="usconc" className="h-[80px]" />
+          <img src="/img/logos/usconc.avif" alt="usconc" className="h-[80px]" />
 
           <img
-            src="/img/logos/badminton.png"
+            src="/img/logos/badminton.avif"
             alt="badminton"
             className="h-[80px]"
           />
 
-          <img src="/img/logos/optic.png" alt="optic2000" className="h-[80px] mr-24" />
+          <img src="/img/logos/optic.avif" alt="optic2000" className="h-[80px] mr-24" />
         </div>
       </Marquee>
     </section>

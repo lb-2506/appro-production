@@ -81,7 +81,7 @@ export default function NavbarFoodComponent() {
         <Link href="/">
           <a>
             <img
-              src="/img/logo.png"
+              src="/img/logo.avif"
               draggable={false}
               alt="logo"
               className="left-6 top-6 max-h-[30px] z-30"
@@ -122,7 +122,7 @@ export default function NavbarFoodComponent() {
         <Link href="/">
           <a>
             <img
-              src="/img/logo.png"
+              src="/img/logo.avif"
               draggable={false}
               alt="logo-food"
               className="max-h-[50px] hidden desktop:block"

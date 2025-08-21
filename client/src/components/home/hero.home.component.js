@@ -45,20 +45,20 @@ export default function HeroHomeComponent() {
     <div
       className="fixed top-0 -z-10 bg-black w-full h-[100dvh]"
       style={{
-        backgroundImage: "url('/img/bg-noise.png')",
+        backgroundImage: "url('/img/bg-noise.webp')",
         backgroundRepeat: "repeat",
         backgroundSize: "100%",
       }}
     >
       <img
         className="absolute w-full h-full left-1/2 -translate-x-1/2 object-cover"
-        src="/img/hero/bg-hero.jpg"
+        src="/img/hero/bg-hero.avif"
         alt="bg-hero"
       />
 
       <img
         className="absolute w-full h-full left-1/2 -translate-x-1/2 object-cover opacity-75"
-        src="/img/traits-hero.png"
+        src="/img/traits-hero.avif"
         alt="traits-hero"
       />
 
@@ -67,11 +67,11 @@ export default function HeroHomeComponent() {
       <section
         ref={containerRef}
         style={{ pointerEvents: "all" }}
-        className="h-[100dvh] flex flex-col gap-4 justify-center px-[10%] items-center relative overflow-hidden"
+        className="h-[100dvh] flex flex-col gap-4 justify-center px-[10%] relative overflow-hidden"
       >
         {/* +60 clients */}
         <div className="fade-only flex items-center gap-4 w-full text-left">
-          <img src="/img/hero/avis.png" className="max-h-[30px]" alt="trust" />
+          <img src="/img/hero/avis.avif" className="max-h-[30px]" alt="trust" />
           <p className="text-white font-thin">
             +60 clients nous font confiance
           </p>
@@ -83,10 +83,14 @@ export default function HeroHomeComponent() {
           <span className="text-right fade-up">Montrez qui vous êtes.</span>
         </h1>
 
-        {/* h2 qui fade avec +60 clients */}
-        <h2 className="fade-only tracking-tight text-white text-right w-full font-thin">
-          Appro Production - Photo, vidéo et réseaux sociaux.
-        </h2>
+        <div className="w-full flex justify-end">
+          {/* h2 qui fade avec +60 clients */}
+          <h2 className="fade-only tracking-tight text-white text-left justify-end w-fit font-thin">
+            Appro Production - Photo, vidéo et réseaux sociaux.
+            <br />
+            Une entreprise du groupe Appro
+          </h2>
+        </div>
       </section>
     </div>
   );

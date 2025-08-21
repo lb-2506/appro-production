@@ -84,7 +84,7 @@ export default function SkillsHomeComponent() {
       id="skills"
       className="bg-[#FFFFFF] relative z-10 mx-auto"
       style={{
-        backgroundImage: "url('/img/bg-noise.png')",
+        backgroundImage: "url('/img/bg-noise.webp')",
         backgroundRepeat: "repeat",
         backgroundSize: "100%",
       }}
@@ -204,7 +204,7 @@ export default function SkillsHomeComponent() {
                 <span
                   ref={(el) => (numberRefs.current[i] = el)}
                   style={{
-                    backgroundImage: "url('/img/bg-noise.png')",
+                    backgroundImage: "url('/img/bg-noise.webp')",
                     backgroundRepeat: "repeat",
                     backgroundSize: "100%",
                   }}

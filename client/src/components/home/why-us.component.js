@@ -21,7 +21,7 @@ export default function WhyUsHomeComponent() {
       id="why-us"
       className="bg-[#F5F5F5] relative z-10 mx-auto overflow-hidden -my-[2px]"
       style={{
-        backgroundImage: "url('/img/bg-noise.png')",
+        backgroundImage: "url('/img/bg-noise.webp')",
         backgroundRepeat: "repeat",
         backgroundSize: "100%",
       }}

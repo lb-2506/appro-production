@@ -56,7 +56,7 @@ export default function SectorsHomeComponent() {
     <section
       className="text-white max-w-[90%] w-[1240px] mx-auto"
       style={{
-        backgroundImage: "url('/img/bg-noise.png')",
+        backgroundImage: "url('/img/bg-noise.webp')",
         backgroundRepeat: "repeat",
         backgroundSize: "100%",
         backgroundAttachment: "fixed",
