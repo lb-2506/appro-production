@@ -38,6 +38,7 @@ export default function HomePage(props) {
   }
 
   const [isContactFixed, setIsContactFixed] = useState(true);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   return (
     <>
@@ -50,10 +51,7 @@ export default function HomePage(props) {
           {description && (
             <meta property="og:description" content={description} />
           )}
-          <meta
-            property="og:url"
-            content="https://approproduction.fr"
-          />
+          <meta property="og:url" content="https://approproduction.fr" />
           <meta property="og:type" content="website" />
           <meta property="og:image" content="/img/open-graph.jpg" />
           <meta property="og:image:width" content="1200" />
@@ -61,10 +59,13 @@ export default function HomePage(props) {
         </>
       </Head>
 
-      <div className="select-none"  style={{ fontFamily: "'Satoshi Regular', sans-serif" }}>
+      <div
+        className="select-none"
+        style={{ fontFamily: "'Satoshi Regular', sans-serif" }}
+      >
         <NavbarComponent />
 
-        <DisponibilitiesHomeComponent />
+        {!isPopupOpen && <DisponibilitiesHomeComponent />}
 
         <HeroHomeComponent />
 
@@ -90,8 +91,8 @@ export default function HomePage(props) {
 
         <WhyUsHomeComponent />
 
-        <SocialHomeComponent />
-
+        <SocialHomeComponent setIsPopupOpen={setIsPopupOpen} />
+        
         <StoryHomeComponent />
 
         <TestimonialsHomeComponent />

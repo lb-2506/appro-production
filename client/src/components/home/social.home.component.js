@@ -1,5 +1,5 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 
 /* --- helpers --- */
 const ytId = (url) => {
@@ -39,7 +39,6 @@ const SOCIAL_LINKS = [
   { title: "Vlog Festival irréductibles", url: "https://youtu.be/pn1OuQoRUzU" },
 ];
 
-// placeholders photos
 const PHOTO_URLS = [
   "/img/social/1.avif",
   "/img/social/2.avif",
@@ -55,9 +54,26 @@ const PHOTO_URLS = [
   "/img/social/12.avif",
 ];
 
-export default function SocialHomeComponent() {
+export default function SocialHomeComponent({ setIsPopupOpen }) {
   const TABS = ["videos", "photos", "social"];
   const [tab, setTab] = useState("videos");
+  const [page, setPage] = useState(0);
+  const [selected, setSelected] = useState(null);
+
+  // Bloque le scroll quand un popup est ouvert
+  useEffect(() => {
+    if (selected) {
+      document.body.style.overflow = "hidden";
+      setIsPopupOpen(true);
+    } else {
+      document.body.style.overflow = "";
+      setIsPopupOpen(false);
+    }
+    return () => {
+      document.body.style.overflow = "";
+      setIsPopupOpen(false);
+    };
+  }, [selected, setIsPopupOpen]);
 
   const { items, perPage, playable } = useMemo(() => {
     if (tab === "videos")
@@ -80,22 +96,13 @@ export default function SocialHomeComponent() {
   }, [tab]);
 
   const pageCount = Math.max(1, Math.ceil(items.length / perPage));
-  const [page, setPage] = useState(0);
-  const onTab = (t) => {
-    setTab(t);
-    setPage(0);
-  };
+  const GAP = 24;
+  const itemBasis = `calc((100% - ${(perPage - 1) * GAP}px) / ${perPage})`;
+  const sliceStart = page * perPage;
+  const current = items.slice(sliceStart, sliceStart + perPage);
 
   const prev = () => setPage((p) => Math.max(0, p - 1));
   const next = () => setPage((p) => Math.min(pageCount - 1, p + 1));
-
-  // largeur d’un item pour remplir la ligne (avec 24px de gap ~ Tailwind gap-6)
-  const GAP = 24;
-  const itemBasis = `calc((100% - ${(perPage - 1) * GAP}px) / ${perPage})`;
-
-  // slice des items de la page courante
-  const sliceStart = page * perPage;
-  const current = items.slice(sliceStart, sliceStart + perPage);
 
   return (
     <section
@@ -113,24 +120,25 @@ export default function SocialHomeComponent() {
           <h2 className="tracking-tight font-light uppercase opacity-40">
             Ils sont devenus mémorables
           </h2>
-
           <h1 className="tracking-tighter text-[9vw] leading-[12vw] mobile:leading-[65px] tablet:text-[60px] font-light">
             Des vidéos et des photos
             <br /> qui parlent pour eux.
           </h1>
-
           <h3 className="max-w-[600px] text-lg opacity-60 font-light">
             Personal branding, storytelling, prise de parole stratégique :
             chaque contenu qu’on crée a un objectif clair… et des résultats
             concrets.
           </h3>
 
-          {/* Filtres */}
+          {/* Tabs */}
           <div className="mb-6 mt-10 flex gap-3">
             {TABS.map((k) => (
               <button
                 key={k}
-                onClick={() => onTab(k)}
+                onClick={() => {
+                  setTab(k);
+                  setPage(0);
+                }}
                 className={[
                   "px-4 py-2 rounded-lg text-sm transition-all",
                   tab === k
@@ -148,18 +156,17 @@ export default function SocialHomeComponent() {
           </div>
         </div>
 
-        {/* Ligne de médias (toujours en ligne) */}
+        {/* Liste */}
         <div className="w-full">
-          <div className="flex gap-6" style={{ willChange: "transform" }}>
+          <div className="flex gap-6">
             {current.map((item, i) => {
               const image = item.thumb || item.url;
-              const url = item.url;
               return (
                 <SquareCard
                   key={i}
                   image={image}
                   playable={playable}
-                  onClick={url ? () => window.open(url, "_blank") : undefined}
+                  onClick={() => setSelected(item)}
                   style={{ flex: `0 0 ${itemBasis}` }}
                 />
               );
@@ -178,7 +185,6 @@ export default function SocialHomeComponent() {
                     ? "opacity-50 cursor-not-allowed"
                     : "hover:opacity-90",
                 ].join(" ")}
-                aria-label="Précédent"
               >
                 ←
               </button>
@@ -191,13 +197,10 @@ export default function SocialHomeComponent() {
                     ? "opacity-50 cursor-not-allowed"
                     : "hover:opacity-90",
                 ].join(" ")}
-                aria-label="Suivant"
               >
                 →
               </button>
             </div>
-
-            {/* Dots */}
             <div className="flex items-center gap-2">
               {Array.from({ length: pageCount }).map((_, i) => (
                 <span
@@ -212,6 +215,41 @@ export default function SocialHomeComponent() {
           </div>
         </div>
       </div>
+
+      {/* Popup */}
+      {selected && (
+        <div
+          className="fixed inset-0 bg-black/90 z-[9999] flex items-center justify-center p-6"
+          onClick={() => setSelected(null)} // fermer si clic sur l'overlay
+        >
+          <div
+            className="relative w-[90%] h-[90%] bg-black rounded-xl overflow-hidden flex items-center justify-center"
+            onClick={(e) => e.stopPropagation()} // empêcher propagation
+          >
+            <button
+              onClick={() => setSelected(null)}
+              className="absolute top-4 right-4 text-white text-3xl z-10"
+            >
+              ✕
+            </button>
+
+            {ytId(selected.url) ? (
+              <iframe
+                src={`https://www.youtube.com/embed/${ytId(selected.url)}?autoplay=1`}
+                className="w-full h-full"
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+              ></iframe>
+            ) : (
+              <img
+                src={selected.url}
+                alt=""
+                className="max-h-full max-w-full object-contain"
+              />
+            )}
+          </div>
+        </div>
+      )}
     </section>
   );
 }
@@ -231,12 +269,11 @@ function SquareCard({ image, onClick, playable = false, style }) {
       />
       {playable && (
         <span className="absolute inset-0 flex items-center justify-center">
-          <span className="h-10 w-10 rounded-full bg-white/90 text-black grid place-items-center shadow">
+          <span className="h-12 w-12 rounded-full bg-white/90 text-black grid place-items-center shadow">
             ▶
           </span>
         </span>
       )}
-      <span className="absolute inset-0 rounded-3xl shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)]" />
     </button>
   );
 }

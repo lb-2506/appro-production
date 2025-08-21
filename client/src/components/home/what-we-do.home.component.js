@@ -209,12 +209,39 @@ export default function WhatWeDoHomeComponent() {
         </div>
 
         {/* CTA */}
-        <div className="mt-8 flex justify-center">
+        <div className="flex justify-center mt-8">
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 rounded-full bg-white text-black px-6 py-3 font-medium shadow/30 shadow-black/40 hover:shadow-black/60 transition-shadow"
+            className="group relative inline-flex items-center rounded-full font-light bg-white text-black px-6 py-3 shadow/30 shadow-black/40 hover:shadow-black/60 transition-shadow overflow-hidden"
           >
-            Contactez nous <span className="font-light">↗</span>
+            Contactez nous
+            <span className="relative inline-block w-6 h-6 overflow-visible">
+              <span className="absolute inset-0 flex flex-col items-center justify-center transition-transform duration-300 ease-out group-hover:translate-x-11 group-hover:-translate-y-11">
+                <span
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="absolute w-4 h-4 text-black opacity-100"
+                  style={{ transform: "translate(-40px, 40px)" }}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  ↗
+                </span>
+
+                <span
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="absolute w-4 h-4 text-black opacity-100"
+                  style={{ transform: "translate(3px, -3px)" }}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  ↗
+                </span>
+              </span>
+            </span>
           </a>
         </div>
       </div>

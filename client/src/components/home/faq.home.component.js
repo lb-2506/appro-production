@@ -92,75 +92,103 @@ export default function FaqHomeComponent({ isContactFixed }) {
 
   return (
     <>
-    <section
-      id="faq"
-      ref={containerRef}
-      className={`z-10 relative overflow-hidden py-60 ${
-        isContactFixed ? "mb-[100dvh]" : "mb-0"
-      }`}
-      style={{
-        backgroundColor: "#EAEAEA",
-        backgroundImage: "url('/img/bg-noise.png')",
-        backgroundRepeat: "repeat",
-        backgroundSize: "100%",
-      }}
-    >
-      {/* Halo jaune très diffus, suit la souris (taille grande + blur fort) */}
-      <div
-        ref={glowRef}
-        className="pointer-events-none absolute top-0 left-0 rounded-full opacity-70"
+      <section
+        id="faq"
+        ref={containerRef}
+        className={`z-10 relative overflow-hidden py-60 ${
+          isContactFixed ? "mb-[100dvh]" : "mb-0"
+        }`}
         style={{
-          width: 900,
-          height: 900,
-          background: "#FEFEA2",
-          filter: "blur(120px)", 
-          transform: "translate(-50%, -50%)",
-          mixBlendMode: "multiply",
-          willChange: "transform, filter", 
+          backgroundColor: "#EAEAEA",
+          backgroundImage: "url('/img/bg-noise.png')",
+          backgroundRepeat: "repeat",
+          backgroundSize: "100%",
         }}
-      />
+      >
+        {/* Halo jaune très diffus, suit la souris (taille grande + blur fort) */}
+        <div
+          ref={glowRef}
+          className="pointer-events-none absolute top-0 left-0 rounded-full opacity-70"
+          style={{
+            width: 900,
+            height: 900,
+            background: "#FEFEA2",
+            filter: "blur(120px)",
+            transform: "translate(-50%, -50%)",
+            mixBlendMode: "multiply",
+            willChange: "transform, filter",
+          }}
+        />
 
-      {/* Contenu */}
-      <div className="relative z-10 max-w-[1240px] w-[90%] mx-auto flex flex-col items-center gap-10">
-        {/* Header */}
-        <div className="text-black max-w-[760px] flex flex-col gap-6 items-center text-center">
-          <h2 className="tracking-tight font-light uppercase opacity-40">
-            FAQ
-          </h2>
-          <h1 className="tracking-tighter text-[9vw] leading-[12vw] mobile:leading-[65px] tablet:text-[60px] font-light">
-            Vous avez des
-            <br /> questions ?
-          </h1>
-          <p className="max-w-[420px] text-lg opacity-60 font-light">
-            Nous avons les réponses. Voici tout ce que vous devez savoir pour
-            travailler avec nous.
-          </p>
-          <div className="flex justify-center">
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 rounded-full font-light bg-black text-white px-6 py-3 shadow/30 shadow-black/40 hover:shadow-black/60 transition-shadow"
-            >
-              Contactez nous <span className="font-light">↗</span>
-            </a>
+        {/* Contenu */}
+        <div className="relative z-10 max-w-[1240px] w-[90%] mx-auto flex flex-col items-center gap-10">
+          {/* Header */}
+          <div className="text-black max-w-[760px] flex flex-col gap-6 items-center text-center">
+            <h2 className="tracking-tight font-light uppercase opacity-40">
+              FAQ
+            </h2>
+            <h1 className="tracking-tighter text-[9vw] leading-[12vw] mobile:leading-[65px] tablet:text-[60px] font-light">
+              Vous avez des
+              <br /> questions ?
+            </h1>
+            <p className="max-w-[420px] text-lg opacity-60 font-light">
+              Nous avons les réponses. Voici tout ce que vous devez savoir pour
+              travailler avec nous.
+            </p>
+            
+            <div className="flex justify-center">
+              <a
+                href="#contact"
+                className="group relative inline-flex items-center rounded-full font-light bg-black text-white px-6 py-3 shadow/30 shadow-black/40 hover:shadow-black/60 transition-shadow overflow-hidden"
+              >
+                Contactez nous
+                <span className="relative inline-block w-6 h-6 overflow-visible">
+                  <span className="absolute inset-0 flex flex-col items-center justify-center transition-transform duration-300 ease-out group-hover:translate-x-11 group-hover:-translate-y-11">
+                    <span
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="absolute w-4 h-4 text-white opacity-100"
+                      style={{ transform: "translate(-40px, 40px)" }}
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      ↗
+                    </span>
+
+                    <span
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="absolute w-4 h-4 text-white opacity-100"
+                      style={{ transform: "translate(3px, -3px)" }}
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      ↗
+                    </span>
+                  </span>
+                </span>
+              </a>
+            </div>
+          </div>
+
+          {/* Liste FAQ */}
+          <div className="w-full flex flex-col gap-4">
+            {FAQ.map((item, i) => (
+              <FaqItem
+                key={i}
+                i={i}
+                open={open}
+                onToggle={() => toggle(i)}
+                q={item.q}
+                a={item.a}
+              />
+            ))}
           </div>
         </div>
-
-        {/* Liste FAQ */}
-        <div className="w-full flex flex-col gap-4">
-          {FAQ.map((item, i) => (
-            <FaqItem
-              key={i}
-              i={i}
-              open={open}
-              onToggle={() => toggle(i)}
-              q={item.q}
-              a={item.a}
-            />
-          ))}
-        </div>
-      </div>
-    </section>
-    <div  id="contact"/>
+      </section>
+      <div id="contact" />
     </>
   );
 }

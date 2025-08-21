@@ -306,16 +306,19 @@ export default function ContactFooterHomeComponent({
               </div>
 
               {/* Ligne 6 : RGPD */}
-              <label className="inline-flex items-center gap-2 text-sm">
+              <label className="inline-flex items-center gap-2 text-sm cursor-pointer">
                 <input
                   type="checkbox"
                   name="accept"
                   checked={form.accept}
                   onChange={updateField}
-                  className="min-w-4 rounded border border-black/30"
+                  className="min-w-4 rounded border border-black/30 cursor-pointer"
                 />
-                <span className=" opacity-60">
-                  J'accepte la politique de confidentialité
+                <span className="opacity-60">
+                  J'accepte la{" "}
+                  <a href="/privacy" className="underline hover:opacity-100">
+                    politique de confidentialité
+                  </a>
                 </span>
               </label>
 
@@ -323,9 +326,36 @@ export default function ContactFooterHomeComponent({
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="inline-flex items-center gap-2 rounded-full bg-black text-white px-6 py-3 text-sm font-light shadow/30 shadow-black/40 hover:shadow-black/60 transition-shadow"
+                  className="group relative inline-flex items-center rounded-full font-light bg-black text-white px-6 py-3 shadow/30 shadow-black/40 hover:shadow-black/60 transition-shadow overflow-hidden"
                 >
-                  Envoyer <span className="font-light">↗</span>
+                  Envoyer
+                  <span className="relative inline-block w-6 h-6 overflow-visible">
+                    <span className="absolute inset-0 flex flex-col items-center justify-center transition-transform duration-300 ease-out group-hover:translate-x-11 group-hover:-translate-y-11">
+                      <span
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="absolute w-4 h-4 text-white opacity-100"
+                        style={{ transform: "translate(-40px, 40px)" }}
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
+                        ↗
+                      </span>
+
+                      <span
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="absolute w-4 h-4 text-white opacity-100"
+                        style={{ transform: "translate(3px, -3px)" }}
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
+                        ↗
+                      </span>
+                    </span>
+                  </span>
                 </button>
               </div>
             </form>
