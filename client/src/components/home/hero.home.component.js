@@ -81,8 +81,8 @@ export default function HeroHomeComponent() {
           <Image
             src="/img/hero/avis.avif"
             alt="trust"
-            width="100%"
-            height={30}
+            width={242}
+            height={67}
             className="max-h-[30px] w-auto"
           />
           <p className="text-white font-thin">
