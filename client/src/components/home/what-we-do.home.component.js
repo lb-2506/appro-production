@@ -158,13 +158,12 @@ export default function WhatWeDoHomeComponent() {
 
           {/* Colonne droite */}
           <div className="w-[620px]">
-            <ul role="tablist" className="space-y-6">
+            <ul className="space-y-6">
               {items.map((item, idx) => {
                 const isActive = idx === active;
                 return (
                   <li key={item.key}>
                     <button
-                      role="tab"
                       aria-selected={isActive}
                       onClick={() => setActive(idx)}
                       className="group w-full text-left"
