@@ -195,7 +195,7 @@ export default function SkillsHomeComponent() {
                     alt="picto"
                   />
                 </div>
-                <h4 className="text-4xl tracking-tight px-8">{data.title}</h4>
+                <h3 className="text-4xl tracking-tight px-8">{data.title}</h3>
                 <p className="p-8 pt-0 opacity-60 font-light">{data.content}</p>
               </div>
 

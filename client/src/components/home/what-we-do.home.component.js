@@ -157,21 +157,19 @@ export default function WhatWeDoHomeComponent() {
 
           {/* Colonne droite (liste des tabs) */}
           <div className="w-[620px]">
-            <ul role="tablist" className="space-y-6">
+            {/* Liste des tabs */}
+            <ul className="space-y-6">
               {items.map((item, idx) => {
                 const isActive = idx === active;
                 return (
                   <li key={item.key}>
                     <button
-                      role="tab"
                       id={`tab-${idx}`}
-                      aria-selected={isActive}
-                      aria-controls={`panel-${idx}`}
                       onClick={() => setActive(idx)}
                       className="group w-full text-left"
                     >
                       <div className="grid grid-cols-[1fr_auto] gap-x-4">
-                        <h1
+                        <h2
                           className={[
                             "font-thin leading-[1.08] tracking-tighter",
                             "transition-all duration-300 ease-out",
@@ -186,9 +184,8 @@ export default function WhatWeDoHomeComponent() {
                           <span className="block text-[55px]">
                             {item.titleLines[1]}
                           </span>
-                        </h1>
+                        </h2>
 
-                        {/* Numéro en haut à droite */}
                         <span
                           className={[
                             "text-xs tracking-widest uppercase text-white/50 self-start",
@@ -206,19 +203,9 @@ export default function WhatWeDoHomeComponent() {
                 );
               })}
             </ul>
-
-            {/* Panneau actif */}
-            <div
-              role="tabpanel"
-              id={`panel-${active}`}
-              aria-labelledby={`tab-${active}`}
-              className="sr-only"
-            >
-              {/* tu peux mettre ici un résumé textuel ou rien, 
-                  l’important c’est le lien ARIA */}
-            </div>
           </div>
         </div>
+        
         {/* CTA */}
         <div className="flex justify-center mt-8">
           <a
