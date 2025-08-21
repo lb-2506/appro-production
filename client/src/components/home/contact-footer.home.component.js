@@ -115,7 +115,6 @@ export default function ContactFooterHomeComponent({
 
   return (
     <section
-      id="contact"
       className={`bg-[#171717] mx-auto flex flex-col top-0 w-full min-h-[100vh] overflow-hidden ${zIndexClass} flex items-center  ${
         isContactFixed ? "fixed" : "relative"
       }`}
@@ -130,20 +129,20 @@ export default function ContactFooterHomeComponent({
         alt="trame"
         className="absolute top-0 left-1/2 -translate-x-1/2 opacity-50 pointer-events-none pt-12"
       />
-     <img
+      <img
         className="absolute w-full h-full left-1/2 -translate-x-1/2 object-cover opacity-20"
         src="/img//traits-hero.png"
         alt="traits-hero"
       />
 
       <div className="w-full">
-        <div className="max-w-[1240px] w-[90%] z-10 mx-auto flex flex-col tablet:flex-row gap-16 tablet:gap-24 pt-44">
+        <div className="max-w-[1240px] w-[90%] z-10 mx-auto flex flex-col tablet:flex-row gap-16 tablet:gap-24 pt-36">
           {/* Colonne gauche - titres */}
           <div className="text-white  flex flex-col gap-6">
-            <h2 className="font-light uppercase opacity-40 tracking-tight">
+            <h2 className="tracking-tight font-light uppercase opacity-40">
               Contact
             </h2>
-            <h1 className="text-[9vw] leading-[12vw] mobile:leading-[65px] tablet:text-[60px] font-light">
+            <h1 className="tracking-tighter text-[9vw] leading-[12vw] mobile:leading-[65px] tablet:text-[60px] font-light">
               Comment pouvons-
               <br className="hidden tablet:block" />
               nous vous aider ?
@@ -489,17 +488,11 @@ export default function ContactFooterHomeComponent({
               © Appro Production 2025. Tous droits réservés.
             </p>
 
-            <div className="flex items-center gap-6 text-sm">
-              <a
-                href="/legales"
-                className="opacity-70 hover:opacity-100"
-              >
+            <div className="flex items-center gap-6 text-sm pr-[220px]">
+              <a href="/legales" className="opacity-70 hover:opacity-100">
                 Mentions légales
               </a>
-              <a
-                href="/privacy"
-                className="opacity-70 hover:opacity-100"
-              >
+              <a href="/privacy" className="opacity-70 hover:opacity-100">
                 Politique de confidentialité
               </a>
             </div>

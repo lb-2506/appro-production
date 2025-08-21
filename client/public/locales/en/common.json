@@ -1,21 +1,3 @@
 {
-  "nav": {
-    "list": {
-      "1": "Our Expertise",
-      "2": "Our Strengths",
-      "3": "Our Achievements",
-      "4": "Our Team",
-      "5": "Our Method"
-    },
-    "button": {
-      "estimate": "I Want a Quote"
-    },
-    "food": {
-      "list": {
-        "1": "Our Digital Solutions",
-        "2": "Gusto Manager",
-        "3": "The Chefs"
-      }
-    }
-  }
+  
 }

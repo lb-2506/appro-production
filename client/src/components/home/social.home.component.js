@@ -110,10 +110,10 @@ export default function SocialHomeComponent() {
       <div className="max-w-[1240px] w-[90%] mx-auto flex flex-col items-center gap-10">
         {/* Header */}
         <div className="text-white max-w-[850px] flex flex-col gap-6 items-center text-center">
-          <h2 className="font-light uppercase opacity-40 tracking-tight">
+          <h2 className="tracking-tight font-light uppercase opacity-40">
             Ils sont devenus mémorables
           </h2>
-          <h1 className="text-[9vw] leading-[12vw] mobile:leading-[65px] tablet:text-[60px] font-light">
+          <h1 className="tracking-tighter text-[9vw] leading-[12vw] mobile:leading-[65px] tablet:text-[60px] font-light">
             Des vidéos et des photos
             <br /> qui parlent pour eux.
           </h1>

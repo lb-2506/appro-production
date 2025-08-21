@@ -40,13 +40,13 @@ export default function LogosFoodComponent() {
         }}
       />
 
-      <h1 className="uppercase opacity-40 pt-48 tracking-tighter">
+      <h1 className="tracking-tighter uppercase opacity-40 pt-48">
         Ils nous font confiance
       </h1>
 
       {/* LOGOS MARQUEE */}
       <Marquee>
-        <div className="pb-16 pt-24 flex gap-44 items-center opacity-40">
+        <div className="pb-16 pt-24 flex gap-36 items-center opacity-40">
           <img src="/img/logos/beliers.png" alt="beliers" className="h-[80px]" />
           <img
             src="/img/logos/apprologistic.png"

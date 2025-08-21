@@ -11,7 +11,7 @@ export default function TextRevealHomeComponent() {
         backgroundAttachment: "fixed",
       }}
     >
-      <div className="max-w-[900px] mx-auto">
+      <div className="max-w-[900px] mx-auto tracking-tighter">
         <ScrollReveal
           baseOpacity={0}
           enableBlur

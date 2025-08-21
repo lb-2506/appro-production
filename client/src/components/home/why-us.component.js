@@ -68,10 +68,8 @@ export default function WhyUsHomeComponent() {
     >
       <div className="py-36 max-w-[1240px] w-[90%] mx-auto flex flex-col items-center gap-36">
         <div className="text-black max-w-[850px] flex flex-col gap-8 items-center justify-center text-center">
-          <h2 className="font-light uppercase opacity-40 tracking-tight">
-            Tagline
-          </h2>
-          <h1 className="text-[9vw] leading-[12vw] mobile:leading-[75px] tablet:text-[70px] font-light">
+        
+          <h1 className="tracking-tighter text-[9vw] leading-[12vw] mobile:leading-[75px] tablet:text-[70px] font-light">
             Pourquoi nous choisir
             <br />
             comme agence ?
@@ -84,9 +82,20 @@ export default function WhyUsHomeComponent() {
           <div className="flex justify-center">
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 rounded-full bg-black text-white px-6 py-3 text-sm font-light shadow/30 shadow-black/40 hover:shadow-black/60 transition-shadow"
+              className="group relative inline-flex items-center gap-2 rounded-full bg-black text-white px-6 py-3 font-light shadow/30 shadow-black/40 hover:shadow-black/60 transition-shadow overflow-hidden"
             >
-              Contactez nous <span className="font-light">↗</span>
+              Contactez nous
+              <span className="relative inline-block">
+                {/* Flèche par défaut */}
+                <span className="block transition-opacity duration-200 group-hover:opacity-0">
+                  ↗
+                </span>
+
+                {/* Flèche animée (pas d’animation appliquée ici directement) */}
+                <span className="absolute inset-0 block opacity-0 arrow-anim">
+                  ↗
+                </span>
+              </span>
             </a>
           </div>
         </div>

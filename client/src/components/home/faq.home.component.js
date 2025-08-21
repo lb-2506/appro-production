@@ -91,6 +91,7 @@ export default function FaqHomeComponent({ isContactFixed }) {
   const toggle = (i) => setOpen((o) => (o === i ? -1 : i));
 
   return (
+    <>
     <section
       id="faq"
       ref={containerRef}
@@ -123,10 +124,10 @@ export default function FaqHomeComponent({ isContactFixed }) {
       <div className="relative z-10 max-w-[1240px] w-[90%] mx-auto flex flex-col items-center gap-10">
         {/* Header */}
         <div className="text-black max-w-[760px] flex flex-col gap-6 items-center text-center">
-          <h2 className="font-light uppercase opacity-40 tracking-tight">
+          <h2 className="tracking-tight font-light uppercase opacity-40">
             FAQ
           </h2>
-          <h1 className="text-[9vw] leading-[12vw] mobile:leading-[65px] tablet:text-[60px] font-light">
+          <h1 className="tracking-tighter text-[9vw] leading-[12vw] mobile:leading-[65px] tablet:text-[60px] font-light">
             Vous avez des
             <br /> questions ?
           </h1>
@@ -137,7 +138,7 @@ export default function FaqHomeComponent({ isContactFixed }) {
           <div className="flex justify-center">
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 rounded-full font-light bg-black text-white px-6 py-3 text-sm shadow/30 shadow-black/40 hover:shadow-black/60 transition-shadow"
+              className="inline-flex items-center gap-2 rounded-full font-light bg-black text-white px-6 py-3 shadow/30 shadow-black/40 hover:shadow-black/60 transition-shadow"
             >
               Contactez nous <span className="font-light">↗</span>
             </a>
@@ -159,6 +160,8 @@ export default function FaqHomeComponent({ isContactFixed }) {
         </div>
       </div>
     </section>
+    <div  id="contact"/>
+    </>
   );
 }
 
@@ -188,7 +191,7 @@ function FaqItem({ i, open, onToggle, q, a }) {
         onClick={onToggle}
         className="w-full text-left px-6 py-5 pr-14 flex items-center justify-between gap-6"
       >
-        <span className="text-black tracking-tight">{q}</span>
+        <span className="text-black font-bold tracking-tight">{q}</span>
 
         {/* bouton rond + / – */}
         <span

@@ -91,22 +91,24 @@ export default function SkillsHomeComponent() {
     >
       <div className="pt-24 pb-48 max-w-[90%] mx-auto flex flex-col items-center gap-36">
         <div className="text-darkBlue max-w-[850px] flex flex-col gap-8 items-center justify-center text-center">
-          <h2 className="font-light uppercase opacity-40 tracking-tight">
-            Tagline
+          <h2 className="tracking-tight font-light uppercase opacity-40">
+            Notre process
           </h2>
-          <h1 className="text-[9vw] leading-[12vw] mobile:leading-[85px] tablet:text-[70px] font-light">
-            La méthode Appro
+          <h1 className="tracking-tighter text-[9vw] leading-[12vw] mobile:leading-[85px] tablet:text-[70px] font-light">
+            On vous écoute, on
+            <br />
+            s'adapte, on crée.
           </h1>
 
           <h3 className="max-w-[600px] text-lg opacity-60 font-light">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendusse
-            varius enim in eros ele.
+            Avec la rigueur d'un groupe et l'agilité d'une équipe proche de
+            vous.
           </h3>
 
           <div className="flex justify-center">
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 rounded-full bg-black text-white px-6 py-3 text-sm font-light shadow/30 shadow-black/40 hover:shadow-black/60 transition-shadow"
+              className="inline-flex items-center gap-2 rounded-full bg-black text-white px-6 py-3 font-light shadow/30 shadow-black/40 hover:shadow-black/60 transition-shadow"
             >
               Contactez nous <span className="font-light">↗</span>
             </a>
@@ -159,19 +161,15 @@ export default function SkillsHomeComponent() {
                   className="absolute bottom-0 right-0 max-w-[50px] rotate-180 translate-x-[2px] translate-y-[2px]"
                 />
                 <div className="flex justify-between">
-                  <p className="uppercase text-sm opacity-40 p-8 pb-0">
-                    {data.step}
-                  </p>
+                  <p className="uppercase opacity-40 p-8 pb-0">{data.step}</p>
                   <img
                     src={data.picto}
-                    className=" bg-white/60 h-7 w-7 m-8 mb-0 p-2 rounded-md"
+                    className=" bg-white/60 h-9 w-9 m-8 mb-0 p-2 rounded-md"
                     alt="picto"
                   />
                 </div>
                 <h4 className="text-4xl tracking-tight px-8">{data.title}</h4>
-                <p className="p-8 pt-0 opacity-60 font-light text-sm">
-                  {data.content}
-                </p>
+                <p className="p-8 pt-0 opacity-60 font-light">{data.content}</p>
               </div>
 
               {/* Gros point */}

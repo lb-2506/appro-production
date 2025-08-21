@@ -69,7 +69,7 @@ export default function SectorsHomeComponent() {
             <p className="uppercase text-xs tracking-wide text-white">
               Secteurs
             </p>
-            <h2 className="mt-4 text-5xl font-light leading-tight">
+            <h2 className="tracking-tight mt-4 text-5xl font-light leading-tight">
               Notre terrain de jeu
             </h2>
             <p className="mt-4 text-white/70 max-w-[38ch]">
@@ -80,7 +80,7 @@ export default function SectorsHomeComponent() {
 
           <a
             href="#contact"
-            className="w-fit mt-8 inline-flex items-center gap-2 rounded-full bg-white text-black px-6 py-3 text-sm font-medium shadow/30 shadow-black/40 hover:shadow-black/60 transition-shadow"
+            className="w-fit mt-8 inline-flex items-center gap-2 rounded-full bg-white text-black px-6 py-3 font-medium shadow/30 shadow-black/40 hover:shadow-black/60 transition-shadow"
           >
             Je veux un devis <span className="font-light">↗</span>
           </a>
@@ -154,8 +154,8 @@ function Card({
 
       {/* Texte */}
       <h3 className="text-lg font-medium">{sector.title}</h3>
-      <p className="text-sm italic text-[#FEFEA2]">{sector.subtitle}</p>
-      <p className="text-sm text-white/60">{sector.description}</p>
+      <p className="italic text-[#FEFEA2]">{sector.subtitle}</p>
+      <p className="text-white/60">{sector.description}</p>
 
       {/* Numéro en haut à droite */}
       <span

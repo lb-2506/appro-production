@@ -12,7 +12,7 @@ export default function TextLegalesComponent() {
       <div className="pb-12 pt-48 max-w-[1240px] w-[90%] mx-auto">
         {/* Header */}
         <header className="text-white flex flex-col items-start gap-3 mb-10">
-          <h1 className="text-[9vw] leading-[12vw] mobile:leading-[75px] tablet:text-[60px] font-light">
+          <h1 className="tracking-tighter text-[9vw] leading-[12vw] mobile:leading-[75px] tablet:text-[60px] font-light">
             Mentions légales
           </h1>
           <p className="opacity-60 font-light">En vigueur au 21 août 2025</p>

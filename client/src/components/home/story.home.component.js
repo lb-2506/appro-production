@@ -52,25 +52,25 @@ export default function StoryHomeComponent() {
               <p className="text-sm uppercase tracking-wide text-black/50">
                 À propos
               </p>
-              <h2 className="mt-4 text-5xl leading-tight font-light text-black">
+              <h2 className="tracking-tight mt-4 text-5xl leading-tight font-light text-black">
                 Notre histoire
               </h2>
             </div>
 
             <div className="mt-10 max-w-[48ch] text-black/50 flex flex-col gap-4">
-              <p className="text-[15px] leading-relaxed">
+              <p className="leading-relaxed">
                 Appro Production est née de l’envie d’élargir les services du
                 groupe Appro, fondé par Bastien et Mickaël, en y ajoutant la
                 photo, la vidéo et la communication digitale.
               </p>
-              <p className="text-[15px] leading-relaxed">
+              <p className="leading-relaxed">
                 Laurent, vidéaste et fondateur, s’entoure rapidement d’une
                 équipe complémentaire : Margaux, en alternance depuis 2 ans déjà
                 dans le groupe Appro, Léa, photographe et responsable
                 communication, et Jade, dernière arrivée en alternance marketing
                 digital.
               </p>
-              <p className="text-[15px] leading-relaxed">
+              <p className="leading-relaxed">
                 Ensemble, nous mettons nos talents au service des entreprises et
                 des particuliers, avec la même exigence qui fait la force du
                 groupe Appro.

@@ -92,7 +92,7 @@ export default function WhatWeDoHomeComponent() {
           className="absolute bottom-0 right-0 max-w-[50px] rotate-180 translate-x-[3px] translate-y-[3px]"
         />
         {/* Header */}
-        <div className="flex items-center justify-between text-xs tracking-tight text-white mb-24">
+        <div className="flex items-center justify-between text-sm tracking-tight text-white mb-24">
           <div className="flex items-center gap-2">
             <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white text-black">
               <svg viewBox="0 0 12 12" className="h-2 w-2" aria-hidden="true">
@@ -104,7 +104,7 @@ export default function WhatWeDoHomeComponent() {
                 />
               </svg>
             </span>
-            <span>What we do</span>
+            <span>Ce qu'on propose</span>
           </div>
           <span className="uppercase">Nos services</span>
         </div>
@@ -133,12 +133,12 @@ export default function WhatWeDoHomeComponent() {
             </div>
 
             {/* Label */}
-            <p className="mt-6 text-[11px] tracking-[0.18em] text-white/60">
+            <p className="mt-6 text-sm tracking-[0.18em] text-white/60">
               {activeItem.label}
             </p>
 
             {/* Description */}
-            <p className="mt-3 text-sm leading-relaxed text-white/80 max-w-[34ch]">
+            <p className="mt-3 leading-relaxed text-white/80 max-w-[34ch]">
               {activeItem.description}
             </p>
 
@@ -147,7 +147,7 @@ export default function WhatWeDoHomeComponent() {
               {activeItem.tags?.map((tag) => (
                 <span
                   key={tag}
-                  className="text-[11px] rounded-full px-3 py-1 bg-white/5 ring-1 ring-white/10 text-white/80"
+                  className="text-xs rounded-full px-3 py-1 bg-white/5 ring-1 ring-white/10 text-white/80"
                 >
                   {tag}
                 </span>
@@ -212,7 +212,7 @@ export default function WhatWeDoHomeComponent() {
         <div className="mt-8 flex justify-center">
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 rounded-full bg-white text-black px-6 py-3 text-sm font-medium shadow/30 shadow-black/40 hover:shadow-black/60 transition-shadow"
+            className="inline-flex items-center gap-2 rounded-full bg-white text-black px-6 py-3 font-medium shadow/30 shadow-black/40 hover:shadow-black/60 transition-shadow"
           >
             Contactez nous <span className="font-light">↗</span>
           </a>
