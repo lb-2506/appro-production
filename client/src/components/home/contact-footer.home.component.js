@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function ContactFooterHomeComponent({
@@ -124,15 +125,20 @@ export default function ContactFooterHomeComponent({
         backgroundSize: "100%",
       }}
     >
-      <img
-        src="/img/logos/trame.avif"
-        alt="trame"
-        className="absolute top-0 left-1/2 -translate-x-1/2 opacity-50 pointer-events-none pt-12"
-      />
-      <img
-        className="absolute w-full h-full left-1/2 -translate-x-1/2 object-cover opacity-20"
-        src="/img//traits-hero.avif"
+      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-full pt-12 pointer-events-none opacity-50 h-[33px]">
+        <Image
+          src="/img/logos/trame.avif"
+          alt="trame"
+          layout="fill"
+          className="object-contain"
+        />
+      </div>
+
+      <Image
+        src="/img/traits-hero.avif"
         alt="traits-hero"
+        layout="fill"
+        className="object-cover absolute w-full h-full  opacity-20"
       />
 
       <div className="w-full">

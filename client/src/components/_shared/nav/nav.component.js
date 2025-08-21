@@ -124,7 +124,7 @@ export default function NavbarFoodComponent() {
             <img
               src="/img/logo.avif"
               draggable={false}
-              alt="logo-food"
+              alt="logo"
               className="max-h-[50px] hidden desktop:block"
             />
           </a>

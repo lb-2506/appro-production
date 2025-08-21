@@ -5,7 +5,6 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-        {/*<link rel="stylesheet" href="https://use.typekit.net/hqy2xcj.css" />*/}
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -18,7 +17,6 @@ export default function Document() {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
         />
-        <script async src="https://tally.so/widgets/embed.js"></script>
       </Head>
       <body>
         <Main />
