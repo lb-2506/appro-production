@@ -2,8 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { ArrowSvg } from "../_shared/_svgs/arrow.svg";
+import { useRouter } from "next/router";
 
 export default function DisponibilitiesHomeComponent() {
+    const router = useRouter();
+  
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -18,6 +21,30 @@ export default function DisponibilitiesHomeComponent() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  function wait(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+  async function handleScrollToSection(id) {
+    await wait(300);
+    if (router.pathname !== "/") {
+      await router.push("/");
+      setTimeout(() => {
+        const section = document.querySelector(id);
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 200);
+    } else {
+      requestAnimationFrame(() => {
+        const section = document.querySelector(id);
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    }
+  }
 
   return (
     <div
@@ -48,7 +75,11 @@ export default function DisponibilitiesHomeComponent() {
         <p className="font-thin text-sm opacity-60 tracking-tight">
           Parlons-en dès maintenant.
         </p>
-        <button className="bg-black w-fit p-4 h-fit rounded-full">
+
+        <button
+          onClick={() => handleScrollToSection("#contact")}
+          className="bg-black w-fit p-4 h-fit rounded-full"
+        >
           <ArrowSvg />
         </button>
       </div>

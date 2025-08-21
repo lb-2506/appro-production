@@ -175,7 +175,6 @@ export default function TestimonialsHomeComponent() {
           ref={scrollContainerRef}
           className="relative custom-scrollbar w-full overflow-x-scroll"
         >
-          {/* Desktop (inchangé côté layout/marges) */}
           <div
             className="hidden desktop:flex relative"
             style={{ width: (DESKTOP_CARD + GAP) * RAW.length + 100 }}

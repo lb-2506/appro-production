@@ -43,10 +43,6 @@ export default function NavbarFoodComponent() {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
-  function wait(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-  }
-
   async function handleScrollToSection(id) {
     setIsMenuOpen(false);
     await wait(300);

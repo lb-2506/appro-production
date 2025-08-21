@@ -133,7 +133,7 @@ export default function WhatWeDoHomeComponent() {
             </div>
 
             {/* Label */}
-            <p className="mt-6 text-sm tracking-[0.18em] text-white/60">
+            <p className="mt-6 text-sm tracking-thin text-white/60">
               {activeItem.label}
             </p>
 
@@ -171,7 +171,7 @@ export default function WhatWeDoHomeComponent() {
                       <div className="grid grid-cols-[1fr_auto] gap-x-4">
                         <h3
                           className={[
-                            "font-thin leading-[1.08]",
+                            "font-thin leading-[1.08] tracking-tighter",
                             "transition-all duration-300 ease-out",
                             isActive
                               ? "translate-x-4 opacity-100"
