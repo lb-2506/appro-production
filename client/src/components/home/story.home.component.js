@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import Image from "next/image";
 
 const TEAM = [
   {
@@ -116,10 +116,11 @@ function FlipCard({ member, darkBack = false }) {
           style={{ WebkitBackfaceVisibility: "hidden" }}
         >
           <div className="absolute inset-0">
-            <img
+            <Image
               src={member.img}
               alt={member.name}
-              className="absolute inset-0 w-full h-full object-cover"
+              layout="fill"
+              className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
           </div>

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import Image from "next/image";
 
 export default function HeroHomeComponent() {
   const containerRef = useRef(null);
@@ -50,18 +51,24 @@ export default function HeroHomeComponent() {
         backgroundSize: "100%",
       }}
     >
-      <img
-        className="absolute w-full h-full left-1/2 -translate-x-1/2 object-cover"
+      {/* Background principal */}
+      <Image
         src="/img/hero/bg-hero.avif"
         alt="bg-hero"
+        layout="fill"
+        priority
+        className="object-cover"
       />
 
-      <img
-        className="absolute w-full h-full left-1/2 -translate-x-1/2 object-cover opacity-75"
+      {/* Traits */}
+      <Image
         src="/img/traits-hero.avif"
         alt="traits-hero"
+        layout="fill"
+        className="object-cover opacity-75"
       />
 
+      {/* Overlay dégradé */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/90 to-black/0 pointer-events-none" />
 
       <section
@@ -71,7 +78,13 @@ export default function HeroHomeComponent() {
       >
         {/* +60 clients */}
         <div className="fade-only flex items-center gap-4 w-full text-left">
-          <img src="/img/hero/avis.avif" className="max-h-[30px]" alt="trust" />
+          <Image
+            src="/img/hero/avis.avif"
+            alt="trust"
+            width={120}
+            height={30}
+            className="max-h-[30px] w-auto"
+          />
           <p className="text-white font-thin">
             +60 clients nous font confiance
           </p>
@@ -84,7 +97,6 @@ export default function HeroHomeComponent() {
         </h1>
 
         <div className="w-full flex justify-end">
-          {/* h2 qui fade avec +60 clients */}
           <h2 className="fade-only tracking-tight text-white text-left justify-end w-fit font-thin">
             Appro Production - Photo, vidéo et réseaux sociaux.
             <br />

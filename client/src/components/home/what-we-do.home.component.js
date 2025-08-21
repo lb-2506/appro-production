@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useMemo, useState } from "react";
 
 export default function WhatWeDoHomeComponent() {
@@ -117,13 +118,14 @@ export default function WhatWeDoHomeComponent() {
             <div className="w-full max-w-[360px]">
               <div className="relative aspect-square rounded-3xl overflow-hidden bg-white/5 ring-1 ring-white/10">
                 {items.map((it, i) => (
-                  <img
+                  <Image
                     key={it.key}
                     src={it.image}
                     alt={i === active ? it.label : ""}
                     aria-hidden={i !== active}
+                    layout="fill"
                     className={[
-                      "absolute inset-0 h-full w-full object-cover",
+                      "object-cover",
                       "transition-opacity duration-500 ease-out",
                       i === active ? "opacity-100" : "opacity-0",
                     ].join(" ")}

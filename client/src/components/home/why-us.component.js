@@ -137,6 +137,7 @@ export default function WhyUsHomeComponent() {
                 <img
                   src="/img/why-us/card-3-2.avif"
                   className="absolute bottom-0 left-1/2 -translate-x-1/2 rounded-t-[20px] max-w-[70%]"
+                  alt="instagram"
                 />
 
                 <h4 className="text-2xl font-semibold">
