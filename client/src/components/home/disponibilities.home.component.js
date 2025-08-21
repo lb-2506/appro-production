@@ -5,8 +5,8 @@ import { ArrowSvg } from "../_shared/_svgs/arrow.svg";
 import { useRouter } from "next/router";
 
 export default function DisponibilitiesHomeComponent() {
-    const router = useRouter();
-  
+  const router = useRouter();
+
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -79,6 +79,7 @@ export default function DisponibilitiesHomeComponent() {
         <button
           onClick={() => handleScrollToSection("#contact")}
           className="bg-black w-fit p-4 h-fit rounded-full"
+          aria-label="Aller à la section contact"
         >
           <ArrowSvg />
         </button>
