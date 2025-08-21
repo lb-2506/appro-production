@@ -194,7 +194,7 @@ export default function WhyUsHomeComponent() {
                 />
 
                 <h4 className="text-2xl font-semibold z-10">Des projets utiles</h4>
-                <p className="opacity-70 mt-2 z-10">
+                <p className="mt-2 z-10">
                   Chaque image sert un objectif : attirer, fidéliser, faire
                   comprendre ou faire ressentir.
                 </p>
