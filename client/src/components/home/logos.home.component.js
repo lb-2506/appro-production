@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "next-i18next";
 import Marquee from "react-fast-marquee";
+import Image from "next/image";
 
 export default function LogosFoodComponent() {
   const { t } = useTranslation("hero-section");
@@ -47,52 +48,82 @@ export default function LogosFoodComponent() {
       {/* LOGOS MARQUEE */}
       <Marquee>
         <div className="pb-16 pt-24 flex gap-36 items-center opacity-40">
-          <img src="/img/logos/beliers.avif" alt="beliers" className="h-[80px]" />
-          <img
+          <Image
+            src="/img/logos/beliers.avif"
+            alt="beliers"
+            width={110}
+            height={80}
+          />
+          <Image
             src="/img/logos/apprologistic.avif"
             alt="apprologistic"
-            className="h-[80px]"
+            width={110}
+            height={80}
           />
-          <img
+          <Image
             src="/img/logos/duboncote.avif"
             alt="duboncote"
-            className="h-[80px]"
+            width={175}
+            height={80}
           />
-          <img src="/img/logos/coqrock.avif" alt="coqrock" className="h-[80px]" />
-          <img src="/img/logos/bbh.avif" alt="bbh" className="h-[80px]" />
-          <img src="/img/logos/sourire.avif" alt="sourir" className="h-[80px]" />
-          <img
+          <Image
+            src="/img/logos/coqrock.avif"
+            alt="coqrock"
+            width={110}
+            height={80}
+          />
+          <Image src="/img/logos/bbh.avif" alt="bbh" width={110} height={80} />
+          <Image
+            src="/img/logos/sourire.avif"
+            alt="sourire"
+            width={125}
+            height={80}
+          />
+          <Image
             src="/img/logos/irreductible.avif"
             alt="irreductible"
-            className="h-[80px]"
+            width={126}
+            height={80}
           />
-          <img
+          <Image
             src="/img/logos/approconcept.avif"
             alt="approconcept"
-            className="h-[80px]"
+            width={80}
+            height={80}
           />
-
-          <img src="/img/logos/office.avif" alt="office" className="h-[80px]" />
-
-          <img
+          <Image
+            src="/img/logos/office.avif"
+            alt="office"
+            width={80}
+            height={80}
+          />
+          <Image
             src="/img/logos/patrouille.avif"
             alt="patrouille"
-            className="h-[80px]"
+            width={56}
+            height={80}
           />
-
-          <img src="/img/logos/rcc.avif" alt="rcc" className="h-[80px]" />
-
-          <img src="/img/logos/rhd.avif" alt="rhd" className="h-[80px]" />
-
-          <img src="/img/logos/usconc.avif" alt="usconc" className="h-[80px]" />
-
-          <img
+          <Image src="/img/logos/rcc.avif" alt="rcc" width={68} height={80} />
+          <Image src="/img/logos/rhd.avif" alt="rhd" width={71} height={80} />
+          <Image
+            src="/img/logos/usconc.avif"
+            alt="usconc"
+            width={68}
+            height={80}
+          />
+          <Image
             src="/img/logos/badminton.avif"
             alt="badminton"
-            className="h-[80px]"
+            width={75}
+            height={80}
           />
-
-          <img src="/img/logos/optic.avif" alt="optic2000" className="h-[80px] mr-24" />
+          <Image
+            src="/img/logos/optic.avif"
+            alt="optic2000"
+            width={139}
+            height={80}
+            className="mr-24"
+          />
         </div>
       </Marquee>
     </section>

@@ -114,7 +114,6 @@ export default function WhatWeDoHomeComponent() {
         <div className="flex justify-between">
           {/* Colonne gauche */}
           <div className="w-[280px]">
-            {/* Images superposées avec crossfade */}
             <div className="w-full max-w-[360px]">
               <div className="relative aspect-square rounded-3xl overflow-hidden bg-white/5 ring-1 ring-white/10">
                 {items.map((it, i) => (
