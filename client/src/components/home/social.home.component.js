@@ -113,10 +113,12 @@ export default function SocialHomeComponent() {
           <h2 className="tracking-tight font-light uppercase opacity-40">
             Ils sont devenus mémorables
           </h2>
+
           <h1 className="tracking-tighter text-[9vw] leading-[12vw] mobile:leading-[65px] tablet:text-[60px] font-light">
             Des vidéos et des photos
             <br /> qui parlent pour eux.
           </h1>
+
           <h3 className="max-w-[600px] text-lg opacity-60 font-light">
             Personal branding, storytelling, prise de parole stratégique :
             chaque contenu qu’on crée a un objectif clair… et des résultats

@@ -155,10 +155,13 @@ export default function TestimonialsHomeComponent() {
         <div className="flex gap-10 items-center pl-[10%]">
           {/* Colonne gauche */}
           <div className="lg:col-span-5">
-            <h2 className="tracking-tight w-[540px] mt-4 text-5xl leading-tight font-light text-black">
+            <h2 className="tracking-tight font-light uppercase opacity-40">
+              Témoignages
+            </h2>
+            <h1 className="tracking-tighter w-[540px] mt-4 text-5xl leading-tight font-light text-black">
               De vrais moments, de
               <br /> vraies expériences.
-            </h2>
+            </h1>
             <a
               href="#contact"
               className="mt-8 inline-flex items-center gap-2 rounded-full bg-white text-black px-6 py-3 font-light shadow/30 shadow-black/40 hover:shadow-black/60 transition-shadow"
