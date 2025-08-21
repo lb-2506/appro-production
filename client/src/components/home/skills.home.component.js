@@ -168,22 +168,22 @@ export default function SkillsHomeComponent() {
                 style={{ opacity: activeNumbers[i] ? 1 : 0.1 }}
               >
                 <img
-                  src="/img/skills/angle.png"
+                  src="/img/skills/angle.avif"
                   alt="angle"
                   className="absolute top-0 left-0 max-w-[50px] -translate-x-[2px] -translate-y-[2px]"
                 />
                 <img
-                  src="/img/skills/angle.png"
+                  src="/img/skills/angle.avif"
                   alt="angle"
                   className="absolute top-0 right-0 max-w-[50px] rotate-90 -translate-x-[3px] -translate-y-[6px]"
                 />
                 <img
-                  src="/img/skills/angle.png"
+                  src="/img/skills/angle.avif"
                   alt="angle"
                   className="absolute bottom-0 left-0 max-w-[50px] -rotate-90 translate-x-[3px] translate-y-[6px]"
                 />
                 <img
-                  src="/img/skills/angle.png"
+                  src="/img/skills/angle.avif"
                   alt="angle"
                   className="absolute bottom-0 right-0 max-w-[50px] rotate-180 translate-x-[2px] translate-y-[2px]"
                 />

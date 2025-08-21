@@ -9,7 +9,7 @@ export default function SectorsHomeComponent() {
         "On connaît le métier, l’atelier, et la passion des pros de la route.",
       description:
         "Vidéos de présentation d’atelier, portraits de mécanos, photos d’ambiance, teasing de véhicules… Appro Production est né dans un groupe qui connaît le terrain.",
-      image: "/img/sectors/1.png",
+      image: "/img/sectors/1.avif",
     },
     {
       number: "02",
@@ -17,7 +17,7 @@ export default function SectorsHomeComponent() {
       subtitle: "Du rythme, de l’engagement, des moments à revivre.",
       description:
         "Qu’il s’agisse d’un concert, d’un festival, d’un évènement d’entreprise ou d’une action associative, on capte ce qui se vit sur le moment : ambiance, émotions, messages et regards. Des images vraies, pensées pour durer.",
-      image: "/img/sectors/4.png",
+      image: "/img/sectors/4.avif",
     },
     {
       number: "03",
@@ -26,7 +26,7 @@ export default function SectorsHomeComponent() {
         "Des plats, des gestes, des moments à filmer dans le feu de l’action.",
       description:
         "Captation d’événements, mise en valeur de menus, portraits d’équipe, ambiance de service : on raconte ce qui se vit dans vos cuisines.",
-      image: "/img/sectors/2.png",
+      image: "/img/sectors/2.avif",
     },
     {
       number: "04",
@@ -34,7 +34,7 @@ export default function SectorsHomeComponent() {
       subtitle: "Pour les particuliers aussi, on crée des souvenirs forts.",
       description:
         "Filmer des moments de vie, des instants vrais, avec émotion et justesse. On adapte notre approche à chaque couple, chaque histoire.",
-      image: "/img/sectors/5.png",
+      image: "/img/sectors/5.avif",
     },
     {
       number: "05",
@@ -42,7 +42,7 @@ export default function SectorsHomeComponent() {
       subtitle: "Valoriser un savoir-faire, c’est notre spécialité.",
       description:
         "Que vous soyez bijoutier, coiffeur ou architecte, on met en image votre activité et vos valeurs.",
-      image: "/img/sectors/3.png",
+      image: "/img/sectors/3.avif",
     },
   ];
 

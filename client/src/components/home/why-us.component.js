@@ -3,10 +3,10 @@ import { InstagramSvg } from "../_shared/_svgs/instagram.svg";
 
 export default function WhyUsHomeComponent() {
   const images = [
-    "/img/why-us/1.png",
-    "/img/why-us/2.png",
-    "/img/why-us/3.png",
-    "/img/why-us/4.png",
+    "/img/why-us/1.avif",
+    "/img/why-us/2.avif",
+    "/img/why-us/3.avif",
+    "/img/why-us/4.avif",
   ];
 
   const transformStyles = [
@@ -82,22 +82,21 @@ export default function WhyUsHomeComponent() {
               {/* div1 : 1 / 1 / 2 / 2 */}
               <div
                 className="h-full rounded-3xl p-9 flex flex-col justify-end bg-no-repeat bg-cover bg-center relative text-white"
-                style={{ backgroundImage: "url('/img/why-us/card-1.jpg')" }}
+                style={{ backgroundImage: "url('/img/why-us/card-1.avif')" }}
               >
                 {/* Overlay dégradé bas → haut */}
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-black/20 via-black/0 to-transparent" />
 
                 <img
-                  src="/img/why-us/picto-1.png"
+                  src="/img/why-us/picto-1.avif"
                   className="absolute top-10 right-9 max-w-4"
+                  alt="picto"
                 />
 
                 {/* Contenu */}
                 <div className="relative z-10">
                   <h2 className="text-7xl">2022</h2>
-                  <p className="text-xl mt-2">
-                    La force d'un groupe
-                  </p>
+                  <p className="text-xl mt-2">La force d'un groupe</p>
 
                   <p className="opacity-90">
                     Appro Production, c’est une filiale du groupe Appro :
@@ -109,7 +108,7 @@ export default function WhyUsHomeComponent() {
               {/* div2 : 1 / 2 / 2 / 3 */}
               <div
                 className="h-full rounded-3xl p-9 flex flex-col justify-end bg-no-repeat bg-cover bg-center relative"
-                style={{ backgroundImage: "url('/img/why-us/card-2.png')" }}
+                style={{ backgroundImage: "url('/img/why-us/card-2.avif')" }}
               >
                 <h3 className="text-2xl font-semibold">
                   Des vidéos et des photos qui marquent
@@ -126,7 +125,7 @@ export default function WhyUsHomeComponent() {
               {/* div1 { grid-area: 1 / 1 / 4 / 2; } */}
               <div
                 className="rounded-3xl p-9 col-start-1 col-end-2 row-start-1 row-end-4 h-[auto] flex flex-col bg-no-repeat bg-cover bg-center relative"
-                style={{ backgroundImage: "url('/img/why-us/card-3-1.png')" }}
+                style={{ backgroundImage: "url('/img/why-us/card-3-1.avif')" }}
               >
                 <InstagramSvg
                   fillColor="#7E7E7F"
@@ -136,12 +135,14 @@ export default function WhyUsHomeComponent() {
                 />
 
                 <img
-                  src="/img/why-us/card-3-2.jpeg"
+                  src="/img/why-us/card-3-2.avif"
                   className="absolute bottom-0 left-1/2 -translate-x-1/2 rounded-t-[20px] max-w-[70%]"
                 />
 
                 <h4 className="text-2xl font-semibold">
-                  Découvrez les coulisses<br/>sur Instagram
+                  Découvrez les coulisses
+                  <br />
+                  sur Instagram
                 </h4>
 
                 <a
@@ -184,16 +185,19 @@ export default function WhyUsHomeComponent() {
               {/* div2 { grid-area: 1 / 2 / 3 / 3; } */}
               <div
                 className="text-white rounded-3xl justify-end p-9 col-start-2 col-end-3 row-start-1 row-end-3 h-[auto] flex flex-col bg-no-repeat bg-cover bg-center relative"
-                style={{ backgroundImage: "url('/img/why-us/card-4.png')" }}
+                style={{ backgroundImage: "url('/img/why-us/card-4.avif')" }}
               >
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-black/20 via-black/0 to-transparent" />
 
                 <img
-                  src="/img/why-us/picto-4.png"
+                  src="/img/why-us/picto-4.avif"
                   className="absolute top-10 right-9 max-w-6"
+                  alt="picto"
                 />
 
-                <h4 className="text-2xl font-semibold z-10">Des projets utiles</h4>
+                <h4 className="text-2xl font-semibold z-10">
+                  Des projets utiles
+                </h4>
                 <p className="mt-2 z-10">
                   Chaque image sert un objectif : attirer, fidéliser, faire
                   comprendre ou faire ressentir.
@@ -203,8 +207,9 @@ export default function WhyUsHomeComponent() {
               {/* div3 { grid-area: 3 / 2 / 4 / 3; } */}
               <div className="rounded-3xl p-9 justify-end col-start-2 col-end-3 row-start-3 row-end-4 h-auto flex flex-col bg-white relative">
                 <img
-                  src="/img/why-us/picto-5.png"
+                  src="/img/why-us/picto-5.avif"
                   className="absolute top-6 right-9 max-w-[35%]"
+                  alt="picto"
                 />
 
                 <h4 className="text-7xl font-semibold">60+</h4>
@@ -214,11 +219,12 @@ export default function WhyUsHomeComponent() {
               {/* div4 { grid-area: 1 / 3 / 2 / 4; } */}
               <div
                 className="rounded-3xl justify-end p-6 col-start-3 col-end-4 row-start-1 row-end-2 h-auto flex flex-col bg-no-repeat bg-cover bg-center relative"
-                style={{ backgroundImage: "url('/img/why-us/card-6.png')" }}
+                style={{ backgroundImage: "url('/img/why-us/card-6.avif')" }}
               >
                 <img
-                  src="/img/why-us/picto-6.png"
+                  src="/img/why-us/picto-6.avif"
                   className="absolute top-10 right-9 max-w-6"
+                  alt="picto"
                 />
 
                 <h4 className="text-2xl font-semibold">
@@ -233,11 +239,12 @@ export default function WhyUsHomeComponent() {
               {/* div5 { grid-area: 2 / 3 / 4 / 4; } */}
               <div
                 className="rounded-3xl text-white justify-end p-9 col-start-3 col-end-4 row-start-2 row-end-4 h-auto flex flex-col bg-no-repeat bg-cover bg-center relative"
-                style={{ backgroundImage: "url('/img/why-us/card-7.png')" }}
+                style={{ backgroundImage: "url('/img/why-us/card-7.avif')" }}
               >
                 <img
-                  src="/img/why-us/picto-7.png"
+                  src="/img/why-us/picto-7.avif"
                   className="absolute top-10 right-9 max-w-6"
+                  alt="picto"
                 />
 
                 <h4 className="text-2xl font-semibold">

@@ -44,7 +44,7 @@ export default function TextRevealHomeComponent() {
               data-nosplit
             >
               <img
-                src="/img/text-reveal/img-reveal.png"
+                src="/img/text-reveal/img-reveal.avif"
                 className="h-12 w-12 rounded-2xl object-cover"
                 alt="Appro Production"
               />

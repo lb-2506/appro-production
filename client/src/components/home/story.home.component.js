@@ -5,28 +5,28 @@ const TEAM = [
   {
     name: "Laurent",
     role: "Fondateur & vidéaste",
-    img: "/img/story/laurent.png",
+    img: "/img/story/laurent.avif",
     about:
       "Il conçoit et réalise les vidéos pour les clients d’Appro Production. Il pilote les projets audiovisuels de A à Z : préparation, tournage, montage et livraison. Il définit aussi la vision globale de l’entreprise et accompagne les clients dans leurs projets.",
   },
   {
     name: "Margaux",
     role: "Alternante communication & réseaux sociaux",
-    img: "/img/story/margaux.png",
+    img: "/img/story/margaux.avif",
     about:
       "Elle gère la création de contenus visuels (photos, retouches, visuels pour les réseaux sociaux). Elle organise et met en place la stratégie de communication et le marketing digital, tout en contribuant aux projets audiovisuels.",
   },
   {
     name: "Léa",
     role: "Photographe & responsable communication",
-    img: "/img/story/lea.png",
+    img: "/img/story/lea.avif",
     about:
       "Photographe, elle coordonne les prises de vues, gère la direction artistique et le suivi de production. Elle veille à la cohérence de marque et à l’impact des images sur tous les supports.",
   },
   {
     name: "Jade",
     role: "Alternante communication digitale",
-    img: "/img/story/jade.png",
+    img: "/img/story/jade.avif",
     about:
       "Elle participe à la création de contenus (visuels, stories, making-of), anime les réseaux sociaux et contribue à la planification des publications. Elle aide aussi à la préparation des tournages et à la mise en place des projets marketing.",
   },
