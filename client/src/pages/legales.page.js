@@ -41,7 +41,7 @@ export default function LegalesPage(props) {
           )}
           <meta
             property="og:url"
-            content="https://www.modjoy-studio.com/food"
+            content="https://approproduction.fr"
           />
           <meta property="og:type" content="website" />
           <meta property="og:image" content="/img/open-graph.jpg" />
