@@ -158,13 +158,12 @@ export default function WhatWeDoHomeComponent() {
           {/* Colonne droite (liste des tabs) */}
           <div className="w-[620px]">
             {/* Liste des tabs */}
-            <ul className="space-y-6">
+            <ul className="space-y-6 list-none p-0 m-0">
               {items.map((item, idx) => {
                 const isActive = idx === active;
                 return (
-                  <li key={item.key}>
+                  <li key={item.key} className="list-none">
                     <button
-                      id={`tab-${idx}`}
                       onClick={() => setActive(idx)}
                       className="group w-full text-left"
                     >
@@ -205,7 +204,7 @@ export default function WhatWeDoHomeComponent() {
             </ul>
           </div>
         </div>
-        
+
         {/* CTA */}
         <div className="flex justify-center mt-8">
           <a
