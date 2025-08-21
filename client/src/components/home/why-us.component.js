@@ -34,9 +34,9 @@ export default function WhyUsHomeComponent() {
             comme agence ?
           </h1>
 
-          <h3 className="max-w-[600px] text-lg opacity-60 font-light">
+          <h2 className="max-w-[600px] text-lg opacity-60 font-light">
             On transforme vos idées en images, et vos images en résultats.
-          </h3>
+          </h2>
 
           <div className="flex justify-center">
             <a

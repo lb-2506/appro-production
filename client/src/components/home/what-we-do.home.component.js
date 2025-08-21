@@ -109,7 +109,6 @@ export default function WhatWeDoHomeComponent() {
           </div>
           <span className="uppercase">Nos services</span>
         </div>
-
         {/* Grille */}
         <div className="flex justify-between">
           {/* Colonne gauche */}
@@ -156,20 +155,23 @@ export default function WhatWeDoHomeComponent() {
             </div>
           </div>
 
-          {/* Colonne droite */}
+          {/* Colonne droite (liste des tabs) */}
           <div className="w-[620px]">
-            <ul className="space-y-6">
+            <ul role="tablist" className="space-y-6">
               {items.map((item, idx) => {
                 const isActive = idx === active;
                 return (
                   <li key={item.key}>
                     <button
+                      role="tab"
+                      id={`tab-${idx}`}
                       aria-selected={isActive}
+                      aria-controls={`panel-${idx}`}
                       onClick={() => setActive(idx)}
                       className="group w-full text-left"
                     >
                       <div className="grid grid-cols-[1fr_auto] gap-x-4">
-                        <h3
+                        <h1
                           className={[
                             "font-thin leading-[1.08] tracking-tighter",
                             "transition-all duration-300 ease-out",
@@ -184,7 +186,7 @@ export default function WhatWeDoHomeComponent() {
                           <span className="block text-[55px]">
                             {item.titleLines[1]}
                           </span>
-                        </h3>
+                        </h1>
 
                         {/* Numéro en haut à droite */}
                         <span
@@ -197,7 +199,6 @@ export default function WhatWeDoHomeComponent() {
                           ({item.number})
                         </span>
 
-                        {/* Séparateur sur toute la largeur (sous le numéro aussi) */}
                         <div className="col-span-2 mt-3 h-px bg-white/10" />
                       </div>
                     </button>
@@ -205,9 +206,19 @@ export default function WhatWeDoHomeComponent() {
                 );
               })}
             </ul>
+
+            {/* Panneau actif */}
+            <div
+              role="tabpanel"
+              id={`panel-${active}`}
+              aria-labelledby={`tab-${active}`}
+              className="sr-only"
+            >
+              {/* tu peux mettre ici un résumé textuel ou rien, 
+                  l’important c’est le lien ARIA */}
+            </div>
           </div>
         </div>
-
         {/* CTA */}
         <div className="flex justify-center mt-8">
           <a
@@ -217,27 +228,10 @@ export default function WhatWeDoHomeComponent() {
             Contactez nous
             <span className="relative inline-block w-6 h-6 overflow-visible">
               <span className="absolute inset-0 flex flex-col items-center justify-center transition-transform duration-300 ease-out group-hover:translate-x-11 group-hover:-translate-y-11">
-                <span
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="absolute w-4 h-4 text-black opacity-100"
-                  style={{ transform: "translate(-40px, 40px)" }}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
+                <span className="absolute w-4 h-4 text-black opacity-100">
                   ↗
                 </span>
-
-                <span
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="absolute w-4 h-4 text-black opacity-100"
-                  style={{ transform: "translate(3px, -3px)" }}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
+                <span className="absolute w-4 h-4 text-black opacity-100">
                   ↗
                 </span>
               </span>

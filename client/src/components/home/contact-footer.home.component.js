@@ -145,14 +145,16 @@ export default function ContactFooterHomeComponent({
         <div className="max-w-[1240px] w-[90%] z-10 mx-auto flex flex-col tablet:flex-row gap-16 tablet:gap-24 pt-36">
           {/* Colonne gauche - titres */}
           <div className="text-white  flex flex-col gap-6">
-            <h2 className="tracking-tight font-light uppercase opacity-40">
+            <h1 className="tracking-tight font-light uppercase opacity-40">
               Contact
-            </h2>
-            <h1 className="tracking-tighter text-[9vw] leading-[12vw] mobile:leading-[65px] tablet:text-[60px] font-light">
+            </h1>
+
+            <h2 className="tracking-tighter text-[9vw] leading-[12vw] mobile:leading-[65px] tablet:text-[60px] font-light">
               Comment pouvons-
               <br className="hidden tablet:block" />
               nous vous aider ?
-            </h1>
+            </h2>
+
             <h3 className="max-w-[520px] text-lg opacity-60 font-light mt-6">
               Chaque projet est unique, trouvons ensemble la
               <br />
@@ -169,25 +171,33 @@ export default function ContactFooterHomeComponent({
               {/* Ligne 1 : Nom / Prénom */}
               <div className="flex flex-col tablet:flex-row gap-4">
                 <div className="flex-1">
-                  <label className="block text-sm opacity-60 mb-2">Nom</label>
+                  <label
+                    htmlFor="nom"
+                    className="block text-sm opacity-60 mb-2"
+                  >
+                    Nom
+                  </label>
                   <input
+                    id="nom"
                     name="nom"
                     value={form.nom}
                     onChange={updateField}
                     className="w-full rounded-xl bg-white px-4 py-3 border border-black/10 outline-none focus:border-black/30"
-                    placeholder=""
                   />
                 </div>
                 <div className="flex-1">
-                  <label className="block text-sm opacity-60 mb-2">
+                  <label
+                    htmlFor="prenom"
+                    className="block text-sm opacity-60 mb-2"
+                  >
                     Prénom
                   </label>
                   <input
+                    id="prenom"
                     name="prenom"
                     value={form.prenom}
                     onChange={updateField}
                     className="w-full rounded-xl bg-white px-4 py-3 border border-black/10 outline-none focus:border-black/30"
-                    placeholder=""
                   />
                 </div>
               </div>
@@ -195,8 +205,14 @@ export default function ContactFooterHomeComponent({
               {/* Ligne 2 : Email / Téléphone */}
               <div className="flex flex-col tablet:flex-row gap-4">
                 <div className="flex-1">
-                  <label className="block text-sm opacity-60 mb-2">Email</label>
+                  <label
+                    htmlFor="email"
+                    className="block text-sm opacity-60 mb-2"
+                  >
+                    Email
+                  </label>
                   <input
+                    id="email"
                     name="email"
                     type="email"
                     value={form.email}
@@ -205,10 +221,14 @@ export default function ContactFooterHomeComponent({
                   />
                 </div>
                 <div className="flex-1">
-                  <label className="block text-sm opacity-60 mb-2">
+                  <label
+                    htmlFor="telephone"
+                    className="block text-sm opacity-60 mb-2"
+                  >
                     Téléphone
                   </label>
                   <input
+                    id="telephone"
                     name="telephone"
                     value={form.telephone}
                     onChange={updateField}
@@ -219,12 +239,15 @@ export default function ContactFooterHomeComponent({
 
               {/* Ligne 3 : Vous êtes */}
               <div>
-                <label className="block text-sm opacity-60 mb-2">
+                <label
+                  htmlFor="vousEtes"
+                  className="block text-sm opacity-60 mb-2"
+                >
                   Vous êtes :
                 </label>
-
                 <div className="relative">
                   <select
+                    id="vousEtes"
                     name="vousEtes"
                     value={form.vousEtes}
                     onChange={updateField}
@@ -233,7 +256,6 @@ export default function ContactFooterHomeComponent({
                     <option>Une entreprise</option>
                     <option>Un particulier</option>
                   </select>
-
                   <div className="pointer-events-none absolute inset-y-0 right-6 flex items-center">
                     <svg
                       aria-hidden="true"
@@ -255,10 +277,10 @@ export default function ContactFooterHomeComponent({
               </div>
 
               {/* Ligne 4 : Formules */}
-              <div>
-                <p className="text-sm opacity-60 mb-3">
-                  Par quelle formule êtes vous intéressé ?
-                </p>
+              <fieldset>
+                <legend className="text-sm opacity-60 mb-3">
+                  Par quelle formule êtes-vous intéressé ?
+                </legend>
                 <div className="flex items-center gap-x-8 gap-y-3">
                   <label className="inline-flex opacity-80 items-center gap-4 w-1/3">
                     <input
@@ -297,12 +319,18 @@ export default function ContactFooterHomeComponent({
                     </span>
                   </label>
                 </div>
-              </div>
+              </fieldset>
 
               {/* Ligne 5 : Message */}
               <div>
-                <label className="block text-sm opacity-60 mb-2">Message</label>
+                <label
+                  htmlFor="message"
+                  className="block text-sm opacity-60 mb-2"
+                >
+                  Message
+                </label>
                 <textarea
+                  id="message"
                   name="message"
                   value={form.message}
                   onChange={updateField}
@@ -315,6 +343,7 @@ export default function ContactFooterHomeComponent({
               <label className="inline-flex items-center gap-2 text-sm cursor-pointer">
                 <input
                   type="checkbox"
+                  id="accept"
                   name="accept"
                   checked={form.accept}
                   onChange={updateField}

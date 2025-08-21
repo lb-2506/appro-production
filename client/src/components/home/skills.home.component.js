@@ -100,10 +100,10 @@ export default function SkillsHomeComponent() {
             s'adapte, on crée.
           </h1>
 
-          <h3 className="max-w-[600px] text-lg opacity-60 font-light">
+          <h2 className="max-w-[600px] text-lg opacity-60 font-light">
             Avec la rigueur d'un groupe et l'agilité d'une équipe proche de
             vous.
-          </h3>
+          </h2>
 
           <div className="flex justify-center">
           <a
