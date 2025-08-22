@@ -41,7 +41,7 @@ export default function LogosFoodComponent() {
         }}
       />
 
-      <h1 className="tracking-tighter uppercase opacity-40 pt-48">
+      <h1 className="tracking-tighter uppercase opacity-40 pt-24 tablet:pt-48">
         Ils nous font confiance
       </h1>
 

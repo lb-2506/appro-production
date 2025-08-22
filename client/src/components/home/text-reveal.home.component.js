@@ -3,7 +3,7 @@ import ScrollReveal from "@/_assets/utils/scroll-reveal.utils";
 export default function TextRevealHomeComponent() {
   return (
     <section
-      className="bg-[#F5F5F5] py-24 relative z-10 -my-[2px]"
+      className="bg-[#F5F5F5] py-24 relative z-10 -my-[2px] p"
       style={{
         backgroundImage: "url('/img/bg-noise.webp')",
         backgroundRepeat: "repeat",
@@ -11,7 +11,7 @@ export default function TextRevealHomeComponent() {
         backgroundAttachment: "fixed",
       }}
     >
-      <div className="max-w-[900px] mx-auto tracking-tighter">
+      <div className="w-[900px] mx-auto tracking-tighter max-w-[90%]">
         <ScrollReveal
           baseOpacity={0}
           enableBlur

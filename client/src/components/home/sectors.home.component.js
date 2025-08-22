@@ -54,7 +54,7 @@ export default function SectorsHomeComponent() {
 
   return (
     <section
-      className="text-white max-w-[90%] w-[1240px] mx-auto"
+      className="text-white w-full max-w-[1240px] mx-auto px-5 mobile:px-8 tablet:px-0"
       style={{
         backgroundImage: "url('/img/bg-noise.webp')",
         backgroundRepeat: "repeat",
@@ -62,65 +62,71 @@ export default function SectorsHomeComponent() {
         backgroundAttachment: "fixed",
       }}
     >
-      <div className="flex gap-16">
+      {/* Conteneur en grille : 1 col base, 2 cols dès tablet */}
+      <div
+        className="
+          grid grid-cols-1 gap-12 tablet:gap-16
+          tablet:grid-cols-[0.45fr_0.55fr]
+        "
+      >
         {/* Colonne gauche (intro) */}
-        <div className="w-[40%] flex flex-col pt-48">
+        <div className="flex flex-col pt-16 mobile:pt-24 tablet:pt-48">
           <div>
             <p className="uppercase text-xs tracking-wide text-white">
               Secteurs
             </p>
-            <h2 className="tracking-tight mt-4 text-5xl font-light leading-tight">
+            <h2
+              className="
+                tracking-tight mt-4 font-light leading-tight
+                text-3xl mobile:text-4xl tablet:text-5xl
+              "
+            >
               Notre terrain de jeu
             </h2>
-            <p className="mt-4 text-white/70 max-w-[38ch]">
+            <p className="mt-4 text-white/70 max-w-[42ch]">
               On excelle dans ces domaines… mais on aime aussi sortir de notre
               zone de confort pour explorer de nouveaux horizons !
             </p>
           </div>
 
           <div className="flex mt-8">
-          <a
-            href="#contact"
-            className="group relative inline-flex items-center rounded-full font-light bg-white text-black px-6 py-3 shadow/30 shadow-black/40 hover:shadow-black/60 transition-shadow overflow-hidden"
-          >
-            Je veux un devis
-            <span className="relative inline-block w-6 h-6 overflow-visible">
-              <span className="absolute inset-0 flex flex-col items-center justify-center transition-transform duration-300 ease-out group-hover:translate-x-11 group-hover:-translate-y-11">
-                <span
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="absolute w-4 h-4 text-black opacity-100"
-                  style={{ transform: "translate(-40px, 40px)" }}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  ↗
-                </span>
-
-                <span
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="absolute w-4 h-4 text-black opacity-100"
-                  style={{ transform: "translate(3px, -3px)" }}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  ↗
+            <a
+              href="#contact"
+              className="group relative inline-flex items-center rounded-full font-light bg-white text-black px-6 py-3 shadow/30 shadow-black/40 hover:shadow-black/60 transition-shadow overflow-hidden"
+            >
+              Je veux un devis
+              <span className="relative inline-block w-6 h-6 overflow-visible">
+                <span className="absolute inset-0 flex flex-col items-center justify-center transition-transform duration-300 ease-out group-hover:translate-x-11 group-hover:-translate-y-11">
+                  <span
+                    className="absolute w-4 h-4 text-black opacity-100"
+                    style={{ transform: "translate(-40px, 40px)" }}
+                  >
+                    ↗
+                  </span>
+                  <span
+                    className="absolute w-4 h-4 text-black opacity-100"
+                    style={{ transform: "translate(3px, -3px)" }}
+                  >
+                    ↗
+                  </span>
                 </span>
               </span>
-            </span>
-          </a>
-        </div>
+            </a>
+          </div>
         </div>
 
         {/* Colonne droite */}
-        <div className="w-[60%] relative border-l border-white/10">
-          {/* ligne verticale centrale */}
-          <div className="pointer-events-none absolute inset-y-0 left-1/2 -translate-x-1/2 w-px bg-white/10" />
+        <div
+          className="
+            relative
+            border-t border-white/10 tablet:border-t-0 tablet:border-l tablet:border-white/10
+            pt-6 tablet:pt-0
+          "
+        >
+          {/* ligne verticale centrale — uniquement dès tablet */}
+          <div className="hidden tablet:block pointer-events-none absolute inset-y-0 left-1/2 -translate-x-1/2 w-px bg-white/10" />
 
-          <div className="grid grid-cols-2">
+          <div className="grid grid-cols-1 tablet:grid-cols-2">
             {/* Colonne gauche : jusqu'à 3 cartes */}
             <div className="flex flex-col">
               {leftCol.map((sector, idx) => (
@@ -135,8 +141,8 @@ export default function SectorsHomeComponent() {
               ))}
             </div>
 
-            {/* Colonne droite : cartes centrées verticalement */}
-            <div className="flex flex-col items-stretch justify-center">
+            {/* Colonne droite : cartes centrées verticalement (dès tablet) */}
+            <div className="flex flex-col items-stretch tablet:justify-center">
               {rightCol.map((sector) => (
                 <Card
                   key={sector.number}
@@ -164,12 +170,14 @@ function Card({
   return (
     <div
       className={[
-        "relative w-full p-8 flex flex-col gap-3",
+        "relative w-full p-6 mobile:p-8 flex flex-col gap-3",
         isLast ? "" : "border-b border-white/10",
-        side === "left" ? "border-l border-white/10" : "",
-        side === "right" ? "border-l border-white/10" : "",
-        isFirst ? "pt-48" : "",
-        isThird ? "pb-48" : "",
+        // Bordure latérale uniquement dès tablet pour éviter la double bordure en mobile
+        side === "left" ? "tablet:border-l tablet:border-white/10" : "",
+        side === "right" ? "tablet:border-l tablet:border-white/10" : "",
+        // Grands espacements atténués en mobile
+        isFirst ? "pt-10 mobile:pt-14 tablet:pt-48" : "",
+        isThird ? "pb-10 mobile:pb-14 tablet:pb-48" : "",
       ].join(" ")}
     >
       {/* Image / icône arrondie */}
@@ -182,15 +190,16 @@ function Card({
       </div>
 
       {/* Texte */}
-      <h3 className="text-lg font-medium">{sector.title}</h3>
+      <h3 className="text-base mobile:text-lg font-medium">{sector.title}</h3>
       <p className="italic text-[#FEFEA2]">{sector.subtitle}</p>
       <p className="text-white/60">{sector.description}</p>
 
-      {/* Numéro en haut à droite */}
+      {/* Numéro en haut à droite (position adaptée mobile/tablet) */}
       <span
         className={[
           "absolute right-6 text-xs text-white/40",
-          sector.number === "01" ? "top-48" : "top-4",
+          // En mobile on garde proche du bord; en tablet on remonte beaucoup sur la 1ère carte
+          isFirst ? "top-6 tablet:top-48" : "top-6 tablet:top-4",
         ].join(" ")}
       >
         ({sector.number})

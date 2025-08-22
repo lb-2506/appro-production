@@ -89,7 +89,7 @@ export default function SkillsHomeComponent() {
         backgroundSize: "100%",
       }}
     >
-      <div className="pt-24 pb-48 max-w-[90%] mx-auto flex flex-col items-center gap-36">
+      <div className="pt-24 pb-24 tablet:pb-48 max-w-[90%] mx-auto flex flex-col items-center gap-36">
         <div className="text-darkBlue max-w-[850px] flex flex-col gap-8 items-center justify-center text-center">
           <h2 className="tracking-tight font-light uppercase opacity-40">
             Notre process

@@ -51,7 +51,7 @@ export default function HeroHomeComponent() {
         backgroundSize: "100%",
       }}
     >
-      {/* Background principal */}
+      {/* Background principal (on garde layout="fill") */}
       <Image
         src="/img/hero/bg-hero.avif"
         alt="bg-hero"
@@ -60,44 +60,72 @@ export default function HeroHomeComponent() {
         className="object-cover"
       />
 
-      {/* Traits */}
+      {/* Traits (cachés en <768px pour lisibilité) */}
       <Image
         src="/img/traits-hero.avif"
         alt="traits-hero"
         layout="fill"
-        className="object-cover opacity-75"
+        className="object-cover opacity-60 hidden mobile:block"
+        priority
       />
 
-      {/* Overlay dégradé */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/90 to-black/0 pointer-events-none" />
+      {/* Overlay dégradé un peu plus dense en base */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-black/0 mobile:from-black/70 pointer-events-none" />
 
       <section
         ref={containerRef}
         style={{ pointerEvents: "all" }}
-        className="h-[100dvh] flex flex-col gap-4 justify-center px-[10%] relative overflow-hidden"
+        className="
+          h-[100dvh] relative overflow-hidden
+          flex flex-col justify-center gap-5
+          px-4 mobile:px-8 tablet:px-[10%]
+        "
       >
         {/* +60 clients */}
-        <div className="fade-only flex items-center gap-4 w-full text-left">
+        <div className="fade-only w-full flex items-center gap-3 mobile:gap-4 justify-center tablet:justify-start text-left">
           <Image
             src="/img/hero/avis.avif"
             alt="trust"
             width={108}
             height={30}
+            className="w-[90px] mobile:w-[108px] h-auto"
+            priority
           />
-          <p className="text-white font-thin">
+          <p className="text-white font-thin text-xs mobile:text-sm">
             +60 clients nous font confiance
           </p>
         </div>
 
         {/* Titres */}
-        <h1 className="tracking-tighter flex flex-col text-[clamp(28px,5vw,96px)] leading-[clamp(35px,6vw,105px)] text-white font-thin w-full text-balance">
-          <span className="fade-up">Racontez ce que vous faites.</span>
-          <span className="text-right fade-up">Montrez qui vous êtes.</span>
+        <h1
+          className="
+            tracking-tighter text-white font-thin text-balance flex flex-col
+            text-[28px] leading-[34px]
+            mobile:text-[40px] mobile:leading-[46px]
+            tablet:text-[64px] tablet:leading-[70px]
+            desktop:text-[84px] desktop:leading-[92px]
+            ultraWide:text-[96px] ultraWide:leading-[104px]
+          "
+        >
+          <span className="fade-up text-center tablet:text-left">
+            Racontez ce que vous faites.
+          </span>
+
+          <span className="fade-up text-center tablet:text-right">
+            Montrez qui vous êtes.
+          </span>
         </h1>
 
-        <div className="w-full flex justify-end">
-          <h2 className="fade-only tracking-tight text-white text-left justify-end w-fit font-thin">
-            Appro Production - Photo, vidéo et réseaux sociaux.
+        {/* Baseline */}
+        <div className="w-full flex justify-center tablet:justify-end">
+          <h2
+            className="
+              fade-only text-white font-thin tracking-tight w-fit
+              text-center tablet:text-left
+              text-xs mobile:text-sm tablet:text-base
+            "
+          >
+            Appro Production — Photo, vidéo et réseaux sociaux.
             <br />
             Une entreprise du groupe Appro
           </h2>

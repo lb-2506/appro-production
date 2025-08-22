@@ -48,7 +48,7 @@ export default function DisponibilitiesHomeComponent() {
 
   return (
     <div
-      className={`fixed bottom-6 right-6 rounded-xl bg-white p-5 w-[234px] h-[209px] flex flex-col justify-between z-20 shadow-xl transition-opacity duration-300 ${
+      className={`hidden fixed bottom-6 right-6 rounded-xl bg-white p-5 w-[234px] h-[209px] mobile:flex flex-col justify-between z-20 shadow-xl transition-opacity duration-300 ${
         isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
     >
