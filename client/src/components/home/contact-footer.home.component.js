@@ -103,17 +103,6 @@ export default function ContactFooterHomeComponent({
     });
   }
 
-  const [offset, setOffset] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setOffset(window.scrollY * 0.1); // déplacement léger
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <section
       className={`bg-[#171717] mx-auto flex flex-col top-0 w-full min-h-[100vh] overflow-hidden ${zIndexClass} flex items-center  ${
@@ -281,44 +270,42 @@ export default function ContactFooterHomeComponent({
                 <legend className="text-sm opacity-60 mb-3">
                   Par quelle formule êtes-vous intéressé ?
                 </legend>
-                <div className="flex items-center gap-x-8 gap-y-3">
-                  <label className="inline-flex opacity-80 items-center gap-4 w-1/3">
-                    <input
-                      type="checkbox"
-                      name="service_video"
-                      checked={form.services.video}
-                      onChange={updateField}
-                      className="min-w-4 rounded border border-black/30"
-                    />
-                    <span className="text-sm">Vidéo sur mesure</span>
-                  </label>
 
-                  <label className="inline-flex opacity-80 items-center gap-4 w-1/3">
-                    <input
-                      type="checkbox"
-                      name="service_photo"
-                      checked={form.services.photo}
-                      onChange={updateField}
-                      className="min-w-4 rounded border border-black/30"
-                    />
-                    <span className="text-sm">
-                      Photographie professionnelle
-                    </span>
-                  </label>
+                <div className="grid grid-cols-1 mobile:grid-cols-2 desktop:grid-cols-3 gap-y-3 gap-x-6">
+  <label className="inline-flex items-center gap-4 opacity-80">
+    <input
+      type="checkbox"
+      name="service_video"
+      checked={form.services.video}
+      onChange={updateField}
+      className="min-w-4 rounded border border-black/30"
+    />
+    <span className="text-sm">Vidéo sur mesure</span>
+  </label>
 
-                  <label className="inline-flex opacity-80 items-center gap-4 w-1/3">
-                    <input
-                      type="checkbox"
-                      name="service_social"
-                      checked={form.services.social}
-                      onChange={updateField}
-                      className="min-w-4 rounded border border-black/30"
-                    />
-                    <span className="text-sm">
-                      Accompagnement réseaux sociaux
-                    </span>
-                  </label>
-                </div>
+  <label className="inline-flex items-center gap-4 opacity-80">
+    <input
+      type="checkbox"
+      name="service_photo"
+      checked={form.services.photo}
+      onChange={updateField}
+      className="min-w-4 rounded border border-black/30"
+    />
+    <span className="text-sm">Photographie professionnelle</span>
+  </label>
+
+  <label className="inline-flex items-center gap-4 opacity-80">
+    <input
+      type="checkbox"
+      name="service_social"
+      checked={form.services.social}
+      onChange={updateField}
+      className="min-w-4 rounded border border-black/30"
+    />
+    <span className="text-sm">Accompagnement réseaux sociaux</span>
+  </label>
+</div>
+
               </fieldset>
 
               {/* Ligne 5 : Message */}
@@ -407,9 +394,9 @@ export default function ContactFooterHomeComponent({
         }}
       >
         {/* Colonnes */}
-        <div className="mx-auto flex justify-between w-[90%] gap-12 pb-24">
+        <div className="mx-auto flex flex-col text-center tablet:text-start tablet:flex-row justify-between w-[90%] gap-12 pb-24">
           {/* Logo */}
-          <div className="flex items-start">
+          <div className="flex items-center justify-center tablet:items-start">
             {/* Remplace par ton image si tu veux */}
             <img
               src="/img/logo.avif"
@@ -548,12 +535,11 @@ export default function ContactFooterHomeComponent({
 
         {/* Bas de page */}
         <div>
-          <div className="w-[90%] mx-auto py-6 flex justify-between">
-            <p className="text-sm opacity-70 font-light">
+          <div className="w-[90%] max-w-[1240px] mx-auto py-6 flex flex-col-reverse mobile:flex-row gap-4 mobile:gap-6 items-start mobile:items-center justify-between">
+            <p className="text-sm opacity-70 font-light mx-auto tablet:mx-0">
               © Appro Production 2025. Tous droits réservés.
             </p>
-
-            <div className="flex items-center gap-6 text-sm pr-[220px]">
+            <div className="flex items-center gap-6 text-sm pr-0 tablet:pr-[220px] mx-auto tablet:mx-0">
               <a href="/legales" className="opacity-70 hover:opacity-100">
                 Mentions légales
               </a>

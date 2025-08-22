@@ -91,18 +91,18 @@ export default function HomePage(props) {
 
         <WhyUsHomeComponent />
 
-        {/* <SocialHomeComponent setIsPopupOpen={setIsPopupOpen} /> */}
+        <SocialHomeComponent setIsPopupOpen={setIsPopupOpen} />
         
-        {/* <StoryHomeComponent /> */}
+        <StoryHomeComponent />
 
-        {/* <TestimonialsHomeComponent /> */}
+        <TestimonialsHomeComponent />
 
-        {/* <FaqHomeComponent isContactFixed={isContactFixed} /> */}
+        <FaqHomeComponent isContactFixed={isContactFixed} />
 
-        {/* <ContactFooterHomeComponent
+        <ContactFooterHomeComponent
           setIsContactFixed={setIsContactFixed}
           isContactFixed={isContactFixed}
-        /> */}
+        />
       </div>
     </>
   );

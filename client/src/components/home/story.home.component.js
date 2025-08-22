@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { useState } from "react";
 
 const TEAM = [
   {
@@ -36,7 +37,7 @@ export default function StoryHomeComponent() {
   return (
     <section
       id="story"
-      className="bg-[#F5F5F5] py-36 z-10 relative"
+      className="bg-[#F5F5F5] py-20 mobile:py-28 tablet:py-36 z-10 relative"
       style={{
         backgroundImage: "url('/img/bg-noise.webp')",
         backgroundRepeat: "repeat",
@@ -44,20 +45,20 @@ export default function StoryHomeComponent() {
         backgroundAttachment: "fixed",
       }}
     >
-      <div className="bg-[#EAEAEA] max-w-[1240px] w-[90%] mx-auto rounded-[20px] p-6 sm:p-10 lg:p-12">
-        <div className="grid grid-cols-2 gap-10">
-          {/* Colonne gauche : titre + texte + CTA */}
-          <div className="rounded-[18px]ring-1 ring-black/5 p-6 sm:p-10 flex flex-col justify-between">
+      <div className="bg-[#EAEAEA] max-w-[1240px] w-[90%] mx-auto rounded-[20px] p-6 mobile:p-8 tablet:p-12">
+        <div className="grid grid-cols-1 tablet:grid-cols-2 gap-8 tablet:gap-10">
+          {/* Colonne gauche : titre + texte */}
+          <div className="rounded-[18px] ring-1 ring-black/5 p-6 mobile:p-8 tablet:p-10 flex flex-col justify-between">
             <div>
-              <p className="text-sm uppercase tracking-wide text-black/50">
+              <p className="text-xs mobile:text-sm uppercase tracking-wide text-black/50">
                 À propos
               </p>
-              <h2 className="tracking-tight mt-4 text-5xl leading-tight font-light text-black">
+              <h2 className="tracking-tight mt-3 mobile:mt-4 text-3xl mobile:text-4xl tablet:text-5xl leading-tight font-light text-black">
                 Notre histoire
               </h2>
             </div>
 
-            <div className="mt-10 max-w-[48ch] text-black/50 flex flex-col gap-4">
+            <div className="mt-8 tablet:mt-10 max-w-[58ch] text-black/60 flex flex-col gap-4">
               <p className="leading-relaxed">
                 Appro Production est née de l’envie d’élargir les services du
                 groupe Appro, fondé par Bastien et Mickaël, en y ajoutant la
@@ -78,10 +79,10 @@ export default function StoryHomeComponent() {
             </div>
           </div>
 
-          {/* Colonne droite : cartes en 2×2 */}
-          <div className="grid grid-cols-2 gap-6">
+          {/* Colonne droite : cartes */}
+          <div className="grid grid-cols-1 mobile:grid-cols-2 gap-6">
             {TEAM.map((m, i) => (
-              <FlipCard key={m.name} member={m} darkBack={i % 2 === 1} />
+              <FlipCard key={m.name} member={m} />
             ))}
           </div>
         </div>
@@ -93,7 +94,9 @@ export default function StoryHomeComponent() {
 /* ============================= */
 /*          FLIP  CARD           */
 /* ============================= */
-function FlipCard({ member, darkBack = false }) {
+function FlipCard({ member }) {
+  const [flipped, setFlipped] = useState(false);
+
   return (
     <div
       className="group relative [perspective:1200px]"
@@ -102,10 +105,12 @@ function FlipCard({ member, darkBack = false }) {
       {/* inner */}
       <div
         className={[
-          "relative h-[320px] w-full rounded-[20px]",
+          "relative w-full rounded-[20px]",
+          "h-[280px] mobile:h-[320px] tablet:h-[360px]",
           "transition-transform duration-500",
           "[transform-style:preserve-3d]",
-          "group-hover:[transform:rotateY(180deg)]",
+          // Hover (desktop) + état contrôlé (mobile/tactile)
+          flipped ? "[transform:rotateY(180deg)]" : "group-hover:[transform:rotateY(180deg)]",
           "ring-1 ring-black/10",
           "bg-white",
         ].join(" ")}
@@ -121,46 +126,51 @@ function FlipCard({ member, darkBack = false }) {
               alt={member.name}
               layout="fill"
               className="object-cover"
+              priority={member.name === "Laurent"}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
           </div>
 
           {/* bouton + */}
-          <span className="absolute top-3 right-3 h-6 w-6 grid place-items-center rounded-full bg-white/90 text-black text-sm shadow">
+          <button
+            type="button"
+            onClick={() => setFlipped(true)}
+            aria-label="Voir la bio"
+            className="absolute top-3 right-3 h-7 w-7 grid place-items-center rounded-full bg-white/90 text-black text-sm shadow focus:outline-none focus:ring-2 focus:ring-black/30"
+          >
             +
-          </span>
+          </button>
 
           {/* texte */}
           <div className="absolute left-4 right-4 bottom-4 text-white drop-shadow">
-            <h3 className="text-xl font-medium">{member.name}</h3>
-            <p className="text-sm opacity-90">{member.role}</p>
+            <h3 className="text-lg mobile:text-xl font-medium">{member.name}</h3>
+            <p className="text-xs mobile:text-sm opacity-90">{member.role}</p>
           </div>
         </div>
 
         {/* BACK */}
         <div
           className={[
-            "absolute inset-0 rounded-[20px] p-6 sm:p-7",
+            "absolute inset-0 rounded-[20px] p-5 mobile:p-6 tablet:p-7",
             "bg-[#111]/90 text-white",
             "[transform:rotateY(180deg)] [backface-visibility:hidden]",
             "flex",
           ].join(" ")}
           style={{ WebkitBackfaceVisibility: "hidden" }}
         >
-          {/* bouton + (mirroir) */}
-          <span
-            className={[
-              "absolute top-3 right-3 h-6 w-6 grid place-items-center rounded-full",
-              "bg-white/90 text-black",
-              "text-sm shadow",
-            ].join(" ")}
+          {/* bouton + (retour) */}
+          <button
+            type="button"
+            onClick={() => setFlipped(false)}
+            aria-label="Revenir à la photo"
+            className="absolute top-3 right-3 h-7 w-7 grid place-items-center rounded-full bg-white/90 text-black text-sm shadow focus:outline-none focus:ring-2 focus:ring-white/40"
           >
             +
-          </span>
+          </button>
 
           <div className="my-auto">
-            <h4 className="text-lg font-medium mb-2">{member.name}</h4>
-            <p className="text-sm opacity-80 leading-relaxed">{member.about}</p>
+            <h4 className="text-base mobile:text-lg font-medium mb-2">{member.name}</h4>
+            <p className="text-xs mobile:text-sm opacity-80 leading-relaxed">{member.about}</p>
           </div>
         </div>
       </div>

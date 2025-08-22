@@ -16,7 +16,7 @@ const FAQ = [
   },
   {
     q: "Quels sont vos tarifs ?",
-    a: "Chaque projet est différent, donc chaque devis est personnalisé.Mais pour vous donner une idée : nos prestations démarrent à 125€ pour une séance photo, et à 390€ pour une vidéo professionnelle simple. On vous conseille toujours la solution la plus juste, selon vos objectifs et votre budget.",
+    a: "Chaque projet est différent, donc chaque devis est personnalisé. Mais pour vous donner une idée : nos prestations démarrent à 125€ pour une séance photo, et à 390€ pour une vidéo professionnelle simple. On vous conseille toujours la solution la plus juste, selon vos objectifs et votre budget.",
   },
 ];
 
@@ -24,7 +24,7 @@ export default function FaqHomeComponent({ isContactFixed }) {
   const containerRef = useRef(null);
   const glowRef = useRef(null);
 
-  // --- SPRING + VELOCITY pour un suivi super smooth ---
+  // SPRING + VELOCITY
   const pos = useRef({ x: 0, y: 0 });
   const vel = useRef({ x: 0, y: 0 });
   const target = useRef({ x: 0, y: 0 });
@@ -33,9 +33,13 @@ export default function FaqHomeComponent({ isContactFixed }) {
     const el = containerRef.current;
     if (!el) return;
 
-    // cible au centre au départ
+    const reduce =
+      typeof window !== "undefined" &&
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
     const r = el.getBoundingClientRect();
-    target.current = { x: r.width * 0.45, y: r.height * 0.25 }; // léger décalage agréable
+    target.current = { x: r.width * 0.45, y: r.height * 0.25 };
 
     const onMove = (e) => {
       const rect = el.getBoundingClientRect();
@@ -47,11 +51,19 @@ export default function FaqHomeComponent({ isContactFixed }) {
     el.addEventListener("mousemove", onMove);
 
     let raf;
-    const stiffness = 0.06; // ressort (plus haut = plus réactif)
-    const damping = 0.12; // amortissement (plus haut = moins d’oscillation)
+    const stiffness = 0.06;
+    const damping = 0.12;
 
     const tick = () => {
-      // accélération = k*(cible - pos) - damping*vel
+      if (reduce) {
+        if (glowRef.current) {
+          const centerX = r.width * 0.5;
+          const centerY = r.height * 0.35;
+          glowRef.current.style.transform = `translate(${centerX}px, ${centerY}px) translate(-50%, -50%)`;
+        }
+        return;
+      }
+
       const ax =
         (target.current.x - pos.current.x) * stiffness -
         vel.current.x * damping;
@@ -61,7 +73,6 @@ export default function FaqHomeComponent({ isContactFixed }) {
 
       vel.current.x += ax;
       vel.current.y += ay;
-
       pos.current.x += vel.current.x;
       pos.current.y += vel.current.y;
 
@@ -72,7 +83,6 @@ export default function FaqHomeComponent({ isContactFixed }) {
     };
     raf = requestAnimationFrame(tick);
 
-    // recentrer au resize
     const onResize = () => {
       const rr = el.getBoundingClientRect();
       target.current = { x: rr.width * 0.55, y: rr.height * 0.35 };
@@ -82,11 +92,11 @@ export default function FaqHomeComponent({ isContactFixed }) {
     return () => {
       el.removeEventListener("mousemove", onMove);
       window.removeEventListener("resize", onResize);
-      cancelAnimationFrame(raf);
+      if (raf) cancelAnimationFrame(raf);
     };
   }, []);
 
-  // --- Accordéon (un seul ouvert à la fois) ---
+  // Accordéon (un seul ouvert)
   const [open, setOpen] = useState(null);
   const toggle = (i) => setOpen((o) => (o === i ? -1 : i));
 
@@ -95,9 +105,9 @@ export default function FaqHomeComponent({ isContactFixed }) {
       <section
         id="faq"
         ref={containerRef}
-        className={`z-10 relative overflow-hidden py-60 ${
-          isContactFixed ? "mb-[100dvh]" : "mb-0"
-        }`}
+        className={`z-10 relative overflow-hidden
+          py-20 mobile:py-28 tablet:py-36
+          ${isContactFixed ? "mb-[100dvh]" : "mb-0"}`}
         style={{
           backgroundColor: "#EAEAEA",
           backgroundImage: "url('/img/bg-noise.webp')",
@@ -105,37 +115,36 @@ export default function FaqHomeComponent({ isContactFixed }) {
           backgroundSize: "100%",
         }}
       >
-        {/* Halo jaune très diffus, suit la souris (taille grande + blur fort) */}
+        {/* Halo jaune */}
         <div
           ref={glowRef}
-          className="pointer-events-none absolute top-0 left-0 rounded-full opacity-70"
-          style={{
-            width: 900,
-            height: 900,
-            background: "#FEFEA2",
-            filter: "blur(120px)",
-            transform: "translate(-50%, -50%)",
-            mixBlendMode: "multiply",
-            willChange: "transform, filter",
-          }}
+          className="
+            pointer-events-none absolute top-0 left-0 rounded-full opacity-70
+            bg-[#FEFEA2] mix-blend-multiply
+            w-[520px] h-[520px] blur-[80px]
+            mobile:w-[720px] mobile:h-[720px] mobile:blur-[100px]
+            tablet:w-[900px] tablet:h-[900px] tablet:blur-[120px]
+            will-change-transform
+          "
+          style={{ transform: "translate(-50%, -50%)" }}
         />
 
         {/* Contenu */}
-        <div className="relative z-10 max-w-[1240px] w-[90%] mx-auto flex flex-col items-center gap-10">
+        <div className="relative z-10 max-w-[1240px] w-[90%] mx-auto flex flex-col items-center gap-8 mobile:gap-10">
           {/* Header */}
-          <div className="text-black max-w-[760px] flex flex-col gap-6 items-center text-center">
+          <div className="text-black max-w-[760px] flex flex-col gap-4 mobile:gap-6 items-center text-center">
             <h2 className="tracking-tight font-light uppercase opacity-40">
               FAQ
             </h2>
-            <h1 className="tracking-tighter text-[9vw] leading-[12vw] mobile:leading-[65px] tablet:text-[60px] font-light">
+            <h1 className="tracking-tighter text-[9vw] leading-[12vw] mobile:text-[54px] mobile:leading-[64px] tablet:text-[60px] tablet:leading-[68px] font-light">
               Vous avez des
               <br /> questions ?
             </h1>
-            <p className="max-w-[420px] text-lg opacity-60 font-light">
+            <p className="max-w-[480px] text-base mobile:text-lg opacity-60 font-light">
               Nous avons les réponses. Voici tout ce que vous devez savoir pour
               travailler avec nous.
             </p>
-            
+
             <div className="flex justify-center">
               <a
                 href="#contact"
@@ -145,25 +154,14 @@ export default function FaqHomeComponent({ isContactFixed }) {
                 <span className="relative inline-block w-6 h-6 overflow-visible">
                   <span className="absolute inset-0 flex flex-col items-center justify-center transition-transform duration-300 ease-out group-hover:translate-x-11 group-hover:-translate-y-11">
                     <span
-                      xmlns="http://www.w3.org/2000/svg"
                       className="absolute w-4 h-4 text-white opacity-100"
                       style={{ transform: "translate(-40px, 40px)" }}
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth="2"
                     >
                       ↗
                     </span>
-
                     <span
-                      xmlns="http://www.w3.org/2000/svg"
                       className="absolute w-4 h-4 text-white opacity-100"
                       style={{ transform: "translate(3px, -3px)" }}
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth="2"
                     >
                       ↗
                     </span>
@@ -193,7 +191,6 @@ export default function FaqHomeComponent({ isContactFixed }) {
   );
 }
 
-/* --- Item d'accordéon avec transition de hauteur fluide --- */
 function FaqItem({ i, open, onToggle, q, a }) {
   const contentRef = useRef(null);
   const isOpen = open === i;
@@ -202,26 +199,26 @@ function FaqItem({ i, open, onToggle, q, a }) {
   useEffect(() => {
     const el = contentRef.current;
     if (!el) return;
-    if (isOpen) {
-      setHeight(el.scrollHeight);
-    } else {
-      setHeight(0);
-    }
+    setHeight(isOpen ? el.scrollHeight : 0);
   }, [isOpen, q, a]);
+
+  const contentId = `faq-panel-${i}`;
 
   return (
     <div className="relative rounded-[22px] bg-white/85 backdrop-blur-sm shadow-[0_2px_40px_rgba(0,0,0,0.06)] ring-1 ring-black/5">
-      {/* Bandeau gradient jaune très subtil sous l’item (style capture) */}
+      {/* ligne jaune subtile */}
       <div className="pointer-events-none absolute inset-x-6 bottom-0 h-[3px] rounded-full bg-gradient-to-r from-transparent via-[#FEFEA2] to-transparent opacity-70" />
 
       <button
         aria-expanded={isOpen}
+        aria-controls={contentId}
         onClick={onToggle}
-        className="w-full text-left px-6 py-5 pr-14 flex items-center justify-between gap-6"
+        className="w-full text-left px-5 mobile:px-6 py-4 mobile:py-5 pr-12 flex items-center justify-between gap-4 mobile:gap-6"
       >
-        <span className="text-black font-bold tracking-tight">{q}</span>
+        <span className="text-black font-semibold tracking-tight text-[15px] mobile:text-base tablet:text-lg">
+          {q}
+        </span>
 
-        {/* bouton rond + / – */}
         <span
           className="shrink-0 grid place-items-center w-8 h-8 rounded-full bg-black text-white"
           aria-hidden="true"
@@ -233,29 +230,26 @@ function FaqItem({ i, open, onToggle, q, a }) {
             fill="none"
             className="transition-all duration-300 ease-in-out"
           >
-            {/* Trait horizontal (toujours visible) */}
             <path
               d="M2 7h10"
               stroke="currentColor"
               strokeWidth="1.8"
               strokeLinecap="round"
             />
-            {/* Trait vertical (disparaît quand open) */}
             <path
               d="M7 2v10"
               stroke="currentColor"
               strokeWidth="1.8"
               strokeLinecap="round"
-              className={`transition-all duration-300 ease-in-out ${
-                isOpen ? "opacity-0 scale-y-0" : "opacity-100 scale-y-100"
-              }`}
+              className={`transition-all duration-300 ease-in-out ${isOpen ? "opacity-0 scale-y-0" : "opacity-100 scale-y-100"}`}
             />
           </svg>
         </span>
       </button>
 
       <div
-        className="px-6"
+        id={contentId}
+        className="px-5 mobile:px-6"
         style={{
           maxHeight: height,
           transition:
@@ -266,7 +260,7 @@ function FaqItem({ i, open, onToggle, q, a }) {
       >
         <p
           ref={contentRef}
-          className="pb-5 pt-1 text-black/40 leading-relaxed tracking-tight"
+          className="pb-5 pt-1 text-black/40 leading-relaxed tracking-tight text-sm mobile:text-base"
         >
           {a}
         </p>
