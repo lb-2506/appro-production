@@ -151,6 +151,7 @@ export default function WhatWeDoHomeComponent() {
                       i === active ? "opacity-100" : "opacity-0",
                     ].join(" ")}
                     priority={i === 0}
+                    unoptimized
                   />
                 ))}
               </div>
