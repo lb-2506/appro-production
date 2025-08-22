@@ -6,6 +6,7 @@ module.exports = {
       // COLORS STUDIO
       white: "#FFFFFF",
       black: "#000000",
+      red: "#FF0000",
       darkGreen: "#002317",
       green: "#59DC6C",
       creamy: "#FFFFE3",

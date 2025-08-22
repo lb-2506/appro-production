@@ -5,6 +5,12 @@ export default function ContactFooterHomeComponent({
   setIsContactFixed,
   isContactFixed,
 }) {
+  const [status, setStatus] = useState({
+    sending: false,
+    ok: false,
+    error: null,
+  });
+
   const [form, setForm] = useState({
     nom: "",
     prenom: "",
@@ -17,6 +23,18 @@ export default function ContactFooterHomeComponent({
       social: false,
     },
     message: "",
+    accept: false,
+  });
+
+  // erreurs par champ (true = invalide)
+  const [errors, setErrors] = useState({
+    nom: false,
+    prenom: false,
+    email: false,
+    telephone: false,
+    vousEtes: false,
+    services: false, // groupe (au moins une case)
+    message: false,
     accept: false,
   });
 
@@ -62,13 +80,25 @@ export default function ContactFooterHomeComponent({
 
   function updateField(e) {
     const { name, value, type, checked } = e.target;
-    // checkboxes des services
+
+    // checkboxes des services (groupe)
     if (name.startsWith("service_")) {
       const key = name.replace("service_", "");
-      setForm((f) => ({ ...f, services: { ...f.services, [key]: checked } }));
+      setForm((f) => {
+        const next = { ...f, services: { ...f.services, [key]: checked } };
+        // recalcul validation du groupe services à la volée
+        const any = Object.values(next.services).some(Boolean);
+        setErrors((er) => ({ ...er, services: !any }));
+        return next;
+      });
       return;
     }
+
+    // champs classiques
     setForm((f) => ({ ...f, [name]: type === "checkbox" ? checked : value }));
+
+    // clear l'erreur du champ au fur et à mesure
+    setErrors((er) => ({ ...er, [name]: false }));
   }
 
   function wait(ms) {
@@ -86,21 +116,118 @@ export default function ContactFooterHomeComponent({
     });
   }
 
-  function onSubmit(e) {
+  function servicesChoisisFromState(services) {
+    return Object.entries(services)
+      .filter(([, v]) => v)
+      .map(([k]) =>
+        k === "video"
+          ? "Vidéo sur mesure"
+          : k === "photo"
+            ? "Photographie professionnelle"
+            : "Accompagnement réseaux sociaux"
+      );
+  }
+
+  function validateAll() {
+    const emailOk =
+      !!form.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim());
+
+    const servicesAny = Object.values(form.services).some(Boolean);
+
+    const nextErrors = {
+      nom: !form.nom.trim(),
+      prenom: !form.prenom.trim(),
+      email: !emailOk,
+      telephone: !form.telephone.trim(),
+      vousEtes: !form.vousEtes?.trim(),
+      services: !servicesAny,
+      message: !form.message.trim(),
+      accept: !form.accept,
+    };
+
+    setErrors(nextErrors);
+    const hasError = Object.values(nextErrors).some(Boolean);
+    return { valid: !hasError, nextErrors };
+  }
+
+  async function onSubmit(e) {
     e.preventDefault();
-    console.log({
-      ...form,
-      // services sélectionnés en tableau lisible
-      servicesChoisis: Object.entries(form.services)
-        .filter(([, v]) => v)
-        .map(([k]) =>
-          k === "video"
-            ? "Vidéo sur mesure"
-            : k === "photo"
-              ? "Photographie professionnelle"
-              : "Accompagnement réseaux sociaux"
-        ),
-    });
+
+    // payload tenté (log demandé)
+    const attemptedPayload = {
+      nom: form.nom,
+      prenom: form.prenom,
+      email: form.email,
+      telephone: form.telephone,
+      vousEtes: form.vousEtes,
+      services: form.services,
+      servicesChoisis: servicesChoisisFromState(form.services),
+      message: form.message,
+      accept: form.accept,
+    };
+    console.log("[Contact] tentative d’envoi:", attemptedPayload);
+
+    const { valid, nextErrors } = validateAll();
+
+    if (!valid) {
+      console.warn(
+        "[Contact] champs invalides:",
+        Object.keys(nextErrors).filter((k) => nextErrors[k])
+      );
+      setStatus({
+        sending: false,
+        ok: false,
+        error: "Merci de remplir tous les champs requis.",
+      });
+      return;
+    }
+
+    setStatus({ sending: true, ok: false, error: null });
+
+    try {
+      const res = await fetch("/api/contact-form-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(attemptedPayload),
+      });
+
+      if (!res.ok) {
+        const j = await res.json().catch(() => ({}));
+        throw new Error(j?.message || "Erreur réseau");
+      }
+
+      setStatus({ sending: false, ok: true, error: null });
+      console.log("[Contact] envoi réussi");
+
+      // reset "soft" (on garde vousEtes)
+      setForm({
+        nom: "",
+        prenom: "",
+        email: "",
+        telephone: "",
+        vousEtes: form.vousEtes,
+        services: { video: false, photo: false, social: false },
+        message: "",
+        accept: false,
+      });
+      setErrors({
+        nom: false,
+        prenom: false,
+        email: false,
+        telephone: false,
+        vousEtes: false,
+        services: false,
+        message: false,
+        accept: false,
+      });
+    } catch (err) {
+      console.error("[Contact] erreur d’envoi:", err);
+      setStatus({
+        sending: false,
+        ok: false,
+        error: err.message || "Erreur inconnue",
+      });
+    }
   }
 
   return (
@@ -155,6 +282,7 @@ export default function ContactFooterHomeComponent({
           <div className="flex-1">
             <form
               onSubmit={onSubmit}
+              noValidate
               className="rounded-3xl bg-[#F5F5F5] backdrop-blur p-6 tablet:p-10 shadow/30 shadow-black/10 border border-black/5 flex flex-col gap-6"
             >
               {/* Ligne 1 : Nom / Prénom */}
@@ -171,7 +299,11 @@ export default function ContactFooterHomeComponent({
                     name="nom"
                     value={form.nom}
                     onChange={updateField}
-                    className="w-full rounded-xl bg-white px-4 py-3 border border-black/10 outline-none focus:border-black/30"
+                    className={`w-full rounded-xl bg-white px-4 py-3 border outline-none ${
+                      errors.nom
+                        ? "border-red focus:border-red"
+                        : "border-black/10 focus:border-black/30"
+                    }`}
                   />
                 </div>
                 <div className="flex-1">
@@ -186,7 +318,11 @@ export default function ContactFooterHomeComponent({
                     name="prenom"
                     value={form.prenom}
                     onChange={updateField}
-                    className="w-full rounded-xl bg-white px-4 py-3 border border-black/10 outline-none focus:border-black/30"
+                    className={`w-full rounded-xl bg-white px-4 py-3 border outline-none ${
+                      errors.prenom
+                        ? "border-red focus:border-red"
+                        : "border-black/10 focus:border-black/30"
+                    }`}
                   />
                 </div>
               </div>
@@ -206,7 +342,11 @@ export default function ContactFooterHomeComponent({
                     type="email"
                     value={form.email}
                     onChange={updateField}
-                    className="w-full rounded-xl bg-white px-4 py-3 border border-black/10 outline-none focus:border-black/30"
+                    className={`w-full rounded-xl bg-white px-4 py-3 border outline-none ${
+                      errors.email
+                        ? "border-red focus:border-red"
+                        : "border-black/10 focus:border-black/30"
+                    }`}
                   />
                 </div>
                 <div className="flex-1">
@@ -221,7 +361,11 @@ export default function ContactFooterHomeComponent({
                     name="telephone"
                     value={form.telephone}
                     onChange={updateField}
-                    className="w-full rounded-xl bg-white px-4 py-3 border border-black/10 outline-none focus:border-black/30"
+                    className={`w-full rounded-xl bg-white px-4 py-3 border outline-none ${
+                      errors.telephone
+                        ? "border-red focus:border-red"
+                        : "border-black/10 focus:border-black/30"
+                    }`}
                   />
                 </div>
               </div>
@@ -240,7 +384,11 @@ export default function ContactFooterHomeComponent({
                     name="vousEtes"
                     value={form.vousEtes}
                     onChange={updateField}
-                    className="w-full rounded-xl bg-white px-4 pr-12 py-3 border border-black/10 outline-none focus:border-black/30 appearance-none"
+                    className={`w-full rounded-xl bg-white px-4 pr-12 py-3 border outline-none appearance-none ${
+                      errors.vousEtes
+                        ? "border-red focus:border-red"
+                        : "border-black/10 focus:border-black/30"
+                    }`}
                   >
                     <option>Une entreprise</option>
                     <option>Un particulier</option>
@@ -271,41 +419,56 @@ export default function ContactFooterHomeComponent({
                   Par quelle formule êtes-vous intéressé ?
                 </legend>
 
-                <div className="grid grid-cols-1 mobile:grid-cols-2 desktop:grid-cols-3 gap-y-3 gap-x-6">
-  <label className="inline-flex items-center gap-4 opacity-80">
-    <input
-      type="checkbox"
-      name="service_video"
-      checked={form.services.video}
-      onChange={updateField}
-      className="min-w-4 rounded border border-black/30"
-    />
-    <span className="text-sm">Vidéo sur mesure</span>
-  </label>
+                <div
+                  className={`grid grid-cols-1 mobile:grid-cols-2 desktop:grid-cols-3 gap-y-3 gap-x-6 ${
+                    errors.services
+                      ? "outline outline-1 outline-red rounded-md"
+                      : ""
+                  }`}
+                >
+                  <label className="inline-flex items-center gap-4 opacity-80">
+                    <input
+                      type="checkbox"
+                      name="service_video"
+                      checked={form.services.video}
+                      onChange={updateField}
+                      className={`min-w-4 rounded border ${
+                        errors.services ? "border-red" : "border-black/30"
+                      }`}
+                    />
+                    <span className="text-sm">Vidéo sur mesure</span>
+                  </label>
 
-  <label className="inline-flex items-center gap-4 opacity-80">
-    <input
-      type="checkbox"
-      name="service_photo"
-      checked={form.services.photo}
-      onChange={updateField}
-      className="min-w-4 rounded border border-black/30"
-    />
-    <span className="text-sm">Photographie professionnelle</span>
-  </label>
+                  <label className="inline-flex items-center gap-4 opacity-80">
+                    <input
+                      type="checkbox"
+                      name="service_photo"
+                      checked={form.services.photo}
+                      onChange={updateField}
+                      className={`min-w-4 rounded border ${
+                        errors.services ? "border-red" : "border-black/30"
+                      }`}
+                    />
+                    <span className="text-sm">
+                      Photographie professionnelle
+                    </span>
+                  </label>
 
-  <label className="inline-flex items-center gap-4 opacity-80">
-    <input
-      type="checkbox"
-      name="service_social"
-      checked={form.services.social}
-      onChange={updateField}
-      className="min-w-4 rounded border border-black/30"
-    />
-    <span className="text-sm">Accompagnement réseaux sociaux</span>
-  </label>
-</div>
-
+                  <label className="inline-flex items-center gap-4 opacity-80">
+                    <input
+                      type="checkbox"
+                      name="service_social"
+                      checked={form.services.social}
+                      onChange={updateField}
+                      className={`min-w-4 rounded border ${
+                        errors.services ? "border-red" : "border-black/30"
+                      }`}
+                    />
+                    <span className="text-sm">
+                      Accompagnement réseaux sociaux
+                    </span>
+                  </label>
+                </div>
               </fieldset>
 
               {/* Ligne 5 : Message */}
@@ -321,7 +484,11 @@ export default function ContactFooterHomeComponent({
                   name="message"
                   value={form.message}
                   onChange={updateField}
-                  className="w-full min-h-[140px] rounded-xl bg-white px-4 py-3 border border-black/10 outline-none focus:border-black/30 resize-none"
+                  className={`w-full min-h-[140px] rounded-xl bg-white px-4 py-3 border outline-none resize-none ${
+                    errors.message
+                      ? "border-red focus:border-red"
+                      : "border-black/10 focus:border-black/30"
+                  }`}
                   placeholder="Écrire mon message..."
                 />
               </div>
@@ -334,7 +501,9 @@ export default function ContactFooterHomeComponent({
                   name="accept"
                   checked={form.accept}
                   onChange={updateField}
-                  className="min-w-4 rounded border border-black/30 cursor-pointer"
+                  className={`min-w-4 rounded border cursor-pointer ${
+                    errors.accept ? "border-red" : "border-black/30"
+                  }`}
                 />
                 <span className="opacity-60">
                   J'accepte la{" "}
@@ -348,9 +517,12 @@ export default function ContactFooterHomeComponent({
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="group relative inline-flex items-center rounded-full font-light bg-black text-white px-6 py-3 shadow/30 shadow-black/40 hover:shadow-black/60 transition-shadow overflow-hidden"
+                  disabled={status.sending}
+                  className={`group relative inline-flex items-center rounded-full font-light bg-black text-white px-6 py-3 shadow/30 shadow-black/40 hover:shadow-black/60 transition-shadow overflow-hidden ${
+                    status.sending ? "opacity-70 cursor-not-allowed" : ""
+                  }`}
                 >
-                  Envoyer
+                  {status.sending ? "Envoi…" : "Envoyer"}
                   <span className="relative inline-block w-6 h-6 overflow-visible">
                     <span className="absolute inset-0 flex flex-col items-center justify-center transition-transform duration-300 ease-out group-hover:translate-x-11 group-hover:-translate-y-11">
                       <span
