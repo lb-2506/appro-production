@@ -526,7 +526,7 @@ export default function ContactFooterHomeComponent({ setIsContactFixed, isContac
 
               {/* Messages d'état */}
               {status.error && <p className="absolute bottom-6 right-6 text-sm text-red">{status.error}</p>}
-              {status.ok && <p className="text-sm text-green">Merci ! Votre message a bien été envoyé.</p>}
+              {status.ok && <p className="absolute bottom-6 right-6 text-sm text-green">Merci ! Votre message a bien été envoyé.</p>}
             </form>
           </div>
         </div>
