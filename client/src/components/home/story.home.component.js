@@ -125,7 +125,7 @@ function FlipCard({ member }) {
               src={member.img}
               alt={member.name}
               layout="fill"
-              className="object-cover"
+              className="object-cover object-top"
               priority={member.name === "Laurent"}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />

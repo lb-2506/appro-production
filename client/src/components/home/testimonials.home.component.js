@@ -33,32 +33,43 @@ export default function TestimonialsHomeComponent() {
     typeof window !== "undefined" &&
     window.matchMedia("(min-width: 1220px)").matches;
 
-  const getStep = () => (getIsDesktop() ? DESKTOP_CARD + GAP : MOBILE_CARD + GAP);
+  const getStep = () =>
+    getIsDesktop() ? DESKTOP_CARD + GAP : MOBILE_CARD + GAP;
 
-  // Sync l'index au scroll manuel (roue/trackpad)
+  // --- helper fiable avec ratio ---
+  const computeIndexFromScroll = () => {
+    const el = scrollContainerRef.current;
+    if (!el) return 0;
+    const maxScroll = Math.max(1, el.scrollWidth - el.clientWidth);
+    const ratio = el.scrollLeft / maxScroll; // 0 → 1
+    return Math.min(
+      RAW.length - 1,
+      Math.max(0, Math.round(ratio * (RAW.length - 1)))
+    );
+  };
+
+  // Sync index au scroll manuel
   useEffect(() => {
     const el = scrollContainerRef.current;
     if (!el) return;
 
     const onScroll = () => {
-      const step = getStep();
-      const i = Math.round(el.scrollLeft / step);
-      const maxIndex = RAW.length - 1;
-      const clamped = Math.max(0, Math.min(maxIndex, i));
-      if (clamped !== index) setIndex(clamped);
+      const newIndex = computeIndexFromScroll();
+      if (newIndex !== index) setIndex(newIndex);
     };
 
     el.addEventListener("scroll", onScroll, { passive: true });
     return () => el.removeEventListener("scroll", onScroll);
   }, [index]);
 
-  // Recalage lors d'un resize pour garder l'alignement sur la carte active
+  // Recalage au resize
   useEffect(() => {
     const onResize = () => {
       const el = scrollContainerRef.current;
       if (!el) return;
-      const step = getStep();
-      el.scrollTo({ left: index * step });
+      const ratio = index / Math.max(1, RAW.length - 1);
+      const maxScroll = Math.max(0, el.scrollWidth - el.clientWidth);
+      el.scrollTo({ left: ratio * maxScroll });
     };
     if (typeof window !== "undefined") {
       window.addEventListener("resize", onResize);
@@ -70,19 +81,16 @@ export default function TestimonialsHomeComponent() {
     const el = scrollContainerRef.current;
     if (!el) return;
     const step = getStep();
-    const nextIndex = Math.max(0, index - 1);
     el.scrollBy({ left: -step, behavior: "smooth" });
-    setIndex(nextIndex);
+    setTimeout(() => setIndex(computeIndexFromScroll()), 250);
   };
 
   const scrollRight = () => {
     const el = scrollContainerRef.current;
     if (!el) return;
     const step = getStep();
-    const maxIndex = RAW.length - 1;
-    const nextIndex = Math.min(maxIndex, index + 1);
     el.scrollBy({ left: step, behavior: "smooth" });
-    setIndex(nextIndex);
+    setTimeout(() => setIndex(computeIndexFromScroll()), 250);
   };
 
   return (
@@ -115,7 +123,7 @@ export default function TestimonialsHomeComponent() {
             </a>
           </div>
 
-          {/* Carrousel (s'affiche aussi en mobile) */}
+          {/* Carrousel */}
           <div
             ref={scrollContainerRef}
             className="
@@ -124,7 +132,6 @@ export default function TestimonialsHomeComponent() {
               pb-2
             "
           >
-            {/* Track calculé par le flux naturel: cartes shrink-0 + gap */}
             <div className="flex gap-6 pl-1 mobile:pl-2 desktop:pl-[5vw]">
               {RAW.map((review, i) => {
                 const number = String(i + 1).padStart(2, "0");
@@ -140,12 +147,10 @@ export default function TestimonialsHomeComponent() {
                       shrink-0
                     "
                   >
-                    {/* numéro */}
                     <span className="absolute top-3 right-4 text-xs text-black/40">
                       ({number})
                     </span>
 
-                    {/* étoiles */}
                     <div className="mb-3 flex gap-1 text-[#9AC39A] opacity-50">
                       {Array.from({ length: 5 }).map((_, s) => (
                         <svg
@@ -177,7 +182,6 @@ export default function TestimonialsHomeComponent() {
                   </div>
                 );
               })}
-              {/* petit espace terminal pour respirer */}
               <div className="shrink-0 w-2" />
             </div>
           </div>
