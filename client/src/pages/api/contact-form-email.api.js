@@ -55,7 +55,7 @@ async function sendTransactionalEmail(params) {
         </body>
       </html>`,
     replyTo: {
-      email: params.email || "baccialone.leo@gmail.com",
+      email: params.email || "contact@approproduction.fr",
       name: fullName,
     },
   };
@@ -103,7 +103,7 @@ export default async function handler(req, res) {
   }
 
   const params = {
-    to: [{ email: "baccialone.leo@gmail.com", name: "Appro Production" }],
+    to: [{ email: "contact@approproduction.fr", name: "Appro Production" }],
     subject: "Nouveau message via le formulaire de contact",
     nom,
     prenom,
