@@ -1,10 +1,23 @@
+"use client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-export default function ContactFooterHomeComponent({
-  setIsContactFixed,
-  isContactFixed,
-}) {
+/* Petit composant pour afficher un label avec astérisque
+   L’astérisque hérite de la couleur du label et devient rouge si hasError */
+function LabelWithStar({ htmlFor, children, required = false, hasError = false, className = "" }) {
+  return (
+    <label htmlFor={htmlFor} className={`block text-sm opacity-60 mb-2 ${className}`}>
+      <span className="align-middle">{children}</span>
+      {required && (
+        <span aria-hidden="true" className={`ml-1 align-middle ${hasError ? "text-red" : "text-inherit"}`}>
+          *
+        </span>
+      )}
+    </label>
+  );
+}
+
+export default function ContactFooterHomeComponent({ setIsContactFixed, isContactFixed }) {
   const [status, setStatus] = useState({
     sending: false,
     ok: false,
@@ -123,8 +136,8 @@ export default function ContactFooterHomeComponent({
         k === "video"
           ? "Vidéo sur mesure"
           : k === "photo"
-            ? "Photographie professionnelle"
-            : "Accompagnement réseaux sociaux"
+          ? "Photographie professionnelle"
+          : "Accompagnement réseaux sociaux"
       );
   }
 
@@ -165,7 +178,6 @@ export default function ContactFooterHomeComponent({
       message: form.message,
       accept: form.accept,
     };
-    console.log("[Contact] tentative d’envoi:", attemptedPayload);
 
     const { valid, nextErrors } = validateAll();
 
@@ -288,41 +300,29 @@ export default function ContactFooterHomeComponent({
               {/* Ligne 1 : Nom / Prénom */}
               <div className="flex flex-col tablet:flex-row gap-4">
                 <div className="flex-1">
-                  <label
-                    htmlFor="nom"
-                    className="block text-sm opacity-60 mb-2"
-                  >
+                  <LabelWithStar htmlFor="nom" required hasError={errors.nom}>
                     Nom
-                  </label>
+                  </LabelWithStar>
                   <input
                     id="nom"
                     name="nom"
                     value={form.nom}
                     onChange={updateField}
-                    className={`w-full rounded-xl bg-white px-4 py-3 border outline-none ${
-                      errors.nom
-                        ? "border-red focus:border-red"
-                        : "border-black/10 focus:border-black/30"
-                    }`}
+                    className="w-full rounded-xl bg-white px-4 py-3 border border-black/10 focus:border-black/30 outline-none"
+                    aria-invalid={errors.nom}
                   />
                 </div>
                 <div className="flex-1">
-                  <label
-                    htmlFor="prenom"
-                    className="block text-sm opacity-60 mb-2"
-                  >
+                  <LabelWithStar htmlFor="prenom" required hasError={errors.prenom}>
                     Prénom
-                  </label>
+                  </LabelWithStar>
                   <input
                     id="prenom"
                     name="prenom"
                     value={form.prenom}
                     onChange={updateField}
-                    className={`w-full rounded-xl bg-white px-4 py-3 border outline-none ${
-                      errors.prenom
-                        ? "border-red focus:border-red"
-                        : "border-black/10 focus:border-black/30"
-                    }`}
+                    className="w-full rounded-xl bg-white px-4 py-3 border border-black/10 focus:border-black/30 outline-none"
+                    aria-invalid={errors.prenom}
                   />
                 </div>
               </div>
@@ -330,65 +330,47 @@ export default function ContactFooterHomeComponent({
               {/* Ligne 2 : Email / Téléphone */}
               <div className="flex flex-col tablet:flex-row gap-4">
                 <div className="flex-1">
-                  <label
-                    htmlFor="email"
-                    className="block text-sm opacity-60 mb-2"
-                  >
+                  <LabelWithStar htmlFor="email" required hasError={errors.email}>
                     Email
-                  </label>
+                  </LabelWithStar>
                   <input
                     id="email"
                     name="email"
                     type="email"
                     value={form.email}
                     onChange={updateField}
-                    className={`w-full rounded-xl bg-white px-4 py-3 border outline-none ${
-                      errors.email
-                        ? "border-red focus:border-red"
-                        : "border-black/10 focus:border-black/30"
-                    }`}
+                    className="w-full rounded-xl bg-white px-4 py-3 border border-black/10 focus:border-black/30 outline-none"
+                    aria-invalid={errors.email}
                   />
                 </div>
                 <div className="flex-1">
-                  <label
-                    htmlFor="telephone"
-                    className="block text-sm opacity-60 mb-2"
-                  >
+                  <LabelWithStar htmlFor="telephone" required hasError={errors.telephone}>
                     Téléphone
-                  </label>
+                  </LabelWithStar>
                   <input
                     id="telephone"
                     name="telephone"
                     value={form.telephone}
                     onChange={updateField}
-                    className={`w-full rounded-xl bg-white px-4 py-3 border outline-none ${
-                      errors.telephone
-                        ? "border-red focus:border-red"
-                        : "border-black/10 focus:border-black/30"
-                    }`}
+                    className="w-full rounded-xl bg-white px-4 py-3 border border-black/10 focus:border-black/30 outline-none"
+                    aria-invalid={errors.telephone}
                   />
                 </div>
               </div>
 
               {/* Ligne 3 : Vous êtes */}
               <div>
-                <label
-                  htmlFor="vousEtes"
-                  className="block text-sm opacity-60 mb-2"
-                >
+                <LabelWithStar htmlFor="vousEtes" required hasError={errors.vousEtes}>
                   Vous êtes :
-                </label>
+                </LabelWithStar>
                 <div className="relative">
                   <select
                     id="vousEtes"
                     name="vousEtes"
                     value={form.vousEtes}
                     onChange={updateField}
-                    className={`w-full rounded-xl bg-white px-4 pr-12 py-3 border outline-none appearance-none ${
-                      errors.vousEtes
-                        ? "border-red focus:border-red"
-                        : "border-black/10 focus:border-black/30"
-                    }`}
+                    className="w-full rounded-xl bg-white px-4 pr-12 py-3 border border-black/10 focus:border-black/30 outline-none appearance-none"
+                    aria-invalid={errors.vousEtes}
                   >
                     <option>Une entreprise</option>
                     <option>Un particulier</option>
@@ -416,25 +398,23 @@ export default function ContactFooterHomeComponent({
               {/* Ligne 4 : Formules */}
               <fieldset>
                 <legend className="text-sm opacity-60 mb-3">
-                  Par quelle formule êtes-vous intéressé ?
+                  <span>Par quelle formule êtes-vous intéressé ?</span>
+                  <span
+                    aria-hidden="true"
+                    className={`ml-1 ${errors.services ? "text-red" : "text-inherit"}`}
+                  >
+                    *
+                  </span>
                 </legend>
 
-                <div
-                  className={`grid grid-cols-1 mobile:grid-cols-2 desktop:grid-cols-3 gap-y-3 gap-x-6 ${
-                    errors.services
-                      ? "outline outline-1 outline-red rounded-md"
-                      : ""
-                  }`}
-                >
+                <div className="grid grid-cols-1 mobile:grid-cols-2 desktop:grid-cols-3 gap-y-3 gap-x-6">
                   <label className="inline-flex items-center gap-4 opacity-80">
                     <input
                       type="checkbox"
                       name="service_video"
                       checked={form.services.video}
                       onChange={updateField}
-                      className={`min-w-4 rounded border ${
-                        errors.services ? "border-red" : "border-black/30"
-                      }`}
+                      className="min-w-4 rounded border border-black/30"
                     />
                     <span className="text-sm">Vidéo sur mesure</span>
                   </label>
@@ -445,13 +425,9 @@ export default function ContactFooterHomeComponent({
                       name="service_photo"
                       checked={form.services.photo}
                       onChange={updateField}
-                      className={`min-w-4 rounded border ${
-                        errors.services ? "border-red" : "border-black/30"
-                      }`}
+                      className="min-w-4 rounded border border-black/30"
                     />
-                    <span className="text-sm">
-                      Photographie professionnelle
-                    </span>
+                    <span className="text-sm">Photographie professionnelle</span>
                   </label>
 
                   <label className="inline-flex items-center gap-4 opacity-80">
@@ -460,36 +436,26 @@ export default function ContactFooterHomeComponent({
                       name="service_social"
                       checked={form.services.social}
                       onChange={updateField}
-                      className={`min-w-4 rounded border ${
-                        errors.services ? "border-red" : "border-black/30"
-                      }`}
+                      className="min-w-4 rounded border border-black/30"
                     />
-                    <span className="text-sm">
-                      Accompagnement réseaux sociaux
-                    </span>
+                    <span className="text-sm">Accompagnement réseaux sociaux</span>
                   </label>
                 </div>
               </fieldset>
 
               {/* Ligne 5 : Message */}
               <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm opacity-60 mb-2"
-                >
+                <LabelWithStar htmlFor="message" required hasError={errors.message}>
                   Message
-                </label>
+                </LabelWithStar>
                 <textarea
                   id="message"
                   name="message"
                   value={form.message}
                   onChange={updateField}
-                  className={`w-full min-h-[140px] rounded-xl bg-white px-4 py-3 border outline-none resize-none ${
-                    errors.message
-                      ? "border-red focus:border-red"
-                      : "border-black/10 focus:border-black/30"
-                  }`}
+                  className="w-full min-h-[140px] rounded-xl bg-white px-4 py-3 border border-black/10 focus:border-black/30 outline-none resize-none"
                   placeholder="Écrire mon message..."
+                  aria-invalid={errors.message}
                 />
               </div>
 
@@ -501,15 +467,20 @@ export default function ContactFooterHomeComponent({
                   name="accept"
                   checked={form.accept}
                   onChange={updateField}
-                  className={`min-w-4 rounded border cursor-pointer ${
-                    errors.accept ? "border-red" : "border-black/30"
-                  }`}
+                  className="min-w-4 rounded border border-black/30 cursor-pointer"
+                  aria-invalid={errors.accept}
                 />
                 <span className="opacity-60">
                   J'accepte la{" "}
                   <a href="/privacy" className="underline hover:opacity-100">
                     politique de confidentialité
                   </a>
+                  <span
+                    aria-hidden="true"
+                    className={`ml-1 ${errors.accept ? "text-red" : "text-inherit"}`}
+                  >
+                    *
+                  </span>
                 </span>
               </label>
 
@@ -552,6 +523,10 @@ export default function ContactFooterHomeComponent({
                   </span>
                 </button>
               </div>
+
+              {/* Messages d'état */}
+              {status.error && <p className="absolute bottom-6 right-6 text-sm text-red">{status.error}</p>}
+              {status.ok && <p className="text-sm text-green">Merci ! Votre message a bien été envoyé.</p>}
             </form>
           </div>
         </div>
