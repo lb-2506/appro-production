@@ -45,13 +45,7 @@ async function sendTransactionalEmail(params) {
           <p><strong>Formules choisies :</strong> ${
             servicesArray.length ? servicesArray.join(", ") : "—"
           }</p>
-          <p><strong>Message :</strong><br/>${(params.message || "").replace(/\n/g, "<br/>")}</p>
-          <hr style="border:none; border-top:1px solid #ddd; margin:16px 0;" />
-          <p style="font-size:12px; color:#555;">
-            Provenance: appro-production.com — RGPD accepté: ${
-              params.accept ? "oui" : "non"
-            }
-          </p>
+          <p><strong>Message :</strong><br/>${(params.message || "").replace(/\n/g, "<br/>")}</p>  
         </body>
       </html>`,
     replyTo: {
