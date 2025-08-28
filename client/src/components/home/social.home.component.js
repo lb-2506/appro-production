@@ -11,8 +11,29 @@ const ytId = (url) => {
   } catch {}
   return "";
 };
-const ytThumb = (url) =>
-  ytId(url) ? `https://img.youtube.com/vi/${ytId(url)}/maxresdefault.jpg` : "";
+
+/** Miniatures locales pour vidéos problématiques (private/age, etc.) */
+const POSTER_OVERRIDES = {
+  // Miss 15–17 Finistère
+  PqfVhe4Evzo: "/img/social/miss-15-17.avif", // ← mets une image locale si tu en as
+};
+
+/** Retourne une liste ordonnée de miniatures candidates pour une URL YouTube */
+const ytThumbs = (url) => {
+  const id = ytId(url);
+  if (!id) return [];
+  if (POSTER_OVERRIDES[id]) return [POSTER_OVERRIDES[id]];
+
+  const sizes = [
+    "maxresdefault.jpg",
+    "hq720.jpg",
+    "sddefault.jpg",
+    "hqdefault.jpg",
+    "mqdefault.jpg",
+    "default.jpg",
+  ];
+  return sizes.map((s) => `https://img.youtube.com/vi/${id}/${s}`);
+};
 
 /* --- data --- */
 const VIDEO_LINKS = [
@@ -25,11 +46,17 @@ const VIDEO_LINKS = [
 ];
 
 const SOCIAL_LINKS = [
-  { title: "Bref, 1ère voiture", url: "https://youtube.com/shorts/o13chOWNKug" },
+  {
+    title: "Bref, 1ère voiture",
+    url: "https://youtube.com/shorts/o13chOWNKug",
+  },
   { title: "Appro Logistique", url: "https://youtube.com/shorts/Qh2TxCtoZgc" },
   { title: "Tournoi RCC 2025", url: "https://youtube.com/shorts/Ca4fMPSnxl0" },
   { title: "DEFICOM – Habitat", url: "https://youtube.com/shorts/OBr7FAjYNMM" },
-  { title: "Villa – S. Guézingar", url: "https://youtube.com/shorts/V7Skw1jljs8" },
+  {
+    title: "Villa – S. Guézingar",
+    url: "https://youtube.com/shorts/V7Skw1jljs8",
+  },
   { title: "Vlog Festival irréductibles", url: "https://youtu.be/pn1OuQoRUzU" },
 ];
 
@@ -67,7 +94,8 @@ export default function SocialHomeComponent({ setIsPopupOpen }) {
     typeof window !== "undefined" &&
     window.matchMedia("(min-width: 1220px)").matches;
 
-  const getStep = () => (getIsDesktop() ? DESKTOP_CARD + GAP : MOBILE_CARD + GAP);
+  const getStep = () =>
+    getIsDesktop() ? DESKTOP_CARD + GAP : MOBILE_CARD + GAP;
 
   // Bloque le scroll quand un popup est ouvert
   useEffect(() => {
@@ -87,12 +115,12 @@ export default function SocialHomeComponent({ setIsPopupOpen }) {
   const { items, playable } = useMemo(() => {
     if (tab === "videos")
       return {
-        items: VIDEO_LINKS.map((v) => ({ ...v, thumb: ytThumb(v.url) })),
+        items: VIDEO_LINKS.map((v) => ({ ...v, thumbs: ytThumbs(v.url) })),
         playable: true,
       };
     if (tab === "social")
       return {
-        items: SOCIAL_LINKS.map((v) => ({ ...v, thumb: ytThumb(v.url) })),
+        items: SOCIAL_LINKS.map((v) => ({ ...v, thumbs: ytThumbs(v.url) })),
         playable: true,
       };
     return {
@@ -152,15 +180,12 @@ export default function SocialHomeComponent({ setIsPopupOpen }) {
     return () => clearTimeout(t);
   }, [tab]);
 
-  // Flèches: scroll d'une carte à la fois + maj d'index par ratio après scroll
+  // Flèches
   const scrollLeft = () => {
     const el = listRef.current;
     if (!el) return;
     const step = getStep();
     el.scrollBy({ left: -step, behavior: "smooth" });
-
-    // Après l'animation, fixe l'index via ratio
-    // (petit timeout suffisant pour suivre le smooth)
     setTimeout(() => setIndex(computeIndexFromScroll()), 250);
   };
 
@@ -175,7 +200,7 @@ export default function SocialHomeComponent({ setIsPopupOpen }) {
   return (
     <section
       id="social"
-      className="bg-[#171717] py-36 relative z-10"
+      className="bg-[#171717] py-36 relative z-20"
       style={{
         backgroundImage: "url('/img/bg-noise.webp')",
         backgroundRepeat: "repeat",
@@ -216,8 +241,8 @@ export default function SocialHomeComponent({ setIsPopupOpen }) {
                 {k === "videos"
                   ? "Vidéos"
                   : k === "photos"
-                  ? "Photographie"
-                  : "Réseaux sociaux"}
+                    ? "Photographie"
+                    : "Réseaux sociaux"}
               </button>
             ))}
           </div>
@@ -240,21 +265,18 @@ export default function SocialHomeComponent({ setIsPopupOpen }) {
             style={{ WebkitOverflowScrolling: "touch" }}
           >
             <div className="flex gap-6 pl-1 mobile:pl-2">
-              {items.map((item, i) => {
-                const image = item.thumb || item.url;
-                return (
-                  <div
-                    key={i}
-                    className="shrink-0 w-[300px] mobile:w-[320px] desktop:w-[450px]"
-                  >
-                    <SquareCard
-                      image={image}
-                      playable={playable}
-                      onClick={() => setSelected(item)}
-                    />
-                  </div>
-                );
-              })}
+              {items.map((item, i) => (
+                <div
+                  key={i}
+                  className="shrink-0 w-[300px] mobile:w-[320px] desktop:w-[450px]"
+                >
+                  <SquareCard
+                    thumbs={item.thumbs} // <— liste de miniatures
+                    playable={playable}
+                    onClick={() => setSelected(item)}
+                  />
+                </div>
+              ))}
               <div className="shrink-0 w-2" />
             </div>
           </div>
@@ -290,7 +312,7 @@ export default function SocialHomeComponent({ setIsPopupOpen }) {
               </button>
             </div>
 
-            {/* Indicateurs (index basé sur ratio → à fond quand on est au bout) */}
+            {/* Indicateurs */}
             <div className="flex items-center gap-2">
               {Array.from({ length: dotsCount }).map((_, i) => (
                 <span
@@ -345,15 +367,32 @@ export default function SocialHomeComponent({ setIsPopupOpen }) {
 }
 
 /* --- carte carrée --- */
-function SquareCard({ image, onClick, playable = false }) {
+function SquareCard({ thumbs = [], onClick, playable = false }) {
+  const fallback = "/img/placeholders/video-thumb.jpg";
+  const firstSrc = thumbs[0] || fallback;
+
+  const handleError = (e) => {
+    const el = e.currentTarget;
+    const idx = Number(el.getAttribute("data-idx") || 0);
+    const next = idx + 1;
+    if (thumbs[next]) {
+      el.src = thumbs[next];
+      el.setAttribute("data-idx", String(next));
+    } else {
+      el.src = "/img/placeholders/video-thumb.jpg";
+    }
+  };
+
   return (
     <button
       onClick={onClick}
       className="group relative aspect-square w-full overflow-hidden rounded-3xl bg-white/5 ring-1 ring-white/10"
     >
       <img
-        src={image}
+        src={firstSrc}
+        data-idx="0"
         alt=""
+        onError={handleError}
         className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03] opacity-90"
       />
       {playable && (

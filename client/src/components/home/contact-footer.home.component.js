@@ -4,12 +4,24 @@ import { useEffect, useState } from "react";
 
 /* Petit composant pour afficher un label avec astérisque
    L’astérisque hérite de la couleur du label et devient rouge si hasError */
-function LabelWithStar({ htmlFor, children, required = false, hasError = false, className = "" }) {
+function LabelWithStar({
+  htmlFor,
+  children,
+  required = false,
+  hasError = false,
+  className = "",
+}) {
   return (
-    <label htmlFor={htmlFor} className={`block text-sm opacity-60 mb-2 ${className}`}>
+    <label
+      htmlFor={htmlFor}
+      className={`block text-sm opacity-60 mb-2 ${className}`}
+    >
       <span className="align-middle">{children}</span>
       {required && (
-        <span aria-hidden="true" className={`ml-1 align-middle ${hasError ? "text-red" : "text-inherit"}`}>
+        <span
+          aria-hidden="true"
+          className={`ml-1 align-middle ${hasError ? "text-red" : "text-inherit"}`}
+        >
           *
         </span>
       )}
@@ -17,7 +29,10 @@ function LabelWithStar({ htmlFor, children, required = false, hasError = false, 
   );
 }
 
-export default function ContactFooterHomeComponent({ setIsContactFixed, isContactFixed }) {
+export default function ContactFooterHomeComponent({
+  setIsContactFixed,
+  isContactFixed,
+}) {
   const [status, setStatus] = useState({
     sending: false,
     ok: false,
@@ -136,8 +151,8 @@ export default function ContactFooterHomeComponent({ setIsContactFixed, isContac
         k === "video"
           ? "Vidéo sur mesure"
           : k === "photo"
-          ? "Photographie professionnelle"
-          : "Accompagnement réseaux sociaux"
+            ? "Photographie professionnelle"
+            : "Accompagnement réseaux sociaux"
       );
   }
 
@@ -313,7 +328,11 @@ export default function ContactFooterHomeComponent({ setIsContactFixed, isContac
                   />
                 </div>
                 <div className="flex-1">
-                  <LabelWithStar htmlFor="prenom" required hasError={errors.prenom}>
+                  <LabelWithStar
+                    htmlFor="prenom"
+                    required
+                    hasError={errors.prenom}
+                  >
                     Prénom
                   </LabelWithStar>
                   <input
@@ -330,7 +349,11 @@ export default function ContactFooterHomeComponent({ setIsContactFixed, isContac
               {/* Ligne 2 : Email / Téléphone */}
               <div className="flex flex-col tablet:flex-row gap-4">
                 <div className="flex-1">
-                  <LabelWithStar htmlFor="email" required hasError={errors.email}>
+                  <LabelWithStar
+                    htmlFor="email"
+                    required
+                    hasError={errors.email}
+                  >
                     Email
                   </LabelWithStar>
                   <input
@@ -344,7 +367,11 @@ export default function ContactFooterHomeComponent({ setIsContactFixed, isContac
                   />
                 </div>
                 <div className="flex-1">
-                  <LabelWithStar htmlFor="telephone" required hasError={errors.telephone}>
+                  <LabelWithStar
+                    htmlFor="telephone"
+                    required
+                    hasError={errors.telephone}
+                  >
                     Téléphone
                   </LabelWithStar>
                   <input
@@ -360,7 +387,11 @@ export default function ContactFooterHomeComponent({ setIsContactFixed, isContac
 
               {/* Ligne 3 : Vous êtes */}
               <div>
-                <LabelWithStar htmlFor="vousEtes" required hasError={errors.vousEtes}>
+                <LabelWithStar
+                  htmlFor="vousEtes"
+                  required
+                  hasError={errors.vousEtes}
+                >
                   Vous êtes :
                 </LabelWithStar>
                 <div className="relative">
@@ -427,7 +458,9 @@ export default function ContactFooterHomeComponent({ setIsContactFixed, isContac
                       onChange={updateField}
                       className="min-w-4 rounded border border-black/30"
                     />
-                    <span className="text-sm">Photographie professionnelle</span>
+                    <span className="text-sm">
+                      Photographie professionnelle
+                    </span>
                   </label>
 
                   <label className="inline-flex items-center gap-4 opacity-80">
@@ -438,14 +471,20 @@ export default function ContactFooterHomeComponent({ setIsContactFixed, isContac
                       onChange={updateField}
                       className="min-w-4 rounded border border-black/30"
                     />
-                    <span className="text-sm">Accompagnement réseaux sociaux</span>
+                    <span className="text-sm">
+                      Accompagnement réseaux sociaux
+                    </span>
                   </label>
                 </div>
               </fieldset>
 
               {/* Ligne 5 : Message */}
               <div>
-                <LabelWithStar htmlFor="message" required hasError={errors.message}>
+                <LabelWithStar
+                  htmlFor="message"
+                  required
+                  hasError={errors.message}
+                >
                   Message
                 </LabelWithStar>
                 <textarea
@@ -525,8 +564,16 @@ export default function ContactFooterHomeComponent({ setIsContactFixed, isContac
               </div>
 
               {/* Messages d'état */}
-              {status.error && <p className="absolute bottom-6 right-6 text-sm text-red">{status.error}</p>}
-              {status.ok && <p className="absolute bottom-6 right-6 text-sm text-green">Merci ! Votre message a bien été envoyé.</p>}
+              {status.error && (
+                <p className="absolute bottom-6 right-6 text-sm text-red">
+                  {status.error}
+                </p>
+              )}
+              {status.ok && (
+                <p className="absolute bottom-6 right-6 text-sm text-green">
+                  Merci ! Votre message a bien été envoyé.
+                </p>
+              )}
             </form>
           </div>
         </div>
@@ -682,15 +729,43 @@ export default function ContactFooterHomeComponent({ setIsContactFixed, isContac
 
         {/* Bas de page */}
         <div>
-          <div className="w-[90%] max-w-[1240px] mx-auto py-6 flex flex-col-reverse mobile:flex-row gap-4 mobile:gap-6 items-start mobile:items-center justify-between">
+          <div className="w-[90%]  mx-auto py-6 flex flex-col-reverse mobile:flex-row gap-4 mobile:gap-6 items-start mobile:items-center justify-between">
             <p className="text-sm opacity-70 font-light mx-auto tablet:mx-0">
               © Appro Production 2025. Tous droits réservés.
+              <br />
+              <span className="text-xs">
+                Design -{" "}
+                <a
+                  href="https://www.linkedin.com/in/axelle-heurtevent/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:opacity-80"
+                >
+                  Axelle Heurtevent
+                </a>{" "}
+                | Web development -{" "}
+                <a
+                  href="https://www.linkedin.com/in/leo-baccialone/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:opacity-80"
+                >
+                  Léo Baccialone
+                </a>
+              </span>
             </p>
+
             <div className="flex items-center gap-6 text-sm pr-0 tablet:pr-[220px] mx-auto tablet:mx-0">
-              <a href="/legales" className="opacity-70 hover:opacity-100">
+              <a
+                href="/legales"
+                className="opacity-70 hover:opacity-100 text-nowrap"
+              >
                 Mentions légales
               </a>
-              <a href="/privacy" className="opacity-70 hover:opacity-100">
+              <a
+                href="/privacy"
+                className="opacity-70 hover:opacity-100 text-nowrap"
+              >
                 Politique de confidentialité
               </a>
             </div>
