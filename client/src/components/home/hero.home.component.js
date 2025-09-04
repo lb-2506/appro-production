@@ -57,7 +57,7 @@ export default function HeroHomeComponent() {
         alt="bg-hero"
         layout="fill"
         priority
-        className="object-cover"
+        className="object-cover [object-position:70%_50%]"
       />
 
       {/* Traits (cachés en <768px pour lisibilité) */}

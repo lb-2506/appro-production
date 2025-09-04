@@ -57,7 +57,7 @@ const SOCIAL_LINKS = [
     title: "Villa – S. Guézingar",
     url: "https://youtube.com/shorts/V7Skw1jljs8",
   },
-  { title: "Vlog Festival irréductibles", url: "https://youtu.be/pn1OuQoRUzU" },
+  // { title: "Vlog Festival irréductibles", url: "https://youtu.be/pn1OuQoRUzU" },
 ];
 
 const PHOTO_URLS = [
@@ -124,7 +124,7 @@ export default function SocialHomeComponent({ setIsPopupOpen }) {
         playable: true,
       };
     return {
-      items: PHOTO_URLS.map((u) => ({ url: u })),
+      items: PHOTO_URLS.map((u) => ({ url: u, thumbs: [u] })),
       playable: false,
     };
   }, [tab]);
@@ -271,7 +271,8 @@ export default function SocialHomeComponent({ setIsPopupOpen }) {
                   className="shrink-0 w-[300px] mobile:w-[320px] desktop:w-[450px]"
                 >
                   <SquareCard
-                    thumbs={item.thumbs} // <— liste de miniatures
+                    thumbs={item.thumbs}
+                    url={item.url}
                     playable={playable}
                     onClick={() => setSelected(item)}
                   />
@@ -367,9 +368,9 @@ export default function SocialHomeComponent({ setIsPopupOpen }) {
 }
 
 /* --- carte carrée --- */
-function SquareCard({ thumbs = [], onClick, playable = false }) {
+function SquareCard({ thumbs = [], url, onClick, playable = false }) {
   const fallback = "/img/placeholders/video-thumb.jpg";
-  const firstSrc = thumbs[0] || fallback;
+  const firstSrc = thumbs[0] || url || fallback;
 
   const handleError = (e) => {
     const el = e.currentTarget;
