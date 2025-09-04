@@ -15,7 +15,7 @@ const TEAM = [
     role: "Alternante communication & réseaux sociaux",
     img: "/img/story/margaux.avif",
     about:
-      "Elle gère la création de contenus visuels (photos, retouches, visuels pour les réseaux sociaux). Elle organise et met en place la stratégie de communication et le marketing digital, tout en contribuant aux projets audiovisuels.",
+      "Elle coordonne l’organisation des événements, développe la communication interne et accompagne les actions de sponsoring et de partenariats.",
   },
   {
     name: "Léa",
@@ -110,7 +110,9 @@ function FlipCard({ member }) {
           "transition-transform duration-500",
           "[transform-style:preserve-3d]",
           // Hover (desktop) + état contrôlé (mobile/tactile)
-          flipped ? "[transform:rotateY(180deg)]" : "group-hover:[transform:rotateY(180deg)]",
+          flipped
+            ? "[transform:rotateY(180deg)]"
+            : "group-hover:[transform:rotateY(180deg)]",
           "ring-1 ring-black/10",
           "bg-white",
         ].join(" ")}
@@ -143,7 +145,9 @@ function FlipCard({ member }) {
 
           {/* texte */}
           <div className="absolute left-4 right-4 bottom-4 text-white drop-shadow">
-            <h3 className="text-lg mobile:text-xl font-medium">{member.name}</h3>
+            <h3 className="text-lg mobile:text-xl font-medium">
+              {member.name}
+            </h3>
             <p className="text-xs mobile:text-sm opacity-90">{member.role}</p>
           </div>
         </div>
@@ -169,8 +173,12 @@ function FlipCard({ member }) {
           </button>
 
           <div className="my-auto">
-            <h4 className="text-base mobile:text-lg font-medium mb-2">{member.name}</h4>
-            <p className="text-xs mobile:text-sm opacity-80 leading-relaxed">{member.about}</p>
+            <h4 className="text-base mobile:text-lg font-medium mb-2">
+              {member.name}
+            </h4>
+            <p className="text-xs mobile:text-sm opacity-80 leading-relaxed">
+              {member.about}
+            </p>
           </div>
         </div>
       </div>
