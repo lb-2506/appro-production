@@ -616,10 +616,10 @@ export default function ContactFooterHomeComponent({
 
               <p>
                 <a
-                  href="mailto:contact@appro-production.com"
+                  href="mailto:contact@approproduction.com"
                   className="hover:opacity-80"
                 >
-                  contact@appro-production.com
+                  contact@approproduction.com
                 </a>
               </p>
             </div>
